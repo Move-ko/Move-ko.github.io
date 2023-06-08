@@ -406,10 +406,28 @@ const study_1 = ({ children }) => {
           </Typography>
         </Box>
       </Grid>
+      <Grid xs={12} md={12}>
+        <Box sx={{ width: "100%" }}>
+          <Typography variant="body1" gutterBottom>
+            한 크기의 정수 유형을 다른 크기의 정수 유형으로 캐스트 할수 잇습니다
+            정수는 캐스팅을 지원하는 Move의 유일한 유형입니다. 지정된 유형에
+            비해 결과가 너무 크면 캐스팅이 중단됩니다.
+          </Typography>
+        </Box>
+      </Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h2" gutterBottom>
             소유권
+          </Typography>
+        </Box>
+      </Grid>
+      <Grid xs={12} md={12}>
+        <Box sx={{ width: "100%" }}>
+          <Typography variant="body1" gutterBottom>
+            언어에 내장된 다른 스칼라 값과 마찬가지로 정수 값은 암시적으로
+            복사할 수 있습니다. 즉 복사와 같은 명시적인 명령 없이 복사할 수
+            있습니다.
           </Typography>
         </Box>
       </Grid>

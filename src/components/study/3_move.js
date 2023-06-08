@@ -2,12 +2,38 @@ import Grid from "@mui/material/Unstable_Grid2";
 import { CodeBlock } from "react-code-blocks";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import { styled } from "@mui/material/styles";
 
 const study_1 = ({ children }) => {
   const handleClick = () => {
     console.log("Code block clicked");
   };
+  const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    [`&.${tableCellClasses.head}`]: {
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white,
+    },
+    [`&.${tableCellClasses.body}`]: {
+      fontSize: 10,
+    },
+  }));
 
+  const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    "&:nth-of-type(odd)": {
+      backgroundColor: theme.palette.action.hover,
+    },
+    // hide last border
+    "&:last-child td, &:last-child th": {
+      border: 0,
+    },
+  }));
   const myCustomTheme = {
     lineNumberColor: "#ccc",
     lineNumberBgColor: "#222",
@@ -45,7 +71,23 @@ const study_1 = ({ children }) => {
     functionColor: "#0077ff",
     numberColor: "#ffaa00",
   };
-
+  const bools = [
+    {
+      통사론: "&&",
+      설명: "단락 논리 및",
+      등가표현: "p && q에 해당합니다 if(p)q else false",
+    },
+    {
+      통사론: "||",
+      설명: "단락 논리 또는",
+      등가표현: "p || q 에 해당합니다 if(p) true else q",
+    },
+    {
+      통사론: "!",
+      설명: "논리적 부정",
+      등가표현: "!p에 해당합니다 if(q) false else true",
+    },
+  ];
   return (
     <Grid container>
       <Grid xs={12}>
@@ -59,84 +101,51 @@ const study_1 = ({ children }) => {
       <Grid xs={12} md={8}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="body1" gutterBottom>
-            Move는 6개의 부호 없는 정수 유형( u8, u16, u32, u64, u128및 ) 을
-            지원합니다 u256. 이러한 유형의 값 범위는 0에서 유형의 크기에 따라
-            달라지는 최대값입니다.
+            Move에는 boolean에 기본값은 true와 false입니다
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={0} md={2}></Grid>
+      <Grid xs={12}>
+        <Box sx={{ width: "100%" }}>
+          <Typography variant="h2" gutterBottom>
+            운영
+          </Typography>
+        </Box>
+      </Grid>
+      <Grid xs={12}>
+        <TableContainer component={Paper}>
+          <Typography variant="body1" gutterBottom>
+            bool은 세가지 논리 연산을 지원합니다.
+          </Typography>
+          <Table sx={{ width: "100%" }} aria-label="customized table">
+            <TableHead>
+              <TableRow>
+                <StyledTableCell>통사론</StyledTableCell>
+                <StyledTableCell>설명</StyledTableCell>
+                <StyledTableCell>등가표현</StyledTableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody component="div">
+              {bools.map(item => (
+                <StyledTableRow key={item?.drop_name}>
+                  <StyledTableCell component="div" scope="row">
+                    {item?.통사론}
+                  </StyledTableCell>
+                  <StyledTableCell>{item?.설명}</StyledTableCell>
+                  <StyledTableCell>{item?.등가표현}</StyledTableCell>
+                </StyledTableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Grid>
       <Grid xs={12} md={8}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="body1" gutterBottom>
-            이러한 유형의 리터럴 값은 일련의 숫자(예: 112) 또는 16진수
-            리터럴(예: )로 지정됩니다 0xFF. 리터럴의 유형은 선택적으로 접미사로
-            추가할 수 있습니다(예: 112u8. 유형이 지정되지 않은 경우 컴파일러는
-            리터럴이 사용되는 컨텍스트에서 유형을 유추하려고 시도합니다. 유형을
-            유추할 수 없으면 로 간주됩니다 u64. 숫자 리터럴은 그룹화 및 가독성을
-            위해 밑줄로 구분할 수 있습니다. (예, 1_234_5678, 1_000u128,
-            0xAB_CD_12_35). 리터럴이 지정된(또는 유추된) 크기 범위에 비해 너무
-            크면 오류가 보고됩니다.
+            bool값은 여러 Move제어 흐름 구성에서 사용됩니다.
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4}>
-        <Box sx={{ width: "100%", fontSize: "12px" }}>
-          <CodeBlock
-            text={
-              `// literals with explicit annotations;
-            let explicit_u8 = 1u8;
-            let explicit_u16 = 1u16;
-            let explicit_u32 = 1u32;
-            let explicit_u64 = 2u64;
-            let explicit_u128 = 3u128;
-            let explicit_u256 = 1u256;
-            let explicit_u64_underscored = 154_322_973u64;
-            
-            // literals with simple inference
-            let simple_u8: u8 = 1;
-            let simple_u16: u16 = 1;
-            let simple_u32: u32 = 1;
-            let simple_u64: u64 = 2;
-            let simple_u128: u128 = 3;
-            let simple_u256: u256 = 1;
-            
-            // literals with more complex inference
-            let complex_u8 = 1; // inferred: u8
-            // right hand argument to shift must be u8
-            let _unused = 10 << complex_u8;
-            
-            let x: u8 = 38;
-            let complex_u8 = 2; // inferred: u8
-            // arguments to ` +
-              ` must have the same type
-            let _unused = x + complex_u8;
-            
-            let complex_u128 = 133_876; // inferred: u128
-            // inferred from function argument type
-            function_that_takes_u128(complex_u128);
-            
-            // literals can be written in hex
-            let hex_u8: u8 = 0x1;
-            let hex_u16: u16 = 0x1BAE;
-            let hex_u32: u32 = 0xDEAD80;
-            let hex_u64: u64 = 0xCAFE;
-            let hex_u128: u128 = 0xDEADBEEF;
-            let hex_u256: u256 = 0x1123_456A_BCDE_F;
-`
-            }
-            language={"Rust"}
-            showLineNumbers={true}
-            wrapLines={true}
-            theme={myCustomTheme}
-            onClick={handleClick}
-          />
-        </Box>
-      </Grid>
-      <Grid xs={0} md={4}></Grid>
     </Grid>
   );
 };
