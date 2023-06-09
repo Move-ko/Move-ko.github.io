@@ -54,41 +54,6 @@ const study_1 = ({ children }) => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
-          <Typography variant="body1" gutterBottom>
-            Move에는 모듈 과 스크립트 라는 두 가지 유형의 프로그램이 있습니다 .
-            모듈은 이러한 유형에서 작동하는 함수와 함께 구조체 유형을 정의하는
-            라이브러리입니다. 모듈 함수는 저장소 업데이트 규칙을 정의하고
-            있습니다.모듈은 전역저장소에 저장됩니다. main스크립트는 기존 언어의
-            함수와 유사한 실행 가능한 진입점입니다.
-          </Typography>
-        </Box>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8}>
-        <CodeBlock
-          text={`module overmind::bananas {
-}
-`}
-          language={"Rust"}
-          showLineNumbers={true}
-          wrapLines={true}
-          theme={myCustomTheme}
-          onClick={handleClick}
-        />
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
-          <Typography variant="body1" gutterBottom>
-            main스크립트는 기존 언어의 함수 와 유사한 실행 가능한 진입점입니다 .
-            스크립트는 일반적으로 전역 저장소에 대한 업데이트를 수행하는 게시된
-            모듈의 기능을 호출합니다. 스크립트는 전역 저장소에 게시되지 않는
-            임시 코드 스니펫입니다.
-          </Typography>
-        </Box>
-      </Grid>
     </Grid>
   );
 };

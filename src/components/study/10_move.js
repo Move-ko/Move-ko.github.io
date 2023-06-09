@@ -50,7 +50,7 @@ const study_1 = ({ children }) => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h2" gutterBottom>
-            벡터
+            평등
           </Typography>
         </Box>
       </Grid>

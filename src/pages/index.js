@@ -16,6 +16,9 @@ import Study_5 from "../components/study/5_move";
 import Study_6 from "../components/study/6_move";
 import Study_7 from "../components/study/7_move";
 import Study_8 from "../components/study/8_move";
+import Study_9 from "../components/study/9_move";
+import Study_10 from "../components/study/10_move";
+import Study_11 from "../components/study/11_move";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -168,13 +171,13 @@ export default function Home() {
               <Study_8 />
             </TabPanel>
             <TabPanel value={value} index={9}>
-              2
+              <Study_9 />
             </TabPanel>
             <TabPanel value={value} index={10}>
-              5
+              <Study_10 />
             </TabPanel>
             <TabPanel value={value} index={11}>
-              5
+              <Study_11 />
             </TabPanel>
             <TabPanel value={value} index={12}>
               5
