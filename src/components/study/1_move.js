@@ -238,8 +238,8 @@ const study_1 = ({ children }) => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
+      <Grid xs={0} md={3}></Grid>
+      <Grid xs={12} md={6} sx={{ marginTop: "40px" }}>
         <Button
           variant="contained"
           size="medium"
@@ -256,7 +256,7 @@ const study_1 = ({ children }) => {
           style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
         />
       </Grid>
-      <Grid xs={0} md={2}></Grid>
+      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -264,8 +264,8 @@ const study_1 = ({ children }) => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
+      <Grid xs={0} md={3}></Grid>
+      <Grid xs={12} md={6} sx={{ marginTop: "40px" }}>
         <Button
           variant="contained"
           size="medium"
@@ -282,7 +282,7 @@ const study_1 = ({ children }) => {
           style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
         />
       </Grid>
-      <Grid xs={0} md={2}></Grid>
+      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -296,8 +296,8 @@ const study_1 = ({ children }) => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
+      <Grid xs={0} md={4}></Grid>
+      <Grid xs={12} md={4} sx={{ marginTop: "40px" }}>
         <Button
           variant="contained"
           size="medium"
@@ -314,7 +314,7 @@ const study_1 = ({ children }) => {
           style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
         />
       </Grid>
-      <Grid xs={0} md={2}></Grid>
+      <Grid xs={0} md={4}></Grid>
       <Grid xs={0} md={2}></Grid>
       <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>

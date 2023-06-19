@@ -10,8 +10,10 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
-
+import { Button } from "@mui/material";
+import { useRouter } from "next/router";
 const study_1 = ({ children }) => {
+  const router = useRouter();
   const handleClick = () => {
     console.log("Code block clicked");
   };
@@ -21,7 +23,7 @@ const study_1 = ({ children }) => {
       color: theme.palette.common.white,
     },
     [`&.${tableCellClasses.body}`]: {
-      fontSize: 10,
+      fontSize: 12,
     },
   }));
 
@@ -141,7 +143,7 @@ const study_1 = ({ children }) => {
     <Grid container>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
-          <Typography variant="h2" gutterBottom>
+          <Typography variant="h3" gutterBottom>
             정수
           </Typography>
         </Box>
@@ -182,7 +184,7 @@ const study_1 = ({ children }) => {
       <Grid xs={0} md={2}></Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
-          <Typography variant="h2" gutterBottom>
+          <Typography variant="h4" gutterBottom>
             리터럴
           </Typography>
         </Box>
@@ -203,63 +205,27 @@ const study_1 = ({ children }) => {
       </Grid>
       <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={6}>
-        <Box sx={{ width: "100%", fontSize: "12px" }}>
-          <CodeBlock
-            text={
-              `// literals with explicit annotations;
-            let explicit_u8 = 1u8;
-            let explicit_u16 = 1u16;
-            let explicit_u32 = 1u32;
-            let explicit_u64 = 2u64;
-            let explicit_u128 = 3u128;
-            let explicit_u256 = 1u256;
-            let explicit_u64_underscored = 154_322_973u64;
-            
-            // literals with simple inference
-            let simple_u8: u8 = 1;
-            let simple_u16: u16 = 1;
-            let simple_u32: u32 = 1;
-            let simple_u64: u64 = 2;
-            let simple_u128: u128 = 3;
-            let simple_u256: u256 = 1;
-            
-            // literals with more complex inference
-            let complex_u8 = 1; // inferred: u8
-            // right hand argument to shift must be u8
-            let _unused = 10 << complex_u8;
-            
-            let x: u8 = 38;
-            let complex_u8 = 2; // inferred: u8
-            // arguments to ` +
-              ` must have the same type
-            let _unused = x + complex_u8;
-            
-            let complex_u128 = 133_876; // inferred: u128
-            // inferred from function argument type
-            function_that_takes_u128(complex_u128);
-            
-            // literals can be written in hex
-            let hex_u8: u8 = 0x1;
-            let hex_u16: u16 = 0x1BAE;
-            let hex_u32: u32 = 0xDEAD80;
-            let hex_u64: u64 = 0xCAFE;
-            let hex_u128: u128 = 0xDEADBEEF;
-            let hex_u256: u256 = 0x1123_456A_BCDE_F;
-`
-            }
-            language={"Rust"}
-            showLineNumbers={true}
-            wrapLines={true}
-            theme={myCustomTheme}
-            onClick={handleClick}
-          />
-        </Box>
+        <Button
+          variant="contained"
+          size="medium"
+          onClick={e => {
+            router.push(
+              "https://github.com/Move-ko/Move-ko.github.io/blob/main/Move/1/2_1.move"
+            );
+          }}
+        >
+          Code
+        </Button>
+        <img
+          src={"/img/2_1.png"}
+          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
+        />
       </Grid>
       <Grid xs={0} md={3}></Grid>
 
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
-          <Typography variant="h2" gutterBottom>
+          <Typography variant="h4" gutterBottom>
             운영
           </Typography>
         </Box>
@@ -277,7 +243,8 @@ const study_1 = ({ children }) => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={12}>
+      <Grid xs={0} md={2}></Grid>
+      <Grid xs={12} md={8}>
         <TableContainer component={Paper}>
           <Table sx={{ width: "100%" }} aria-label="customized table">
             <TableHead>
@@ -301,6 +268,8 @@ const study_1 = ({ children }) => {
           </Table>
         </TableContainer>
       </Grid>
+      <Grid xs={0} md={2}></Grid>
+
       <Grid xs={12} md={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="body1" gutterBottom>
@@ -310,7 +279,8 @@ const study_1 = ({ children }) => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={12}>
+      <Grid xs={0} md={2}></Grid>
+      <Grid xs={12} md={8}>
         <TableContainer component={Paper}>
           <Table sx={{ width: "100%" }} aria-label="customized table">
             <TableHead>
@@ -334,6 +304,7 @@ const study_1 = ({ children }) => {
           </Table>
         </TableContainer>
       </Grid>
+      <Grid xs={0} md={2}></Grid>
       <Grid xs={12} md={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="body1" gutterBottom>
@@ -345,7 +316,8 @@ const study_1 = ({ children }) => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={12}>
+      <Grid xs={0} md={2}></Grid>
+      <Grid xs={12} md={8}>
         <TableContainer component={Paper}>
           <Table sx={{ width: "100%" }} aria-label="customized table">
             <TableHead>
@@ -369,6 +341,7 @@ const study_1 = ({ children }) => {
           </Table>
         </TableContainer>
       </Grid>
+      <Grid xs={0} md={2}></Grid>
       <Grid xs={12} md={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="body1" gutterBottom>
@@ -379,7 +352,8 @@ const study_1 = ({ children }) => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={12}>
+      <Grid xs={0} md={2}></Grid>
+      <Grid xs={12} md={8}>
         <TableContainer component={Paper}>
           <Table sx={{ width: "100%" }} aria-label="customized table">
             <TableHead>
@@ -401,9 +375,10 @@ const study_1 = ({ children }) => {
           </Table>
         </TableContainer>
       </Grid>
+      <Grid xs={0} md={2}></Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
-          <Typography variant="h2" gutterBottom>
+          <Typography variant="h4" gutterBottom>
             주조
           </Typography>
         </Box>
@@ -419,7 +394,7 @@ const study_1 = ({ children }) => {
       </Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
-          <Typography variant="h2" gutterBottom>
+          <Typography variant="h4" gutterBottom>
             소유권
           </Typography>
         </Box>

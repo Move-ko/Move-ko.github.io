@@ -92,7 +92,7 @@ const study_1 = ({ children }) => {
     <Grid container>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
-          <Typography variant="h2" gutterBottom>
+          <Typography variant="h3" gutterBottom>
             부울
           </Typography>
         </Box>
@@ -107,12 +107,13 @@ const study_1 = ({ children }) => {
       </Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
-          <Typography variant="h2" gutterBottom>
+          <Typography variant="h4" gutterBottom>
             운영
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={12}>
+      <Grid xs={0} md={2}></Grid>
+      <Grid xs={12} md={8}>
         <TableContainer component={Paper}>
           <Typography variant="body1" gutterBottom>
             bool은 세가지 논리 연산을 지원합니다.
@@ -139,7 +140,8 @@ const study_1 = ({ children }) => {
           </Table>
         </TableContainer>
       </Grid>
-      <Grid xs={12} md={8}>
+      <Grid xs={0} md={2}></Grid>
+      <Grid xs={12} md={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="body1" gutterBottom>
             bool값은 여러 Move제어 흐름 구성에서 사용됩니다.
