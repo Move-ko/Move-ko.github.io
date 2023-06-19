@@ -122,7 +122,6 @@ const study_1 = ({ children }) => {
           </Typography>
         </Box>
       </Grid>
-
       <Grid xs={0} md={2}></Grid>
       <Grid xs={12} md={8}>
         <TableContainer component={Paper}>
@@ -148,14 +147,14 @@ const study_1 = ({ children }) => {
       </Grid>
       <Grid xs={0} md={2}></Grid>
       <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             리터럴
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={12} md={12}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "20px" }}>
           <Typography variant="body1" gutterBottom>
             이러한 유형에 대한 리터럴 값은 숫자의 연속으로 지정하거나 16진
             리터럴로 지정할 수 있습니다. 예를 들어,{" "}
@@ -172,7 +171,7 @@ const study_1 = ({ children }) => {
         </Box>
       </Grid>
       <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6}>
+      <Grid xs={12} md={6} sx={{ marginTop: "30px" }}>
         <Button
           variant="contained"
           size="medium"
@@ -190,16 +189,15 @@ const study_1 = ({ children }) => {
         />
       </Grid>
       <Grid xs={0} md={3}></Grid>
-
       <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
-            운영
+            산술
           </Typography>
         </Box>
       </Grid>
       <Grid xs={12} md={12}>
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             각각의 유형은 동일한 집합의 체크된 산술 연산을 지원합니다. 이러한
             모든 연산에서는 두 인수({" "}
@@ -242,7 +240,13 @@ const study_1 = ({ children }) => {
         </TableContainer>
       </Grid>
       <Grid xs={0} md={2}></Grid>
-
+      <Grid xs={12}>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
+            비트연산
+          </Typography>
+        </Box>
+      </Grid>
       <Grid xs={12} md={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="body1" gutterBottom>
@@ -278,15 +282,23 @@ const study_1 = ({ children }) => {
         </TableContainer>
       </Grid>
       <Grid xs={0} md={2}></Grid>
+      <Grid xs={12}>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
+            비트시프트
+          </Typography>
+        </Box>
+      </Grid>
       <Grid xs={12} md={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="body1" gutterBottom>
-            비트 연산과 유사하게, 각 정수 유형은 비트 시프트를 지원합니다.
-            그러나 다른 연산과 달리, 오른쪽 피연산자(시프트할 비트 수)는 항상
-            u8이어야 하며 왼쪽 피연산자(시프트하는 숫자)와 일치할 필요는
-            없습니다. 비트 시프트는 u8, u16, u32, u64, u128 및 u256에 대해 각각
-            8, 16, 32, 64, 128 또는 256보다 크거나 같은 비트 수로 시프트하려고
-            할 경우에만 중단될 수 있습니다.
+            비트 시프트는 다른 비트 연산과 마찬가지로 각 정수 유형에서
+            지원됩니다. 그러나 다른 연산과는 달리, 오른쪽 피연산자 (시프트할
+            비트 수)는 항상 u8이어야 하며 왼쪽 피연산자 (시프트할 숫자)와 일치할
+            필요는 없습니다. 비트 시프트는 u8, u16, u32, u64, u128 및 u256에
+            대해 각각 8, 16, 32, 64, 128 또는 256보다 크거나 같은 비트 수로
+            시프트할 경우 중지될 수 있습니다. 이 경우 시프트할 비트 수가 허용된
+            범위를 초과하면 연산이 중지될 수 있습니다.
           </Typography>
         </Box>
       </Grid>
@@ -316,13 +328,23 @@ const study_1 = ({ children }) => {
         </TableContainer>
       </Grid>
       <Grid xs={0} md={2}></Grid>
+      <Grid xs={12}>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
+            비교 연산자
+          </Typography>
+        </Box>
+      </Grid>
       <Grid xs={12} md={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="body1" gutterBottom>
-            정수 유형은 Move에서 비교 연산자를 사용할수 있는 유일한
-            유형입니다.두 인수는 같은 유형이어야 합니다.다른 유형의정수를
-            비교해야 하는 경우 먼저 그중 하나를 캐스팅 해야합니다. 비교 연산은
-            중단되지 않습니다.
+            Move에서는 정수 유형만이 비교 연산자를 사용할 수 있습니다. 비교
+            연산자를 사용할 때는 두 인자가 동일한 유형이어야 합니다. 만약 서로
+            다른 유형의 정수를 비교해야 하는 경우, 먼저 한 쪽을 캐스트해야
+            합니다. Move에서의 비교 연산은 중단되지 않습니다. 이는 비교 연산이
+            갑작스럽게 종료되거나 오류를 발생시키지 않는다는 것을 의미합니다.
+            대신, 비교 연산은 비교 결과를 나타내는 불리언 값 (참 또는 거짓)을
+            반환합니다.
           </Typography>
         </Box>
       </Grid>
@@ -353,7 +375,7 @@ const study_1 = ({ children }) => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
-            주조
+            동등
           </Typography>
         </Box>
       </Grid>
@@ -370,19 +392,45 @@ const study_1 = ({ children }) => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
-            소유권
+            형변환
           </Typography>
         </Box>
       </Grid>
       <Grid xs={12} md={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="body1" gutterBottom>
-            언어에 내장된 다른 스칼라 값과 마찬가지로 정수 값은 암시적으로
-            복사할 수 있습니다. 즉 복사와 같은 명시적인 명령 없이 복사할 수
-            있습니다.
+            Move에서는 한 크기의 정수 유형을 다른 크기의 정수 유형으로 캐스트할
+            수 있습니다. 정수는 Move에서 캐스트를 지원하는 유일한 유형입니다.
+            정수를 크기가 다른 유형으로 캐스트할 때, Move에서는 캐스트가 값을
+            절단하지 않는다는 점에 유의해야 합니다. 이는 캐스트 연산이 원래
+            정수의 전체 값을 보존한다는 것을 의미합니다. 즉, 목표 정수 유형의
+            범위를 초과하는 경우에도 원래 정수의 전체 값이 유지됩니다. 그러나,
+            캐스트의 결과가 지정된 유형에 너무 큰 경우 캐스트가 중단될 수 있다는
+            점을 알려드립니다. 이는 캐스트 결과가 지정된 유형에 맞지 않을 때
+            캐스트가 중단되는 것을 의미합니다.
           </Typography>
         </Box>
       </Grid>
+      <Grid xs={12}>
+        <Box sx={{ width: "100%" }}>
+          <Typography variant="h4" gutterBottom>
+            소유권
+          </Typography>
+        </Box>
+      </Grid>
+      다른 내장 스칼라 값들과 마찬가지로, Move 언어에 내장된 정수 값들도
+      암묵적으로 복사 가능한(copyable) 속성을 갖고 있습니다. 이는 복사(copy)와
+      같은 명시적 명령 없이도 복사될 수 있다는 것을 의미합니다. 정수 값을 새
+      변수에 할당하거나 함수 인자로 전달할 때, 해당 값의 복사본이 생성됩니다.
+      원본 값과 복사본은 서로 독립적으로 사용될 수 있으며, 한 쪽 복사본을
+      수정해도 다른 쪽에는 영향을 미치지 않습니다. 이러한 복사 연산은 내부적으로
+      암묵적으로 처리됩니다. 예를 들어: move Copy code let x: u8 = 10; let y =
+      x; // x의 값이 y로 복사됨 이 경우, x의 값이 y로 복사되며, x와 y는 각각
+      정수 값의 독립적인 복사본을 가지고 있습니다. y를 수정해도 x의 값에는
+      영향을 주지 않으며, 그 반대도 마찬가지입니다. 이러한 암묵적인 복사 동작은
+      명시적인 복사 명령 없이도 정수 값을 간편하게 처리할 수 있도록 해줍니다.
+      그러나 보다 복잡한 유형과 리소스의 경우, Move에서는 소유권과 빌림에 대한
+      명시적인 지침이나 고려 사항이 필요할 수 있습니다.
     </Grid>
   );
 };
