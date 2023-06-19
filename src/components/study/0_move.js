@@ -65,7 +65,18 @@ const study_1 = ({ children }) => {
             프로그램을 작성하는 동시에 해당 자산에 대한 공격에 방어(보안 및
             보호)를 제공할수 있습니다.
           </Typography>
-
+        </Box>
+      </Grid>
+      <Grid xs={0} md={3}></Grid>
+      <Grid xs={12} md={6}>
+        <img
+          src={"/img/move.webp"}
+          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
+        />
+      </Grid>
+      <Grid xs={0} md={3}></Grid>
+      <Grid xs={12}>
+        <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             1. 자산 보안: Move 언어는 자산의 보안성을 강조합니다. 타입 시스템을
             사용하여 자산의 일관성과 불변성을 보장하며, 잠재적인 버그와 취약점을
