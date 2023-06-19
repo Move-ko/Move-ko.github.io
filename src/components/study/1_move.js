@@ -82,10 +82,13 @@ const study_1 = ({ children }) => {
           </Typography>
         </Box>
       </Grid>
+      <Grid xs={12}> -ex)스크립트 구조</Grid>
       <Grid xs={0} md={2}></Grid>
+
       <Grid xs={12} md={8}>
-        -ex)스크립트 구조
         <Button
+          variant="contained"
+          size="medium"
           onClick={e => {
             router.push(
               "https://github.com/Move-ko/Move-ko.github.io/blob/main/Move/1/1_1.move"
@@ -94,7 +97,10 @@ const study_1 = ({ children }) => {
         >
           Code
         </Button>
-        <img src={"/img/1_1.png"} style={{ width: "100%" }} />
+        <img
+          src={"/img/1_1.png"}
+          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
+        />
       </Grid>
       <Grid xs={0} md={2}></Grid>
       <Grid xs={12} sx={{ marginTop: "40px" }}>
@@ -111,24 +117,20 @@ const study_1 = ({ children }) => {
       </Grid>
       <Grid xs={0} md={2}></Grid>
       <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
-        <CodeBlock
-          text={`script {
-            // Import the debug module published at the named account address std.
-            use std::debug;
-        
-            const ONE: u64 = 1;
-        
-            fun main(x: u64) {
-                let sum = x + ONE;
-                debug::print(&sum)
-            }
-        }
-`}
-          language={"Rust"}
-          showLineNumbers={true}
-          wrapLines={true}
-          theme={myCustomTheme}
-          onClick={handleClick}
+        <Button
+          variant="contained"
+          size="medium"
+          onClick={e => {
+            router.push(
+              "https://github.com/Move-ko/Move-ko.github.io/blob/main/Move/1/1_2.move"
+            );
+          }}
+        >
+          Code
+        </Button>
+        <img
+          src={"/img/1_2.png"}
+          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
         />
       </Grid>
       <Grid xs={0} md={2}></Grid>
@@ -152,20 +154,24 @@ const study_1 = ({ children }) => {
           </Typography>
         </Box>
       </Grid>
-
+      <Grid xs={12}> -ex)스크립트 구조</Grid>
       <Grid xs={0} md={2}></Grid>
+
       <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
-        -ex)모듈의 구조
-        <CodeBlock
-          text={`module <address>::<identifier> {
-            (<use> | <friend> | <type> | <function> | <constant>)*
-        }
-`}
-          language={"Rust"}
-          showLineNumbers={true}
-          wrapLines={true}
-          theme={myCustomTheme}
-          onClick={handleClick}
+        <Button
+          variant="contained"
+          size="medium"
+          onClick={e => {
+            router.push(
+              "https://github.com/Move-ko/Move-ko.github.io/blob/main/Move/1/1_3.move"
+            );
+          }}
+        >
+          Code
+        </Button>
+        <img
+          src={"/img/1_3.png"}
+          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
         />
       </Grid>
       <Grid xs={0} md={2}></Grid>
@@ -178,27 +184,20 @@ const study_1 = ({ children }) => {
       </Grid>
       <Grid xs={0} md={2}></Grid>
       <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
-        <CodeBlock
-          text={`module 0x42::example {
-            struct Example has copy, drop { i: u64 }
-        
-            use std::debug;
-            friend 0x42::another_example;
-        
-            const ONE: u64 = 1;
-        
-            public fun print(x: u64) {
-                let sum = x + ONE;
-                let example = Example { i: sum };
-                debug::print(&sum)
-            }
-        }
-`}
-          language={"Rust"}
-          showLineNumbers={true}
-          wrapLines={true}
-          theme={myCustomTheme}
-          onClick={handleClick}
+        <Button
+          variant="contained"
+          size="medium"
+          onClick={e => {
+            router.push(
+              "https://github.com/Move-ko/Move-ko.github.io/blob/main/Move/1/1_4.move"
+            );
+          }}
+        >
+          Code
+        </Button>
+        <img
+          src={"/img/1_4.png"}
+          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
         />
       </Grid>
       <Grid xs={0} md={2}></Grid>
@@ -214,24 +213,20 @@ const study_1 = ({ children }) => {
 
       <Grid xs={0} md={2}></Grid>
       <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
-        <CodeBlock
-          text={`module example_addr::example {
-            struct Example has copy, drop { a: address }
-        
-            use std::debug;
-            friend example_addr::another_example;
-        
-            public fun print() {
-                let example = Example { a: @example_addr };
-                debug::print(&example)
-            }
-        }
-`}
-          language={"Rust"}
-          showLineNumbers={true}
-          wrapLines={true}
-          theme={myCustomTheme}
-          onClick={handleClick}
+        <Button
+          variant="contained"
+          size="medium"
+          onClick={e => {
+            router.push(
+              "https://github.com/Move-ko/Move-ko.github.io/blob/main/Move/1/1_5.move"
+            );
+          }}
+        >
+          Code
+        </Button>
+        <img
+          src={"/img/1_5.png"}
+          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
         />
       </Grid>
       <Grid xs={0} md={2}></Grid>
@@ -245,18 +240,20 @@ const study_1 = ({ children }) => {
       </Grid>
       <Grid xs={0} md={2}></Grid>
       <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
-        <CodeBlock
-          text={`script {
-            fun example() {
-                0xC0FFEE::m::foo(@0xC0FFEE);
-            }
-        }
-`}
-          language={"Rust"}
-          showLineNumbers={true}
-          wrapLines={true}
-          theme={myCustomTheme}
-          onClick={handleClick}
+        <Button
+          variant="contained"
+          size="medium"
+          onClick={e => {
+            router.push(
+              "https://github.com/Move-ko/Move-ko.github.io/blob/main/Move/1/1_6.move"
+            );
+          }}
+        >
+          Code
+        </Button>
+        <img
+          src={"/img/1_6.png"}
+          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
         />
       </Grid>
       <Grid xs={0} md={2}></Grid>
@@ -269,18 +266,20 @@ const study_1 = ({ children }) => {
       </Grid>
       <Grid xs={0} md={2}></Grid>
       <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
-        <CodeBlock
-          text={`script {
-            fun example() {
-                0xC0FFEE::m::foo(@0xC0FFEE);
-            }
-        }
-`}
-          language={"Rust"}
-          showLineNumbers={true}
-          wrapLines={true}
-          theme={myCustomTheme}
-          onClick={handleClick}
+        <Button
+          variant="contained"
+          size="medium"
+          onClick={e => {
+            router.push(
+              "https://github.com/Move-ko/Move-ko.github.io/blob/main/Move/1/1_7.move"
+            );
+          }}
+        >
+          Code
+        </Button>
+        <img
+          src={"/img/1_7.png"}
+          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
         />
       </Grid>
       <Grid xs={0} md={2}></Grid>
@@ -299,15 +298,20 @@ const study_1 = ({ children }) => {
       </Grid>
       <Grid xs={0} md={2}></Grid>
       <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
-        <CodeBlock
-          text={`module my_module {}
-          module foo_bar_42 {}
-`}
-          language={"Rust"}
-          showLineNumbers={true}
-          wrapLines={true}
-          theme={myCustomTheme}
-          onClick={handleClick}
+        <Button
+          variant="contained"
+          size="medium"
+          onClick={e => {
+            router.push(
+              "https://github.com/Move-ko/Move-ko.github.io/blob/main/Move/1/1_8.move"
+            );
+          }}
+        >
+          Code
+        </Button>
+        <img
+          src={"/img/1_8.png"}
+          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
         />
       </Grid>
       <Grid xs={0} md={2}></Grid>
@@ -368,7 +372,7 @@ const study_1 = ({ children }) => {
       </Grid>
       <Grid xs={0} md={2}></Grid>
       <Grid xs={0} md={2}></Grid>
-      <Grid xs={8} sx={{ marginTop: "40px" }}>
+      <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             스크립트 특징정리
@@ -414,71 +418,20 @@ const study_1 = ({ children }) => {
       <Grid xs={0} md={2}></Grid>
       <Grid xs={12} md={8}>
         - ex)예시
-        <CodeBlock
-          text={`// Example Module
-          module overmind::bananas {
-          
-              use std::vector;
-              use std::signer;
-          
-              struct BananaStore has key {
-                  bushels: vector<Bushel>
-              }
-          
-              struct Bushel has store, drop {
-                  bananas: vector<Banana>
-              }
-          
-              struct Banana has store, drop {}
-          
-              public entry fun buy_banana(buyer: &signer) acquires BananaStore {
-                  let buyer_address = signer::address_of(buyer);
-          
-                  if (!exists<BananaStore>(buyer_address)) {
-                      move_to(
-                          buyer,
-                          BananaStore {
-                              bushels: vector<Bushel>[]
-                          }
-                      );
-                  };
-          
-                  let bananaStore = borrow_global_mut<BananaStore>(buyer_address);
-          
-                  let bushels_mut_ref = &mut bananaStore.bushels;
-          
-                  let bushel_new = Bushel {
-                      bananas: vector<Banana>[
-                          Banana {},
-                          Banana {},
-                          Banana {},
-                          Banana {}
-                      ]
-                  };
-          
-                  vector::push_back<Bushel>(bushels_mut_ref, bushel_new);
-              }
-          
-              public entry fun eat_banana(account: &signer) acquires BananaStore {
-                  let account_address = signer::address_of(account);
-          
-                  let bananaStore = borrow_global_mut<BananaStore>(account_address);
-                  let bushels_mut_ref = &mut bananaStore.bushels;
-                  let first_bushel = vector::remove<Bushel>(bushels_mut_ref, 0);
-          
-                  let _ = vector::pop_back<Banana>(&mut first_bushel.bananas);
-          
-                  if (vector::length<Banana>(&mut first_bushel.bananas) != 0) {
-                      vector::insert<Bushel>(bushels_mut_ref, 0, first_bushel);
-                  }
-              }
-          }
-`}
-          language={"Rust"}
-          showLineNumbers={true}
-          wrapLines={true}
-          theme={myCustomTheme}
-          onClick={handleClick}
+        <Button
+          variant="contained"
+          size="medium"
+          onClick={e => {
+            router.push(
+              "https://github.com/Move-ko/Move-ko.github.io/blob/main/Move/1/1_9.move"
+            );
+          }}
+        >
+          Code
+        </Button>
+        <img
+          src={"/img/1_9.png"}
+          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
         />
       </Grid>
       <Grid xs={0} md={2}></Grid>
