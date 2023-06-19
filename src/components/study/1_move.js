@@ -6,47 +6,7 @@ import { Button } from "@mui/material";
 import { useRouter } from "next/router";
 const study_1 = ({ children }) => {
   const router = useRouter();
-  const handleClick = () => {
-    console.log("Code block clicked");
-  };
 
-  const myCustomTheme = {
-    lineNumberColor: "#ccc",
-    lineNumberBgColor: "#222",
-    backgroundColor: "#222",
-    textColor: "#ccc",
-    substringColor: "#00ff00",
-    keywordColor: "#0077ff",
-    attributeColor: "#ffaa00",
-    selectorTagColor: "#0077ff",
-    docTagColor: "#aa00ff",
-    nameColor: "#f8f8f8",
-    builtInColor: "#0077ff",
-    literalColor: "#ffaa00",
-    bulletColor: "#ffaa00",
-    codeColor: "#ccc",
-    additionColor: "#00ff00",
-    regexpColor: "#f8f8f8",
-    symbolColor: "#ffaa00",
-    variableColor: "#ffaa00",
-    templateVariableColor: "#ffaa00",
-    linkColor: "#aa00ff",
-    selectorAttributeColor: "#ffaa00",
-    selectorPseudoColor: "#aa00ff",
-    typeColor: "#0077ff",
-    stringColor: "#00ff00",
-    selectorIdColor: "#ffaa00",
-    quoteColor: "#f8f8f8",
-    templateTagColor: "#ccc",
-    deletionColor: "#ff0000",
-    titleColor: "#0077ff",
-    sectionColor: "#0077ff",
-    commentColor: "#777",
-    metaKeywordColor: "#f8f8f8",
-    metaColor: "#aa00ff",
-    functionColor: "#0077ff",
-    numberColor: "#ffaa00",
-  };
   return (
     <Grid container>
       <Grid xs={12}>
@@ -59,7 +19,7 @@ const study_1 = ({ children }) => {
       <Grid xs={12}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            Move에는 모듈 과 스크립트 라는 두 가지 유형의 프로그램이 있습니다 .
+            Move에는 모듈 과 스크립트 라는 두 가지 유형의 프로그램이 있습니다.
             모듈은 이러한 유형에서 작동하는 함수와 함께 구조체 유형을 정의하는
             라이브러리이며,구조체 유형은 Move의 전역저장소 스키마를 정의하고
             모듈 함수는 저장소 업데이트 규칙을 정의하고 있으며,모듈은
@@ -76,7 +36,7 @@ const study_1 = ({ children }) => {
         </Box>
       </Grid>
       <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             스크립트
           </Typography>
@@ -106,12 +66,16 @@ const study_1 = ({ children }) => {
       <Grid xs={12} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            블록 script는 use로 선언으로 시작하며 그 밑에 상수 그밑에 함수순으로
+            script는 use로 선언으로 시작하며 그 밑에 상수 그밑에 함수순으로 진행
             되어야합니다.main함수는 어떤 이름이든 가질수 있으며(main호출할
-            필요가 없음)스크립트 블록의 유일한 함수이며 인수를 얼마든지 가질수
-            잇고 값은 반환할수 없습니다.또한 스크립트에는 스크립트는 권한이 매우
-            제한되어 있습니다.친구를 선언하거나 유형을 구성하거나 전역저장소에
-            접근 할수 없습니다. 주요 목적은 모듈 함수를 호출하는 것입니다.
+            필요가 없음)스크립트 내의 유일한 함수이며 인수를 얼마든지 가질수
+            있고 값은 반환할수 없습니다.또한 스크립트에는 스크립트는 권한이 매우
+            제한되어 있습니다(
+            <span style={{ color: "purple" }}>
+              친구를 선언하거나 유형을 구성하거나 전역저장소에 접근 할 수
+              없습니다.
+            </span>
+            )주요 목적은 모듈 함수를 호출하는 것입니다.
           </Typography>
         </Box>
       </Grid>

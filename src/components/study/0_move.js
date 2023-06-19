@@ -4,47 +4,6 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
 const study_1 = ({ children }) => {
-  const handleClick = () => {
-    console.log("Code block clicked");
-  };
-
-  const myCustomTheme = {
-    lineNumberColor: "#ccc",
-    lineNumberBgColor: "#222",
-    backgroundColor: "#222",
-    textColor: "#ccc",
-    substringColor: "#00ff00",
-    keywordColor: "#0077ff",
-    attributeColor: "#ffaa00",
-    selectorTagColor: "#0077ff",
-    docTagColor: "#aa00ff",
-    nameColor: "#f8f8f8",
-    builtInColor: "#0077ff",
-    literalColor: "#ffaa00",
-    bulletColor: "#ffaa00",
-    codeColor: "#ccc",
-    additionColor: "#00ff00",
-    regexpColor: "#f8f8f8",
-    symbolColor: "#ffaa00",
-    variableColor: "#ffaa00",
-    templateVariableColor: "#ffaa00",
-    linkColor: "#aa00ff",
-    selectorAttributeColor: "#ffaa00",
-    selectorPseudoColor: "#aa00ff",
-    typeColor: "#0077ff",
-    stringColor: "#00ff00",
-    selectorIdColor: "#ffaa00",
-    quoteColor: "#f8f8f8",
-    templateTagColor: "#ccc",
-    deletionColor: "#ff0000",
-    titleColor: "#0077ff",
-    sectionColor: "#0077ff",
-    commentColor: "#777",
-    metaKeywordColor: "#f8f8f8",
-    metaColor: "#aa00ff",
-    functionColor: "#0077ff",
-    numberColor: "#ffaa00",
-  };
   return (
     <Grid container>
       <Grid xs={12}>
@@ -67,16 +26,23 @@ const study_1 = ({ children }) => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6}>
+      <Grid xs={0} md={4}></Grid>
+      <Grid xs={12} md={4}>
         <img
           src={"/img/move.webp"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
+          style={{ width: "100%", borderRadius: "10px", marginTop: "30px" }}
         />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
+            특징
+          </Typography>
+        </Box>
+      </Grid>
+      <Grid xs={0} md={4}></Grid>
+      <Grid xs={12}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             1. 자산 보안: Move 언어는 자산의 보안성을 강조합니다. 타입 시스템을
             사용하여 자산의 일관성과 불변성을 보장하며, 잠재적인 버그와 취약점을

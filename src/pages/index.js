@@ -70,7 +70,7 @@ export default function Home() {
         <Grid
           xs={12}
           sx={{
-            backgroundColor: "dark",
+            backgroundColor: " #171B1C",
 
             textAlign: "center",
             fontSize: "300%",
@@ -83,7 +83,7 @@ export default function Home() {
           <Box
             sx={{
               flexGrow: 1,
-              bgcolor: "black",
+              bgcolor: " #171B1C",
               display: "flex",
               minHeight: "600px",
               textAlign: "center",
@@ -97,7 +97,7 @@ export default function Home() {
               aria-label="Vertical tabs example"
               sx={{
                 borderRight: 1,
-                borderColor: "black",
+                borderColor: " #171B1C",
                 width: "16%",
                 color: "white",
               }}
