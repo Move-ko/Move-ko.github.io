@@ -29,14 +29,7 @@ export default function Home() {
   useEffect(() => {
     setMounted(true);
   }, []);
-  const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: "center",
-    fontSize: 20,
-    color: theme.palette.text.secondary,
-  }));
+
   function TabPanel(props) {
     const { children, value, index, ...other } = props;
 
@@ -50,7 +43,7 @@ export default function Home() {
         {...other}
       >
         {value === index && (
-          <Box sx={{ p: 10 }}>
+          <Box sx={{ p: 10, color: "white" }}>
             <Typography>{children}</Typography>
           </Box>
         )}
@@ -74,14 +67,23 @@ export default function Home() {
   return (
     mounted && (
       <Grid container sx={{ marginTop: "84px" }}>
-        <Grid xs={12}>
-          <Item>MOVE BOOK</Item>
+        <Grid
+          xs={12}
+          sx={{
+            backgroundColor: "dark",
+
+            textAlign: "center",
+            fontSize: "300%",
+            color: "white",
+          }}
+        >
+          <div>MOVE BOOK</div>
         </Grid>
         <Grid xs={12}>
           <Box
             sx={{
               flexGrow: 1,
-              bgcolor: "background.paper",
+              bgcolor: "black",
               display: "flex",
               minHeight: "600px",
               textAlign: "center",
@@ -95,53 +97,126 @@ export default function Home() {
               aria-label="Vertical tabs example"
               sx={{
                 borderRight: 1,
-                borderColor: "divider",
+                borderColor: "black",
                 width: "16%",
+                color: "white",
               }}
             >
-              <Tab label="0_소개 및 설치" {...a11yProps(0)} />
-              <Tab label="1_모듈 및 스크립트" {...a11yProps(1)} />
-              <Tab label="2_정수" {...a11yProps(2)} />
-              <Tab label="3_부울" {...a11yProps(3)} />
-              <Tab label="4_주소" {...a11yProps(4)} />
-              <Tab label="5_벡터" {...a11yProps(5)} />
-              <Tab label="6_서명자" {...a11yProps(6)} />
+              <Tab
+                sx={{ color: "white" }}
+                label="0_소개 및 설치"
+                {...a11yProps(0)}
+              />
+              <Tab
+                sx={{ color: "white" }}
+                label="1_모듈 및 스크립트"
+                {...a11yProps(1)}
+              />
+              <Tab sx={{ color: "white" }} label="2_정수" {...a11yProps(2)} />
+              <Tab sx={{ color: "white" }} label="3_부울" {...a11yProps(3)} />
+              <Tab sx={{ color: "white" }} label="4_주소" {...a11yProps(4)} />
+              <Tab sx={{ color: "white" }} label="5_벡터" {...a11yProps(5)} />
+              <Tab sx={{ color: "white" }} label="6_서명자" {...a11yProps(6)} />
 
-              <Tab label="7_참조" {...a11yProps(7)} />
+              <Tab sx={{ color: "white" }} label="7_참조" {...a11yProps(7)} />
 
-              <Tab label="8_튜플 및 단위" {...a11yProps(8)} />
+              <Tab
+                sx={{ color: "white" }}
+                label="8_튜플 및 단위"
+                {...a11yProps(8)}
+              />
 
-              <Tab label="9_지역 변수 및 범위" {...a11yProps(9)} />
+              <Tab
+                sx={{ color: "white" }}
+                label="9_지역 변수 및 범위"
+                {...a11yProps(9)}
+              />
 
-              <Tab label="10_평등" {...a11yProps(10)} />
+              <Tab sx={{ color: "white" }} label="10_평등" {...a11yProps(10)} />
 
-              <Tab label="11_중단 및 어성셜" {...a11yProps(11)} />
+              <Tab
+                sx={{ color: "white" }}
+                label="11_중단 및 어성셜"
+                {...a11yProps(11)}
+              />
 
-              <Tab label="12_조건부" {...a11yProps(12)} />
+              <Tab
+                sx={{ color: "white" }}
+                label="12_조건부"
+                {...a11yProps(12)}
+              />
 
-              <Tab label="13_반복문" {...a11yProps(13)} />
+              <Tab
+                sx={{ color: "white" }}
+                label="13_반복문"
+                {...a11yProps(13)}
+              />
 
-              <Tab label="14_기능" {...a11yProps(14)} />
+              <Tab sx={{ color: "white" }} label="14_기능" {...a11yProps(14)} />
 
-              <Tab label="15_구조체 리소스" {...a11yProps(15)} />
+              <Tab
+                sx={{ color: "white" }}
+                label="15_구조체 리소스"
+                {...a11yProps(15)}
+              />
 
-              <Tab label="16_상수" {...a11yProps(16)} />
-              <Tab label="17_제네릭" {...a11yProps(17)} />
-              <Tab label="18_능력" {...a11yProps(18)} />
-              <Tab label="19_용도 및 별칭" {...a11yProps(19)} />
-              <Tab label="20_친구" {...a11yProps(20)} />
-              <Tab label="21_패키지" {...a11yProps(21)} />
-              <Tab label="22_패키지 업그레이드" {...a11yProps(22)} />
-              <Tab label="23_단위 및 테스트" {...a11yProps(23)} />
+              <Tab sx={{ color: "white" }} label="16_상수" {...a11yProps(16)} />
+              <Tab
+                sx={{ color: "white" }}
+                label="17_제네릭"
+                {...a11yProps(17)}
+              />
+              <Tab sx={{ color: "white" }} label="18_능력" {...a11yProps(18)} />
+              <Tab
+                sx={{ color: "white" }}
+                label="19_용도 및 별칭"
+                {...a11yProps(19)}
+              />
+              <Tab sx={{ color: "white" }} label="20_친구" {...a11yProps(20)} />
+              <Tab
+                sx={{ color: "white" }}
+                label="21_패키지"
+                {...a11yProps(21)}
+              />
+              <Tab
+                sx={{ color: "white" }}
+                label="22_패키지 업그레이드"
+                {...a11yProps(22)}
+              />
+              <Tab
+                sx={{ color: "white" }}
+                label="23_단위 및 테스트"
+                {...a11yProps(23)}
+              />
 
-              <Tab label="24_글로벌 스토리지 구조" {...a11yProps(24)} />
+              <Tab
+                sx={{ color: "white" }}
+                label="24_글로벌 스토리지 구조"
+                {...a11yProps(24)}
+              />
 
-              <Tab label="25_글로벌 스토리지 사업자" {...a11yProps(25)} />
+              <Tab
+                sx={{ color: "white" }}
+                label="25_글로벌 스토리지 사업자"
+                {...a11yProps(25)}
+              />
 
-              <Tab label="26_도서관" {...a11yProps(26)} />
+              <Tab
+                sx={{ color: "white" }}
+                label="26_도서관"
+                {...a11yProps(26)}
+              />
 
-              <Tab label="27_코딩 규칙 이동" {...a11yProps(27)} />
-              <Tab label="tutorial" {...a11yProps(28)} />
+              <Tab
+                sx={{ color: "white" }}
+                label="27_코딩 규칙 이동"
+                {...a11yProps(27)}
+              />
+              <Tab
+                sx={{ color: "white" }}
+                label="tutorial"
+                {...a11yProps(28)}
+              />
             </Tabs>
             <TabPanel value={value} index={0}>
               <Study_0 />
