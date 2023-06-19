@@ -55,7 +55,7 @@ const study_1 = ({ children }) => {
         </Box>
       </Grid>
       <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             Diem 블록체인의 구현을 위해 만들어졌으며,현재는 Aptos 및 Sui에서
             사용하고 있습니다.

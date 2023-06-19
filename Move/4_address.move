@@ -14,3 +14,7 @@ module overmind::yet_another_module {
     use std::vector;
 }
 
+module 66::some_module {
+    use 0x1::other_module;
+    use std::vector;
+}

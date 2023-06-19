@@ -49,7 +49,7 @@ const study_1 = ({ children }) => {
     <Grid container>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
-          <Typography variant="h2" gutterBottom>
+          <Typography variant="h3" gutterBottom>
             모듈과 스크립트
           </Typography>
         </Box>
@@ -59,16 +59,16 @@ const study_1 = ({ children }) => {
           <Typography variant="body1" gutterBottom>
             Move에는 모듈 과 스크립트 라는 두 가지 유형의 프로그램이 있습니다 .
             모듈은 이러한 유형에서 작동하는 함수와 함께 구조체 유형을 정의하는
-            라이브러리입니다.구조체 유형은 Move의 전역저장소 스키마를 정의하고
-            모듈 함수는 저장소 업데이트 규칙을 정의하고 있습니다.모듈은
-            전역저장소에 저장됩니다. main스크립트는 기존 언어의 함수와 유사한
-            실행 가능한 진입점입니다.스크립트는 일반적으로 전역저장소에 대한
-            업데이트를 수행하는 게시된 모듈의 기능을 호출합니다.스크립트는
-            전역저장소에 게시되지 않는 임시 코드 스니펫입니다.
+            라이브러리이며,구조체 유형은 Move의 전역저장소 스키마를 정의하고
+            모듈 함수는 저장소 업데이트 규칙을 정의하고 있으며,모듈은
+            전역저장소에 저장됩니다. 스크립트는 전역저장소에 게시되지 않는 임시
+            코드 스니펫 이며, 일반적으로 전역저장소에 대한 업데이트를 수행하는
+            게시된 모듈의 기능을 호출합니다.또한 main스크립트는 기존 언어의
+            함수와 유사한 실행 가능한 진입점입니다.
           </Typography>
           <Typography variant="body1" gutterBottom>
             Move 소스 파일(또는 컴파일 단위 )에는 여러 모듈과 스크립트가 포함될
-            수 있습니다. 그러나 모듈 게시 또는 스크립트 실행은 별도의 VM
+            수 있습니다. 그러나 모듈 게시 또는 스크립트 실행은 각각 별도의 VM
             작업입니다.
           </Typography>
         </Box>
@@ -85,10 +85,10 @@ const study_1 = ({ children }) => {
         -ex)스크립트 구조
         <CodeBlock
           text={`script {
-            <use>*
-            <constants>*
-            fun <identifier><[type parameters: constraint]*>([identifier: type]*) <function_body>
-        }
+                          <use>*
+                          <constants>*
+                          fun <identifier><[type parameters: constraint]*>([identifier: type]*) <function_body>
+                        }
 `}
           language={"Rust"}
           showLineNumbers={true}
@@ -98,23 +98,20 @@ const study_1 = ({ children }) => {
         />
       </Grid>
       <Grid xs={0} md={2}></Grid>
-      <Grid xs={12}>
+      <Grid xs={12} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             블록 script는 use로 선언으로 시작하며 그 밑에 상수 그밑에 함수순으로
             되어야합니다.main함수는 어떤 이름이든 가질수 있으며(main호출할
             필요가 없음)스크립트 블록의 유일한 함수이며 인수를 얼마든지 가질수
-            잇고 값은 반환할수 없습니다
-          </Typography>
-          <Typography variant="body1" gutterBottom>
-            스크립트는 권한이 매우 제한되어 있습니다.친구를 선언하거나 유형을
-            구성하거나 전역저장소에 엑세스 할수 없습니다. 주요 목적은 모듈
-            함수를 호출하는 것입니다.
+            잇고 값은 반환할수 없습니다.또한 스크립트에는 스크립트는 권한이 매우
+            제한되어 있습니다.친구를 선언하거나 유형을 구성하거나 전역저장소에
+            접근 할수 없습니다. 주요 목적은 모듈 함수를 호출하는 것입니다.
           </Typography>
         </Box>
       </Grid>
       <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8}>
+      <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
         <CodeBlock
           text={`script {
             // Import the debug module published at the named account address std.
@@ -139,13 +136,17 @@ const study_1 = ({ children }) => {
       <Grid xs={12}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            스크립트는 권한이 매우 제한되어 있습니다.친구를 선언하거나 유형을
-            구성하거나 전역저장소에 엑세스 할수 없습니다. 주요 목적은 모듈
-            함수를 호출하는 것입니다.
+            스크립트는 권한이 매우 제한되어 있습니다.Friends를 선언하거나 유형을
+            구성하거나 전역저장소에 접근 할수 없습니다. 주요 목적은 모듈 함수를
+            호출하는 것입니다.
           </Typography>
         </Box>
+        <Typography>
+          ex)Friends: 현재 모듈에서 신뢰하는 모듈을 선언하는 데 사용됩니다.
+        </Typography>
       </Grid>
-      <Grid xs={12}>
+
+      <Grid xs={12} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
             모듈
@@ -154,7 +155,7 @@ const study_1 = ({ children }) => {
       </Grid>
 
       <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8}>
+      <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
         -ex)모듈의 구조
         <CodeBlock
           text={`module <address>::<identifier> {
@@ -177,7 +178,7 @@ const study_1 = ({ children }) => {
         </Box>
       </Grid>
       <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8}>
+      <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
         <CodeBlock
           text={`module 0x42::example {
             struct Example has copy, drop { i: u64 }
@@ -202,18 +203,18 @@ const study_1 = ({ children }) => {
         />
       </Grid>
       <Grid xs={0} md={2}></Grid>
-      <Grid xs={12}>
+      <Grid xs={12} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             이 module 0x42::example모듈의 부분은 모듈이 전역저장소의 계정주소로
-            게시되도록 지정합니다 모듈은 명명된 주소를 사용하여 선언할수도
+            게시되도록 지정합니다 모듈은 named 주소를 사용하여 선언할수도
             있습니다
           </Typography>
         </Box>
       </Grid>
 
       <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8}>
+      <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
         <CodeBlock
           text={`module example_addr::example {
             struct Example has copy, drop { a: address }
@@ -235,7 +236,7 @@ const study_1 = ({ children }) => {
         />
       </Grid>
       <Grid xs={0} md={2}></Grid>
-      <Grid xs={12}>
+      <Grid xs={12} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             명명된 주소는 소스언어 수준과 컴파일 중에만 존재하기 떄문에 명명된
@@ -244,7 +245,7 @@ const study_1 = ({ children }) => {
         </Box>
       </Grid>
       <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8}>
+      <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
         <CodeBlock
           text={`script {
             fun example() {
@@ -260,7 +261,7 @@ const study_1 = ({ children }) => {
         />
       </Grid>
       <Grid xs={0} md={2}></Grid>
-      <Grid xs={12}>
+      <Grid xs={12} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             my_addr로 설정하여 컴파일하면 0xC0FFEE운영상 다음과 동일합니다.
@@ -268,7 +269,7 @@ const study_1 = ({ children }) => {
         </Box>
       </Grid>
       <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8}>
+      <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
         <CodeBlock
           text={`script {
             fun example() {
@@ -284,7 +285,7 @@ const study_1 = ({ children }) => {
         />
       </Grid>
       <Grid xs={0} md={2}></Grid>
-      <Grid xs={12}>
+      <Grid xs={12} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             그러나 소스 수준에서 이들은 동일하지 않습니다.함수는 해당 주소에
@@ -298,7 +299,7 @@ const study_1 = ({ children }) => {
         </Box>
       </Grid>
       <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8}>
+      <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
         <CodeBlock
           text={`module my_module {}
           module foo_bar_42 {}
@@ -311,7 +312,8 @@ const study_1 = ({ children }) => {
         />
       </Grid>
       <Grid xs={0} md={2}></Grid>
-      <Grid xs={12}>
+      <Grid xs={0} md={2}></Grid>
+      <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             일반적으로 모듈 이름은 소문자로 시작합니다 명명된 모듈은
@@ -333,7 +335,8 @@ const study_1 = ({ children }) => {
         </Box>
       </Grid>
       <Grid xs={0} md={2}></Grid>
-      <Grid xs={12}>
+      <Grid xs={0} md={2}></Grid>
+      <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             모듈 특징정리
@@ -364,7 +367,9 @@ const study_1 = ({ children }) => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={12}>
+      <Grid xs={0} md={2}></Grid>
+      <Grid xs={0} md={2}></Grid>
+      <Grid xs={8} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             스크립트 특징정리
@@ -406,6 +411,8 @@ const study_1 = ({ children }) => {
           </Typography>
         </Box>
       </Grid>
+      <Grid xs={0} md={2}></Grid>
+      <Grid xs={0} md={2}></Grid>
       <Grid xs={12} md={8}>
         - ex)예시
         <CodeBlock
