@@ -2,8 +2,10 @@ import Grid from "@mui/material/Unstable_Grid2";
 import { CodeBlock } from "react-code-blocks";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-
+import { Button } from "@mui/material";
+import { useRouter } from "next/router";
 const study_1 = ({ children }) => {
+  const router = useRouter();
   const handleClick = () => {
     console.log("Code block clicked");
   };
@@ -83,19 +85,16 @@ const study_1 = ({ children }) => {
       <Grid xs={0} md={2}></Grid>
       <Grid xs={12} md={8}>
         -ex)스크립트 구조
-        <CodeBlock
-          text={`script {
-                          <use>*
-                          <constants>*
-                          fun <identifier><[type parameters: constraint]*>([identifier: type]*) <function_body>
-                        }
-`}
-          language={"Rust"}
-          showLineNumbers={true}
-          wrapLines={true}
-          theme={myCustomTheme}
-          onClick={handleClick}
-        />
+        <Button
+          onClick={e => {
+            router.push(
+              "/https://github.com/Move-ko/Move-ko.github.io/blob/main/Move/1/1_1.move"
+            );
+          }}
+        >
+          Code
+        </Button>
+        <img src={"/img/1_1.png"} style={{ width: "100%" }} />
       </Grid>
       <Grid xs={0} md={2}></Grid>
       <Grid xs={12} sx={{ marginTop: "40px" }}>

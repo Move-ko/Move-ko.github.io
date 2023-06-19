@@ -155,7 +155,9 @@ const study_1 = ({ children }) => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={12}>
+
+      <Grid xs={0} md={2}></Grid>
+      <Grid xs={12} md={8}>
         <TableContainer component={Paper}>
           <Table sx={{ width: "100%" }} aria-label="customized table">
             <TableHead>
@@ -177,7 +179,7 @@ const study_1 = ({ children }) => {
           </Table>
         </TableContainer>
       </Grid>
-
+      <Grid xs={0} md={2}></Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h2" gutterBottom>
@@ -186,7 +188,7 @@ const study_1 = ({ children }) => {
         </Box>
       </Grid>
       <Grid xs={12} md={12}>
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             이러한 유형의 리터럴 값은 일련의 숫자(예: 112) 또는 16진수
             리터럴(예: )로 지정됩니다 0xFF. 리터럴의 유형은 선택적으로 접미사로
