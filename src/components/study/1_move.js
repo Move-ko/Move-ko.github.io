@@ -88,7 +88,7 @@ const study_1 = ({ children }) => {
         <Button
           onClick={e => {
             router.push(
-              "/https://github.com/Move-ko/Move-ko.github.io/blob/main/Move/1/1_1.move"
+              "https://github.com/Move-ko/Move-ko.github.io/blob/main/Move/1/1_1.move"
             );
           }}
         >
