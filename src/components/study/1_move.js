@@ -49,7 +49,7 @@ const study_1 = ({ children }) => {
       <Grid xs={12}> ex)스크립트 구조</Grid>
       <Grid xs={0} md={2}></Grid>
 
-      <Grid xs={12} md={8}>
+      <Grid xs={12} md={8} sx={{ marginTop: "30px" }}>
         <Button
           variant="contained"
           size="medium"
@@ -63,7 +63,7 @@ const study_1 = ({ children }) => {
         </Button>
         <img
           src={"/img/1_1.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
+          style={{ width: "100%", borderRadius: "10px", marginTop: "20px" }}
         />
       </Grid>
       <Grid xs={0} md={2}></Grid>
@@ -93,7 +93,9 @@ const study_1 = ({ children }) => {
       <Grid xs={12}>
         <Box sx={{ width: "100%", textAlign: "left" }}></Box>
         <Typography>
-          ex)Friends: 현재 모듈에서 신뢰하는 모듈을 선언하는 데 사용됩니다.
+          <span style={{ color: "purple" }}>
+            * friend: 현재 모듈에서 신뢰하는 모듈을 선언하는 데 사용됩니다.
+          </span>
         </Typography>
       </Grid>
       <Grid xs={0} md={2}></Grid>
@@ -124,7 +126,10 @@ const study_1 = ({ children }) => {
         </Box>
       </Grid>
 
-      <Grid xs={12}> ex)모듈 구조</Grid>
+      <Grid xs={12}>
+        {" "}
+        <span style={{ color: "purple" }}>*모듈 구조</span>
+      </Grid>
       <Grid xs={0} md={2}></Grid>
 
       <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
@@ -153,13 +158,17 @@ const study_1 = ({ children }) => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="body1" gutterBottom>
-            ex)address:명명된 주소({" "}
-            <span style={{ color: "purple" }}>이름이 붙여진 주소</span>) 또는
-            리터럴 주소
+            <span style={{ color: "purple" }}>
+              *address:명명된 주소({" "}
+              <span style={{ color: "purple" }}>이름이 붙여진 주소</span>) 또는
+              리터럴 주소
+            </span>
           </Typography>
           <Typography variant="body1" gutterBottom>
-            ex)const:모듈의 함수에서 사용할수있는 전용{" "}
-            <span style={{ color: "purple" }}>상수</span>를 지정
+            <span style={{ color: "purple" }}>
+              *const:모듈의 함수에서 사용할수있는 전용{" "}
+              <span style={{ color: "purple" }}>상수</span>를 지정
+            </span>
           </Typography>
         </Box>
       </Grid>
