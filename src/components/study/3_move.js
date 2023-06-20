@@ -62,23 +62,25 @@ const study_1 = ({ children }) => {
       <Grid xs={12} md={8}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="body1" gutterBottom>
-            Move에는 boolean에 기본값은 true와 false입니다
-          </Typography>
-        </Box>
-      </Grid>
-      <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
-          <Typography variant="h4" gutterBottom>
-            운영
+            <span style={{ color: "purple" }}>부울</span>은 Move에서 boolean{" "}
+            <span style={{ color: "purple" }}>true</span>와{" "}
+            <span style={{ color: "purple" }}>false</span> 값을 표현하기 위한
+            원시 타입입니다.또한 bool 타입의 리터럴은 true 또는 false로
+            표현됩니다.
           </Typography>
         </Box>
       </Grid>
       <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8}>
+      <Grid xs={12}>
+        <Typography variant="body1" gutterBottom>
+          <span style={{ color: "purple" }}>
+            * bool은 세가지 논리 연산을 지원합니다.
+          </span>
+        </Typography>
+      </Grid>
+      <Grid xs={0} md={2}></Grid>
+      <Grid xs={12} md={8} sx={{ marginTop: "30px" }}>
         <TableContainer component={Paper}>
-          <Typography variant="body1" gutterBottom>
-            bool은 세가지 논리 연산을 지원합니다.
-          </Typography>
           <Table sx={{ width: "100%" }} aria-label="customized table">
             <TableHead>
               <TableRow>
@@ -103,9 +105,67 @@ const study_1 = ({ children }) => {
       </Grid>
       <Grid xs={0} md={2}></Grid>
       <Grid xs={12} md={12}>
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
-            bool값은 여러 Move제어 흐름 구성에서 사용됩니다.
+            bool 값은 Move의 여러 제어 흐름 구조에서 사용됩니다:
+          </Typography>
+        </Box>
+      </Grid>
+      <Grid xs={12} sx={{ marginTop: "30px" }}>
+        <Typography variant="body1" gutterBottom>
+          <span style={{ color: "purple" }}>* if문</span>
+        </Typography>
+      </Grid>
+      <Grid xs={0} md={4}></Grid>
+      <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
+        <img
+          src={"/img/3_2_1.png"}
+          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
+        />
+      </Grid>
+      <Grid xs={0} md={4}></Grid>
+      <Grid xs={12} sx={{ marginTop: "30px" }}>
+        <Typography variant="body1" gutterBottom>
+          <span style={{ color: "purple" }}>* while문</span>
+        </Typography>
+      </Grid>
+      <Grid xs={0} md={4}></Grid>
+      <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
+        <img
+          src={"/img/3_2_2.png"}
+          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
+        />
+      </Grid>
+      <Grid xs={0} md={4}></Grid>
+      <Grid xs={12} sx={{ marginTop: "30px" }}>
+        <Typography variant="body1" gutterBottom>
+          <span style={{ color: "purple" }}>
+            3) assert:이 연산은 두 개의 인자를 받습니다: bool 타입의 조건과 u64
+            타입의 코드
+          </span>
+        </Typography>
+      </Grid>
+      <Grid xs={0} md={4}></Grid>
+      <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
+        <img
+          src={"/img/3_2_3.png"}
+          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
+        />
+      </Grid>
+      <Grid xs={0} md={4}></Grid>
+      <Grid xs={12}>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
+            소유권
+          </Typography>
+        </Box>
+      </Grid>
+      <Grid xs={12} md={12}>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            다른 스칼라 값들과 마찬가지로, 언어 내장의 boolean 값들은 암시적으로
+            복사 가능합니다. 즉, copy와 같은 명시적인 지시어 없이도 복사할 수
+            있습니다.
           </Typography>
         </Box>
       </Grid>
