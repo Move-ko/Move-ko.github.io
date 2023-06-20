@@ -1,20 +1,20 @@
 module example::test{
     fun main(){
-let a = 1
-let b = 54
-let c = 893
-let d = 890u8
-let e = 348u64
-let f = 1_000_000_000
-let g = 1_234_000u64
-let h = 0x1
-let i = 0x8
-let j = 0xABE
-let k = 0xbeef
-let l = 0x1337
-let m = 0x1_aF2
-let n = 0x1_EFH_823
-let o = xFFF
+let a = 1  //o
+let b = 54   //o
+let c = 893  //o
+let d = 890u8  //x
+let e = 348u64   //o
+let f = 1_000_000_000 //o
+let g = 1_234_000u64 //o
+let h = 0x1 //o
+let i = 0x8 //o
+let j = 0xABE //o
+let k = 0xbeef //x
+let l = 0x1337 //o
+let m = 0x1_aF2 //x
+let n = 0x1_EFH_823 //o
+let o = xFFF //o
 
 let a = 1 + 1;
 let b = 85 + 983;
