@@ -81,115 +81,127 @@ const study_1 = ({ children }) => {
     },
     {
       Function: "vector::is_empty<T>(): bool",
-      Description: "새 줄(또는 줄바꿈)",
+      Description:
+        "벡터 v에 요소가 없으면 true를 반환하고 그렇지 않으면 false를 반환합니다.",
       Aborts: "절대",
     },
     {
       Function: "vector::singleton<T>(t: T): vector<T>",
-      Description: "새 줄(또는 줄바꿈)",
+      Description: "t를 포함하는 크기 1의 벡터를 만듭니다.",
       Aborts: "절대",
     },
     {
       Function: "vector::length<T>(v: &vector<T>): u64",
-      Description: "새 줄(또는 줄바꿈)",
+      Description: "벡터 v의 길이를 반환합니다.",
       Aborts: "절대",
     },
     {
       Function: "vector::push_back<T>(v: &mut vector<T>, t: T)",
-      Description: "새 줄(또는 줄바꿈)",
+      Description: "v 끝에 t 추가",
       Aborts: "절대",
     },
     {
       Function: "vector::pop_back<T>(v: &mut vector<T>): T",
-      Description: "새 줄(또는 줄바꿈)",
-      Aborts: "",
+      Description: "v의 마지막 요소를 제거하고 반환",
+      Aborts: "v가 비어 있는 경우",
     },
     {
       Function: "vector::borrow<T>(v: &vector<T>, i: u64): &T",
-      Description: "새 줄(또는 줄바꿈)",
-      Aborts: "",
+      Description: "인덱스 i에서 T에 대한 불변 참조를 반환합니다.",
+      Aborts: "내가 경계 안에 있지 않다면",
     },
     {
       Function: "vector::borrow_mut<T>(v: &mut vector<T>, i: u64): &mut T",
-      Description: "새 줄(또는 줄바꿈)",
-      Aborts: "",
+      Description: "인덱스 i에서 T에 대한 변경 가능한 참조를 반환합니다.",
+      Aborts: "내가 경계 안에 있지 않다면",
     },
     {
       Function: "vector::destroy_empty<T>(v: vector<T>)",
-      Description: "새 줄(또는 줄바꿈)",
-      Aborts: "",
+      Description: "v 삭제",
+      Aborts: "v가 비어 있지 않은 경우",
     },
     {
       Function: "vector::append<T>(v1: &mut vector<T>, v2: vector<T>)",
-      Description: "새 줄(또는 줄바꿈)",
-      Aborts: "",
+      Description: "v2의 요소를 v1의 끝에 추가",
+      Aborts: "절대",
     },
     {
       Function:
         "vector::reverse_append<T>(lhs: &mut vector<T>, other: vector<T>)",
-      Description: "새 줄(또는 줄바꿈)",
-      Aborts: "",
+      Description:
+        "다른 벡터에서 발생한 것과 반대 순서로 다른 벡터의 모든 요소를 ​​lhs 벡터로 푸시합니다.",
+      Aborts: "절대",
     },
     {
       Function: "vector::contains<T>(v: &vector<T>, e: &T): bool",
-      Description: "새 줄(또는 줄바꿈)",
-      Aborts: "",
+      Description:
+        "e가 벡터 v에 있으면 참을 반환합니다. 그렇지 않으면 거짓을 반환합니다.",
+      Aborts: "절대",
     },
     {
       Function: "vector::swap<T>(v: &mut vector<T>, i: u64, j: u64)",
-      Description: "새 줄(또는 줄바꿈)",
-      Aborts: "",
+      Description:
+        "벡터 v의 i번째 인덱스와 j번째 인덱스에 있는 요소를 교체합니다.",
+      Aborts: "i 또는 j가 범위를 벗어난 경우",
     },
     {
       Function: "vector::reverse<T>(v: &mut vector<T>)",
-      Description: "새 줄(또는 줄바꿈)",
-      Aborts: "",
+      Description: "제자리에서 벡터 v의 요소 순서를 반대로 바꿉니다.",
+      Aborts: "절대",
     },
     {
       Function: "vector::reverse_slice<T>(v: &mut vector<T>, l: u64, r: u64)",
-      Description: "새 줄(또는 줄바꿈)",
-      Aborts: "",
+      Description: "제자리에서 벡터 v의 요소 [l, r)의 순서를 반대로 바꿉니다.",
+      Aborts: "절대",
     },
     {
       Function: "vector::index_of<T>(v: &vector<T>, e: &T): (bool, u64)",
-      Description: "새 줄(또는 줄바꿈)",
-      Aborts: "",
+      Description:
+        "e가 인덱스 i의 벡터 v에 있으면 (true, i)를 반환합니다. 그렇지 않으면 (거짓, 0)을 반환합니다.",
+      Aborts: "절대",
     },
     {
       Function: "vector::insert<T>(v: &mut vector<T>, i: u64, e: T)",
-      Description: "새 줄(또는 줄바꿈)",
-      Aborts: "",
+      Description:
+        "O(길이 - i) 시간을 사용하여 위치 0 <= i <= 길이에 새 요소 e를 삽입합니다.",
+      Aborts: "내가 범위를 벗어나면",
     },
     {
       Function: "vector::remove<T>(v: &mut vector<T>, i: u64): T",
-      Description: "새 줄(또는 줄바꿈)",
-      Aborts: "",
+      Description:
+        "벡터 v의 i번째 요소를 제거하고 모든 후속 요소를 이동합니다. 이것은 O(n)이며 벡터에서 요소의 순서를 유지합니다.",
+      Aborts: "내가 범위를 벗어나면",
     },
     {
       Function: "vector::swap_remove<T>(v: &mut vector<T>, i: u64): T",
-      Description: "새 줄(또는 줄바꿈)",
-      Aborts: "",
+      Description:
+        "벡터 v의 i번째 요소를 마지막 요소로 바꾼 다음 요소를 팝합니다. 이것은 O(1)이지만 벡터의 요소 순서는 유지하지 않습니다.",
+      Aborts: "내가 범위를 벗어나면",
     },
     {
       Function: "vector::trim<T>(v: &mut vector<T>, new_len: u64): u64",
-      Description: "새 줄(또는 줄바꿈)",
-      Aborts: "",
+      Description:
+        "벡터 v를 더 작은 크기의 new_len으로 자르고 제거된 요소를 순서대로 반환합니다.",
+      Aborts: "new_len이 v의 길이보다 큽니다.",
     },
     {
       Function: "vector::trim_reverse<T>(v: &mut vector<T>, new_len: u64): u64",
-      Description: "새 줄(또는 줄바꿈)",
-      Aborts: "",
+      Description:
+        "벡터 v를 더 작은 크기의 new_len으로 자르고 제거된 요소를 역순으로 반환합니다.",
+      Aborts: "new_len이 v의 길이보다 큽니다.",
     },
     {
       Function: "vector::rotate<T>(v: &mut vector<T>, rot: u64): u64",
-      Description: "새 줄(또는 줄바꿈)",
-      Aborts: "",
+      Description:
+        "rotate(&mut [1, 2, 3, 4, 5], 2) -> [3, 4, 5, 1, 2] 제자리에서 분할 지점을 반환합니다. 이 예에서 3",
+      Aborts: "절대",
     },
     {
       Function:
         "vector::rotate_slice<T>(v: &mut vector<T>, left: u64, rot: u64, right: u64): u64",
-      Description: "새 줄(또는 줄바꿈)",
-      Aborts: "",
+      Description:
+        "왼쪽 <= 회전 <= 오른쪽으로 길게 [ 왼쪽, 오른쪽 회전), 끝점 반환",
+      Aborts: "절대",
     },
   ];
   return (
