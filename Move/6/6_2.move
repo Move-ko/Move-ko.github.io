@@ -5,7 +5,7 @@ module example::test {
 
     let a1= @0x1;
     let a1= @0x2;
-    // ... and so on for every other possible address
+    // ... 다른 모든 가능한 주소에 대해 등등
    }
 
 }

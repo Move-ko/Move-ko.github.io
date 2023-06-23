@@ -25,6 +25,12 @@ export default function Home() {
     setValue(newValue);
   };
   useEffect(() => {
+    if (!localStorage.getItem("refreshed")) {
+      localStorage.setItem("refreshed", true);
+      window.location.reload();
+    }
+  }, []);
+  useEffect(() => {
     setMounted(true);
   }, []);
 

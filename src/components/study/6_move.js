@@ -2,8 +2,45 @@ import Grid from "@mui/material/Unstable_Grid2";
 import { CodeBlock } from "react-code-blocks";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import { styled } from "@mui/material/styles";
 const study_1 = ({ children }) => {
+  const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    [`&.${tableCellClasses.head}`]: {
+      backgroundColor: " #171B1C",
+      color: theme.palette.common.white,
+    },
+    [`&.${tableCellClasses.body}`]: {
+      fontSize: 12,
+    },
+  }));
+
+  const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    "&:nth-of-type(odd)": {
+      backgroundColor: theme.palette.common.white,
+      color: theme.palette.common.white,
+    },
+    // hide last border
+    "&:last-child td, &:last-child th": {
+      border: 0,
+    },
+  }));
+  const integers1 = [
+    {
+      함수: "signer::address_of(&signer): address	",
+      설명: "이 &signer로 래핑된 주소를 반환합니다.",
+    },
+    {
+      함수: "signer::borrow_address(&signer): &address		",
+      설명: "이 &signer로 래핑된 주소에 대한 참조를 반환합니다.",
+    },
+  ];
   return (
     <Grid container>
       <Grid xs={12}>
@@ -16,22 +53,31 @@ const study_1 = ({ children }) => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            서명자는 기본 제공 이동 자원 유형입니다. 서명자는 소유자가 특정
-            주소를 대신하여 작업할 수 있도록 하는 기능입니다. 기본 구현을 다음과
-            같이 생각할 수 있습니다.
+            <span style={{ color: "purple" }}>서명자 </span>는 기본 제공 이동
+            자원 유형입니다. 서명자는{" "}
+            <span style={{ color: "purple" }}>
+              {" "}
+              소유자가 특정 주소를 대신하여 작업{" "}
+            </span>{" "}
+            할 수 있도록 하는 기능입니다. 기본 구현을 다음과 같이 생각할 수
+            있습니다.
           </Typography>
         </Box>
       </Grid>
       <Grid xs={0} md={4}></Grid>
       <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
-        사진
+        <img
+          src={"/img/6_1.png"}
+          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
+        />
       </Grid>
       <Grid xs={0} md={4}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            서명자는 이동 외부의 코드(예: 암호화 서명 또는 암호 확인)로 인증된
-            사용자를 나타낸다는 점에서 Unix UID와 다소 유사합니다.
+            서명자는 이동 외부의 코드(예:{" "}
+            <span style={{ color: "purple" }}>암호화 서명 또는 암호 확인 </span>
+            )로 인증된 사용자를 나타낸다는 점에서 Unix UID와 다소 유사합니다.
           </Typography>
         </Box>
       </Grid>
@@ -52,24 +98,31 @@ const study_1 = ({ children }) => {
       </Grid>
       <Grid xs={0} md={4}></Grid>
       <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
-        사진
+        <img
+          src={"/img/6_2.png"}
+          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
+        />
       </Grid>
       <Grid xs={0} md={4}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            그러나 서명자 값은 리터럴이나 지침을 통해 생성할 수 없고 Move
-            VM에서만 생성할 수 있기 때문에 특별합니다. VM이 서명자 유형의
-            매개변수를 사용하여 스크립트를 실행하기 전에 서명자 값을 자동으로
-            생성하여 스크립트에 전달합니다.
+            그러나 서명자 값은 리터럴이나 지침을 통해 생성할 수 없고{" "}
+            <span style={{ color: "purple" }}>Move VM에서만 생성 </span> 할 수
+            있기 때문에 특별합니다. VM이 서명자 유형의 매개변수를 사용하여
+            스크립트를 실행하기 전에 서명자 값을 자동으로 생성하여 스크립트에
+            전달합니다.
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={0} md={3}></Grid>
+      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
+        <img
+          src={"/img/6_3.png"}
+          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
+        />
       </Grid>
-      <Grid xs={0} md={4}></Grid>
+      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -80,11 +133,14 @@ const study_1 = ({ children }) => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={0} md={3}></Grid>
+      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
+        <img
+          src={"/img/6_4.png"}
+          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
+        />
       </Grid>
-      <Grid xs={0} md={4}></Grid>
+      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -104,21 +160,44 @@ const study_1 = ({ children }) => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            std::signer 표준 라이브러리 모듈은 서명자 값에 대해 두 가지 유틸리티
-            기능을 제공합니다.
+            <span style={{ color: "purple" }}> std::signer </span> 표준
+            라이브러리 모듈은 서명자 값에 대해 두 가지 유틸리티 기능을
+            제공합니다.
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
-        표
+      <Grid xs={0} md={2}></Grid>
+      <Grid xs={12} md={8} sx={{ marginTop: "30px" }}>
+        <TableContainer component={Paper}>
+          <Table sx={{ width: "100%" }} aria-label="customized table">
+            <TableHead>
+              <TableRow>
+                <StyledTableCell>함수</StyledTableCell>
+                <StyledTableCell>설명</StyledTableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody component="div">
+              {integers1.map(item => (
+                <StyledTableRow key={item?.drop_name}>
+                  <StyledTableCell>{item?.함수}</StyledTableCell>
+                  <StyledTableCell>{item?.설명}</StyledTableCell>
+                </StyledTableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </Grid>
-      <Grid xs={0} md={4}></Grid>
+      <Grid xs={0} md={2}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            또한 move_to{"<T>"}(&signer, T) 전역 저장소 연산자는
-            signer.address의 계정에 리소스 T를 게시하기 위해 &signer 인수가
+            또한{" "}
+            <span style={{ color: "purple" }}>
+              move_to{"<T>"}
+              (&signer, T){" "}
+            </span>{" "}
+            전역 저장소 연산자는 signer.address의 계정에 리소스 T를 게시하기
+            위해 <span style={{ color: "purple" }}>&signer </span>인수가
             필요합니다. 이렇게 하면 인증된 사용자만 자신의 주소로 리소스를
             게시하도록 선택할 수 있습니다.
           </Typography>
@@ -134,9 +213,12 @@ const study_1 = ({ children }) => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            단순 스칼라 값과 달리 서명자 값은 복사할 수 없습니다. 즉 명시적 복사
-            명령을 통해서든 역참조 *를 통해서든 어떤 작업에서도 복사할 수
-            없습니다.
+            단순 스칼라 값과 달리 서명자 값은 복사할 수 없습니다. 즉{" "}
+            <span style={{ color: "purple" }}>
+              {" "}
+              명시적 복사 명령을 통해서이든 역참조 *를 통해서든 어떤 작업에서도
+              복사할 수 없습니다.
+            </span>
           </Typography>
         </Box>
       </Grid>
