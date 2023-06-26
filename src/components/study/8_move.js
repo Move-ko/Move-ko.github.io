@@ -2,8 +2,47 @@ import Grid from "@mui/material/Unstable_Grid2";
 import { CodeBlock } from "react-code-blocks";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import { styled } from "@mui/material/styles";
 const study_1 = ({ children }) => {
+  const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    [`&.${tableCellClasses.head}`]: {
+      backgroundColor: " #171B1C",
+      color: theme.palette.common.white,
+    },
+    [`&.${tableCellClasses.body}`]: {
+      fontSize: 12,
+    },
+  }));
+
+  const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    "&:nth-of-type(odd)": {
+      backgroundColor: theme.palette.common.white,
+      color: theme.palette.common.white,
+    },
+    // hide last border
+    "&:last-child td, &:last-child th": {
+      border: 0,
+    },
+  }));
+  const integers1 = [
+    {
+      통사론: "()",
+      타입: "(): ()",
+      설명: "단위, 빈 튜플 또는 인수가 0인 튜플",
+    },
+    {
+      통사론: "(e1, ..., en)",
+      타입: "(e1, ..., en): (T1, ..., Tn) where e_i: Ti s.t. 0 < i <= n and n > 0",
+      설명: "n-튜플, 개수 n의 튜플, n개의 요소가 있는 튜플",
+    },
+  ];
   return (
     <Grid container>
       <Grid xs={12}>
@@ -52,11 +91,30 @@ const study_1 = ({ children }) => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
-        표
+      <Grid xs={0} md={2}></Grid>
+      <Grid xs={12} md={8} sx={{ marginTop: "30px" }}>
+        <TableContainer component={Paper}>
+          <Table sx={{ width: "100%" }} aria-label="customized table">
+            <TableHead>
+              <TableRow>
+                <StyledTableCell>통사론</StyledTableCell>
+                <StyledTableCell>타입</StyledTableCell>
+                <StyledTableCell>설명</StyledTableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody component="div">
+              {integers1.map(item => (
+                <StyledTableRow key={item?.drop_name}>
+                  <StyledTableCell>{item?.통사론}</StyledTableCell>
+                  <StyledTableCell>{item?.타입}</StyledTableCell>
+                  <StyledTableCell>{item?.설명}</StyledTableCell>
+                </StyledTableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </Grid>
-      <Grid xs={0} md={4}></Grid>
+      <Grid xs={0} md={2}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
