@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { Button } from "@mui/material";
 import { useRouter } from "next/router";
-const study_1 = ({ children }) => {
+const study_1 = () => {
   const router = useRouter();
 
   return (

@@ -11,7 +11,7 @@ import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 import { Button } from "@mui/material";
 import { useRouter } from "next/router";
-const study_1 = ({ children }) => {
+const study_1 = () => {
   const router = useRouter();
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({

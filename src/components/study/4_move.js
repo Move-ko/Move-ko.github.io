@@ -3,7 +3,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { Button } from "@mui/material";
-const study_1 = ({ children }) => {
+const study_1 = () => {
   return (
     <Grid container>
       <Grid xs={12}>
