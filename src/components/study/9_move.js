@@ -9,7 +9,7 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
-            Local Variables and Scope
+            로컬 변수 및 범위
           </Typography>
         </Box>
       </Grid>
@@ -26,7 +26,7 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
-            Declaring Local Variables{" "}
+            지역 변수 선언{" "}
           </Typography>
         </Box>
       </Grid>
@@ -90,7 +90,7 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
-            Variables must be assigned before use{" "}
+            사용하기 전에 변수를 할당해야 함
           </Typography>
         </Box>
       </Grid>
@@ -120,7 +120,7 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
-            Valid variable names{" "}
+            유효한 변수 이름{" "}
           </Typography>
         </Box>
       </Grid>
@@ -141,7 +141,7 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
-            Type annotations
+            유형 주석
           </Typography>
         </Box>
       </Grid>
@@ -188,16 +188,17 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
-            When annotations are necessary
+            주석이 필요한 경우{" "}
           </Typography>
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            In some cases, a local type annotation is required if the type
-            system cannot infer the type. This commonly occurs when the type
-            argument for a generic type cannot be inferred. For example:{" "}
+            경우에 따라 유형이 다음과 같은 경우 로컬 유형 주석이 필요합니다.
+            시스템이 유형을 유추할 수 없습니다. 이것은 일반적으로 유형이 다음과
+            같은 경우에 발생합니다. 제네릭 형식에 대한 인수를 유추할 수
+            없습니다. 예를 들어:
           </Typography>
         </Box>
       </Grid>
@@ -210,12 +211,12 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            In a rarer case, the type system might not be able to infer a type
-            for divergent code (where all the following code is unreachable).
-            Both return and abort are expressions and can have any type. A loop
-            has type () if it has a break, but if there is no break out of the
-            loop, it could have any type. If these types cannot be inferred, a
-            type annotation is required. For example, this code:
+            드물게 유형 시스템이 유형을 유추하지 못할 수 있습니다. 발산 코드의
+            경우(다음 코드에 도달할 수 없는 경우). return과 abort는 둘 다
+            표현식이며 모든 유형을 가질 수 있습니다. 루프 중단이 있으면 ()
+            유형을 가지지만 중단이 없는 경우 루프, 모든 유형을 가질 수 있습니다.
+            이러한 유형을 유추할 수 없는 경우 유형 주석이 필요합니다. 예를 들어
+            이 코드는 다음과 같습니다.
           </Typography>
         </Box>
       </Grid>
@@ -227,9 +228,9 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            Adding type annotations to this code will expose other errors about
-            dead code or unused local variables, but the example is still
-            helpful for understanding this problem.
+            이 코드에 유형 주석을 추가하면 다음에 대한 다른 오류가 노출됩니다.
+            데드 코드 또는 사용되지 않는 지역 변수, 그러나 예제는 여전히 이
+            문제를 이해하는 데 도움이 됩니다.
           </Typography>
         </Box>
       </Grid>
@@ -237,16 +238,16 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
-            Multiple declarations with tuples{" "}
+            튜플을 사용한 여러 선언
           </Typography>
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            let can introduce more than one local at a time using tuples. The
-            locals declared inside the parenthesis are initialized to the
-            corresponding values from the tuple.
+            let은 튜플을 사용하여 한 번에 둘 이상의 로컬을 소개할 수 있습니다.
+            그만큼 괄호 안에 선언된 지역은 다음으로 초기화됩니다. 튜플의 해당
+            값.
           </Typography>
         </Box>
       </Grid>
@@ -258,8 +259,7 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            The type of the expression must match the arity of the tuple pattern
-            exactly.
+            표현식의 유형은 튜플 패턴의 인자 수와 일치해야 합니다. 정확히.
           </Typography>
         </Box>
       </Grid>
@@ -272,8 +272,7 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            You cannot declare more than one local with the same name in a
-            single let.
+            동일한 이름을 가진 로컬을 두 개 이상 선언할 수 없습니다. 싱글 렛.
           </Typography>
         </Box>
       </Grid>
@@ -285,34 +284,16 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
-            Multiple declarations with structs{" "}
+            구조체가 있는 여러 선언
           </Typography>
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            let can also introduce more than one local at a time when
-            destructuring (or matching against) a struct. In this form, the let
-            creates a set of local variables that are initialized to the values
-            of the fields from a struct. The syntax looks like this:
-          </Typography>
-        </Box>
-      </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
-      </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
-      </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
-          <Typography variant="body1" gutterBottom>
-            Here is a more complicated example:
+            let은 한 번에 둘 이상의 지역을 소개할 수도 있습니다. 구조체를
+            분해(또는 일치)합니다. 이 형식에서 let 값으로 초기화되는 지역 변수
+            세트를 생성합니다. 구조체의 필드. 구문은 다음과 같습니다.
           </Typography>
         </Box>
       </Grid>
@@ -321,12 +302,15 @@ const study_1 = () => {
         사진
       </Grid>
       <Grid xs={0} md={3}></Grid>
+      <Grid xs={0} md={3}></Grid>
+      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
+        사진
+      </Grid>
+      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            Fields of structs can serve double duty, identifying the field to
-            bind and the name of the variable. This is sometimes referred to as
-            punning.
+            다음은 더 복잡한 예입니다.{" "}
           </Typography>
         </Box>
       </Grid>
@@ -338,7 +322,8 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            is equivalent to:
+            구조체의 필드는 두 가지 역할을 수행할 수 있습니다. 바인드 및 변수의
+            이름. 이것은 때때로 다음과 같이 언급됩니다. 말장난.
           </Typography>
         </Box>
       </Grid>
@@ -350,8 +335,20 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            As shown with tuples, you cannot declare more than one local with
-            the same name in a single let.
+            다음과 같습니다.{" "}
+          </Typography>
+        </Box>
+      </Grid>
+      <Grid xs={0} md={3}></Grid>
+      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
+        사진
+      </Grid>
+      <Grid xs={0} md={3}></Grid>
+      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
+        <Box sx={{ width: "100%", textAlign: "left" }}>
+          <Typography variant="body1" gutterBottom>
+            튜플과 같이 둘 이상의 로컬을 선언할 수 없습니다. 하나의 let에 같은
+            이름.
           </Typography>
         </Box>
       </Grid>
@@ -363,15 +360,15 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
-            Destructuring against references
+            참조에 대한 파괴{" "}
           </Typography>
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            In the examples above for structs, the bound value in the let was
-            moved, destroying the struct value and binding its fields.
+            구조체에 대한 위의 예에서 let의 바운드 값은 다음과 같습니다.
+            이동하여 구조체 값을 파괴하고 해당 필드를 바인딩합니다.
           </Typography>
         </Box>
       </Grid>
@@ -389,7 +386,7 @@ const study_1 = () => {
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             {
-              "          In this scenario the struct value T { f1: 1, f2: 2 } no longer exists after the let.If you wish instead to not move and destroy the struct value, you can borrow each of its fields. For example:"
+              " 이 시나리오에서 구조체 값 T { f1: 1, f2: 2 }는 let 뒤에 더 이상 존재하지 않습니다. 대신 구조체 값을 이동하거나 파괴하지 않으려면 각 필드를 빌릴 수 있습니다. 예를 들면 다음과 같습니다."
             }
           </Typography>
         </Box>
@@ -402,7 +399,7 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            And similarly with mutable references:
+            변경 가능한 참조와 마찬가지로 다음과 같습니다.
           </Typography>
         </Box>
       </Grid>
@@ -414,7 +411,7 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            This behavior can also work with nested structs.
+            이 동작은 중첩 구조체에서도 작동할 수 있습니다.{" "}
           </Typography>
         </Box>
       </Grid>
@@ -426,16 +423,15 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
-            Ignoring Values
+            값 무시
           </Typography>
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            In let bindings, it is often helpful to ignore some values. Local
-            variables that start with _ will be ignored and not introduce a new
-            variable{" "}
+            let 바인딩에서 일부 값을 무시하는 것이 종종 도움이 됩니다. 현지의
+            _로 시작하는 변수는 무시되며 새 변수를 도입하지 않습니다. 변수{" "}
           </Typography>
         </Box>
       </Grid>
@@ -452,8 +448,8 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            This can be necessary at times as the compiler will error on unused
-            local variables
+            컴파일러가 사용하지 않을 때 오류가 발생하므로 때때로 필요할 수
+            있습니다. 지역 변수
           </Typography>
         </Box>
       </Grid>
@@ -465,7 +461,7 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
-            General let grammar
+            일반 let 문법{" "}
           </Typography>
         </Box>
       </Grid>
@@ -473,7 +469,7 @@ const study_1 = () => {
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             {
-              "All of the different structures in let can be combined! With that we arrive at this general grammar for let statements:let-binding → let pattern-or-list type-annotationopt initializeropt > pattern-or-list → pattern | ( pattern-list ) > pattern-list → pattern ,opt | pattern , pattern-list > type-annotation → : type initializer → = expressionThe general term for the item that introduces the bindings is a pattern. The pattern serves to both destructure data (possibly recursively) and introduce the bindings. The pattern grammar is as follows:pattern → local-variable | struct-type { field-binding-list } > field-binding-list → field-binding ,opt | field-binding , field-binding-list > field-binding → field | field : patternA few concrete examples with this grammar applied:"
+              "let의 모든 다른 구조를 결합할 수 있습니다! 이를 통해 let 문의 일반 문법에 도달합니다. let-binding → let pattern-or-list type-annotationopt initializeropt > pattern-or-list → pattern | ( pattern- list ) > pattern-list → pattern ,opt | pattern , pattern-list > type-annotation → : type initializer → = expression 바인딩을 도입하는 항목에 대한 일반 용어는 패턴입니다. ) 바인딩을 소개합니다.패턴 문법은 다음과 같습니다:pattern → local-variable | struct-type { field-binding-list } > field-binding-list → field-binding ,opt | field-binding , field-binding- list > field-binding → field | field : pattern이 문법이 적용된 몇 가지 구체적인 예:"
             }
           </Typography>
         </Box>
@@ -486,22 +482,22 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
-            Mutations
+            돌연변이
           </Typography>
         </Box>
       </Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
-            Assignments
+            과제
           </Typography>
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            After the local is introduced (either by let or as a function
-            parameter), the local can be modified via an assignment:
+            로컬이 도입된 후(let 또는 함수로) 매개변수) 로컬은 할당을 통해
+            수정할 수 있습니다.
           </Typography>
         </Box>
       </Grid>
@@ -513,9 +509,8 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            Unlike let bindings, assignments are expressions. In some languages,
-            assignments return the value that was assigned, but in Move, the
-            type of any assignment is always ().
+            let 바인딩과 달리 할당은 표현식입니다. 일부 언어에서는 할당은 할당된
+            값을 반환하지만 Move에서는 할당 유형은 항상 ()입니다.
           </Typography>
         </Box>
       </Grid>
@@ -528,7 +523,7 @@ const study_1 = () => {
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             {
-              "  Practically, assignments being expressions means that they can be used without adding a new expression block with braces ({...})."
+              " 실질적으로 할당이 표현식이라는 것은 중괄호({...})가 있는 새 표현식 블록을 추가하지 않고 사용할 수 있음을 의미합니다."
             }
           </Typography>
         </Box>
@@ -541,7 +536,7 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            The assignment uses the same pattern syntax scheme as let bindings:
+            할당은 let 바인딩과 동일한 패턴 구문 체계를 사용합니다.{" "}
           </Typography>
         </Box>
       </Grid>
@@ -553,8 +548,8 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            Note that a local variable can only have one type, so the type of
-            the local cannot change between assignments.
+            지역 변수는 하나의 유형만 가질 수 있으므로 로컬은 할당 간에 변경할
+            수 없습니다.
           </Typography>
         </Box>
       </Grid>
@@ -566,28 +561,15 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
-            Mutating through a reference
+            참조를 통한 변형
           </Typography>
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            In addition to directly modifying a local with assignment, a local
-            can be modified via a mutable reference &mut.
-          </Typography>
-        </Box>
-      </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
-      </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
-          <Typography variant="body1" gutterBottom>
-            This is particularly useful if either: (1) You want to modify
-            different variables depending on some condition.
+            할당으로 로컬을 직접 수정하는 것 외에도 로컬 변경 가능한 참조 &mut를
+            통해 수정할 수 있습니다.
           </Typography>
         </Box>
       </Grid>
@@ -599,7 +581,8 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            (2) You want another function to modify your local value.
+            이것은 다음과 같은 경우에 특히 유용합니다. (1) 수정하려는 경우 어떤
+            조건에 따라 다른 변수.
           </Typography>
         </Box>
       </Grid>
@@ -611,7 +594,7 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            This sort of modification is how you modify structs and vectors!
+            (2) 다른 함수가 로컬 값을 수정하기를 원합니다.{" "}
           </Typography>
         </Box>
       </Grid>
@@ -623,14 +606,26 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            For more details, see Move references.
+            이러한 종류의 수정은 구조체와 벡터를 수정하는 방법입니다!
+          </Typography>
+        </Box>
+      </Grid>
+      <Grid xs={0} md={3}></Grid>
+      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
+        사진
+      </Grid>
+      <Grid xs={0} md={3}></Grid>
+      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
+        <Box sx={{ width: "100%", textAlign: "left" }}>
+          <Typography variant="body1" gutterBottom>
+            자세한 내용은 참조 이동을 참조하십시오.
           </Typography>
         </Box>
       </Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
-            Scopes
+            범위
           </Typography>
         </Box>
       </Grid>
@@ -638,7 +633,7 @@ const study_1 = () => {
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             {
-              "          Any local declared with let is available for any subsequent expression, within that scope. Scopes are declared with expression blocks, {...}.Locals cannot be used outside of the declared scope.    "
+              " let으로 선언된 로컬은 해당 범위 내에서 후속 표현식에 사용할 수 있습니다. 범위는 {...} 식 블록으로 선언됩니다. 로컬은 선언된 범위 외부에서 사용할 수 없습니다. "
             }{" "}
           </Typography>
         </Box>
@@ -651,7 +646,7 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            But, locals from an outer scope can be used in a nested scope.
+            그러나 외부 범위의 로컬은 중첩 범위에서 사용할 수 있습니다.{" "}
           </Typography>
         </Box>
       </Grid>
@@ -663,9 +658,9 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            Locals can be mutated in any scope where they are accessible. That
-            mutation survives with the local, regardless of the scope that
-            performed the mutation.{" "}
+            로컬은 액세스할 수 있는 모든 범위에서 변경될 수 있습니다. 저것
+            돌연변이는 범위에 관계없이 로컬과 함께 살아남습니다. 돌연변이를
+            수행했습니다.{" "}
           </Typography>
         </Box>
       </Grid>
@@ -677,30 +672,15 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
-            Expression Blocks
+            표현식 블록{" "}
           </Typography>
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            An expression block is a series of statements separated by
-            semicolons (;). The resulting value of an expression block is the
-            value of the last expression in the block.
-          </Typography>
-        </Box>
-      </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
-      </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
-          <Typography variant="body1" gutterBottom>
-            In this example, the result of the block is x + y. A statement can
-            be either a let declaration or an expression. Remember that
-            assignments (x = e) are expressions of type ().
+            식 블록은 다음으로 구분되는 일련의 문입니다. 세미콜론(;). 식 블록의
+            결과 값은 블록의 마지막 표현식 값.
           </Typography>
         </Box>
       </Grid>
@@ -712,8 +692,8 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            Function calls are another common expression of type (). Function
-            calls that modify data are commonly used as statements.
+            이 예에서 블록의 결과는 x + y입니다. 진술은 할 수 있습니다 let 선언
+            또는 표현식이어야 합니다. 기억 할당(x = e)은 () 유형의 표현식입니다.
           </Typography>
         </Box>
       </Grid>
@@ -725,8 +705,21 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            This is not just limited to () types---any expression can be used as
-            a statement in a sequence!
+            함수 호출은 () 유형의 또 다른 일반적인 표현입니다. 기능 데이터를
+            수정하는 호출은 일반적으로 문으로 사용됩니다.
+          </Typography>
+        </Box>
+      </Grid>
+      <Grid xs={0} md={3}></Grid>
+      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
+        사진
+      </Grid>
+      <Grid xs={0} md={3}></Grid>
+      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
+        <Box sx={{ width: "100%", textAlign: "left" }}>
+          <Typography variant="body1" gutterBottom>
+            이것은 () 유형에만 국한되지 않습니다. --- 모든 표현식을 다음과 같이
+            사용할 수 있습니다. 순서대로 진술!
           </Typography>
         </Box>
       </Grid>
@@ -739,7 +732,7 @@ const study_1 = () => {
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             {
-              "       But! If the expression contains a resource (a value without the dropability), you will get an error. This is because Move's type systemguarantees that any value that is dropped has the drop ability.(Ownership must be transferred or the value must be explicitlydestroyed within its declaring module.)"
+              " 하지만! 표현식에 리소스(드롭 가능성이 없는 값)가 포함되어 있으면 오류가 발생합니다. 이는 Move의 유형 시스템이 드롭된 모든 값에 드롭 가능성이 있음을 보장하기 때문입니다.(소유권을 이전하거나 값을 이전해야 합니다. 선언 모듈 내에서 명시적으로 소멸됩니다.)"
             }
           </Typography>
         </Box>
@@ -752,10 +745,9 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            If a final expression is not present in a block---that is, if there
-            is a trailing semicolon ;, there is an implicit unit () value.
-            Similarly, if the expression block is empty, there is an implicit
-            unit () value.
+            최종 표현식이 블록에 없으면 ---즉, 후행 세미콜론 ;, 암시적 단위()
+            값이 있습니다. 마찬가지로 표현식 블록이 비어 있으면 암시적 단위()
+            값.
           </Typography>
         </Box>
       </Grid>
@@ -772,10 +764,9 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            An expression block is itself an expression and can be used anyplace
-            an expression is used. (Note: The body of a function is also an
-            expression block, but the function body cannot be replaced by
-            another expression.)
+            식 블록은 그 자체로 식이며 어디에서나 사용할 수 있습니다. 표현이
+            사용됩니다. (참고: 함수의 본문은 또한 식 블록이지만 함수 본문은
+            다음으로 대체할 수 없습니다. 다른 표현.)
           </Typography>
         </Box>
       </Grid>
@@ -787,24 +778,24 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            (The type annotation is not needed in this example and only added
-            for clarity.)
+            (이 예에서는 유형 주석이 필요하지 않으며 추가만 됩니다. 명확성을
+            위해.)
           </Typography>
         </Box>
       </Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
-            Shadowing
+            섀도잉
           </Typography>
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            If a let introduces a local variable with a name already in scope,
-            that previous variable can no longer be accessed for the rest of
-            this scope. This is called shadowing.
+            let이 이미 범위에 있는 이름을 가진 지역 변수를 도입하는 경우, 그
+            이전 변수는 나머지 기간 동안 더 이상 액세스할 수 없습니다. 이 범위.
+            이것을 쉐도잉이라고 합니다.
           </Typography>
         </Box>
       </Grid>
@@ -816,8 +807,7 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            When a local is shadowed, it does not need to retain the same type
-            as before.
+            로컬이 섀도 처리되면 동일한 유형을 유지할 필요가 없습니다. 이전과.
           </Typography>
         </Box>
       </Grid>
@@ -829,10 +819,10 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            After a local is shadowed, the value stored in the local still
-            exists, but will no longer be accessible. This is important to keep
-            in mind with values of types without the drop ability, as ownership
-            of the value must be transferred by the end of the function.
+            로컬이 가려진 후에도 로컬에 저장된 값은 여전히 존재하지만 더 이상
+            액세스할 수 없습니다. 이것은 유지하는 것이 중요합니다 드롭 기능이
+            없는 유형의 값을 소유권으로 염두에 두십시오. 의 값은 함수가 끝날
+            때까지 전송되어야 합니다.
           </Typography>
         </Box>
       </Grid>
@@ -844,8 +834,8 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            When a local is shadowed inside a scope, the shadowing only remains
-            for that scope. The shadowing is gone once that scope ends.
+            로컬이 범위 내에서 섀도잉되면 섀도잉만 남습니다. 해당 범위에 대해.
+            범위가 끝나면 그림자가 사라집니다.
           </Typography>
         </Box>
       </Grid>
@@ -857,48 +847,8 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            Remember, locals can change type when they are shadowed.
-          </Typography>
-        </Box>
-      </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
-      </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
-          <Typography variant="h3" gutterBottom>
-            Move and Copy
-          </Typography>
-        </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
-          <Typography variant="body1" gutterBottom>
-            All local variables in Move can be used in two ways, either by move
-            or copy. If one or the other is not specified, the Move compiler is
-            able to infer whether a copy or a move should be used. This means
-            that in all of the examples above, a move or a copy would be
-            inserted by the compiler. A local variable cannot be used without
-            the use of move or copy. copy will likely feel the most familiar
-            coming from other programming languages, as it creates a new copy of
-            the value inside of the variable to use in that expression. With
-            copy, the local variable can be used more than once.
-          </Typography>
-        </Box>
-      </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
-      </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
-          <Typography variant="body1" gutterBottom>
-            Any value with the copy ability can be copied in this way. move
-            takes the value out of the local variable without copying the data.
-            After a move occurs, the local variable is unavailable.
+            지역 주민은 그림자가 드리워지면 유형을 변경할 수 있음을
+            기억하십시오.{" "}
           </Typography>
         </Box>
       </Grid>
@@ -910,39 +860,77 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
-            Safety{" "}
+            이동 및 복사
           </Typography>
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            Move's type system will prevent a value from being used after it is
-            moved. This is the same safety check described in let declaration
-            that prevents local variables from being used before it is assigned
-            a value.
+            Move의 모든 지역 변수는 두 가지 방법으로 사용할 수 있습니다. 또는
+            복사합니다. 둘 중 하나가 지정되지 않은 경우 Move 컴파일러는 복사
+            또는 이동을 사용해야 하는지 여부를 추론할 수 있습니다. 이것은
+            의미합니다 위의 모든 예에서 이동 또는 복사는 컴파일러에 의해
+            삽입됩니다. 없이는 지역 변수를 사용할 수 없습니다. 이동 또는 복사
+            사용. 사본이 가장 친숙하게 느껴질 것입니다. 새로운 사본을 생성하므로
+            다른 프로그래밍 언어에서 해당 식에서 사용할 변수 내부의 값입니다. 와
+            함께 copy, 지역 변수는 두 번 이상 사용할 수 있습니다.
+          </Typography>
+        </Box>
+      </Grid>
+      <Grid xs={0} md={3}></Grid>
+      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
+        사진
+      </Grid>
+      <Grid xs={0} md={3}></Grid>
+      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
+        <Box sx={{ width: "100%", textAlign: "left" }}>
+          <Typography variant="body1" gutterBottom>
+            복사 기능이 있는 값은 이 방법으로 복사할 수 있습니다. 이동하다
+            데이터를 복사하지 않고 로컬 변수에서 값을 가져옵니다. 이동이 발생한
+            후에는 로컬 변수를 사용할 수 없습니다.
+          </Typography>
+        </Box>
+      </Grid>
+      <Grid xs={0} md={3}></Grid>
+      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
+        사진
+      </Grid>
+      <Grid xs={0} md={3}></Grid>
+      <Grid xs={12}>
+        <Box sx={{ width: "100%" }}>
+          <Typography variant="h3" gutterBottom>
+            안전
+          </Typography>
+        </Box>
+      </Grid>
+      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
+        <Box sx={{ width: "100%", textAlign: "left" }}>
+          <Typography variant="body1" gutterBottom>
+            Move의 유형 시스템은 값이 지정된 후에 사용되는 것을 방지합니다.
+            움직이는. 이것은 let 선언에 설명된 것과 동일한 안전 검사입니다.
+            할당되기 전에 지역 변수가 사용되는 것을 방지합니다. 가치.
           </Typography>
         </Box>
       </Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
-            Inference
+            추론
           </Typography>
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            As mentioned above, the Move compiler will infer a copy or move if
-            one is not indicated. The algorithm for doing so is quite simple:
-            Any scalar value with the copy ability is given a copy. Any
-            reference (both mutable &mut and immutable &) is given a copy.
-            Except under special circumstances where it is made a move for
-            predictable borrow checker errors. Any other value is given a move.
-            This means that even though other values might be have the copy
-            ability, it must be done explicitly by the programmer. This is to
-            prevent accidental copies of large data structures.
+            위에서 언급했듯이 Move 컴파일러는 다음과 같은 경우 복사 또는 이동을
+            유추합니다. 하나는 표시되지 않습니다. 이를 수행하는 알고리즘은 매우
+            간단합니다. 복사 기능이 있는 모든 스칼라 값에는 복사본이 제공됩니다.
+            어느 참조(가변 &mut 및 불변 & 모두)에 사본이 제공됩니다. 위해
+            이동하는 특별한 경우를 제외하고는 예측 가능한 빌림 검사기 오류. 다른
+            모든 값에는 이동이 제공됩니다. 이것은 다른 값이 복사본을 가질 수
+            있음을 의미합니다. 프로그래머가 명시적으로 수행해야 합니다. 이것은
+            큰 데이터 구조의 우발적 복사를 방지합니다.
           </Typography>
         </Box>
       </Grid>
