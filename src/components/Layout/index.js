@@ -1,4 +1,4 @@
-const Layout = () => {
+const Layout = ({ children }) => {
   return (
     <>
       <title>Move Book</title>
