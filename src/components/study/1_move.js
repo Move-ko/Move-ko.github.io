@@ -2,7 +2,6 @@ import Grid from "@mui/material/Unstable_Grid2";
 import Copy from "../util/copy";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { useRouter } from "next/router";
 const study_1 = () => {
   const code1 = `  script {
     <use>*
@@ -176,34 +175,16 @@ const study_1 = () => {
       <Grid xs={12} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            script는 use({" "}
-            <span style={{ color: "purple" }}>
-              다른 모듈에서 유형을 가져오는데 사용하는 함수
-            </span>
-            )로 선언으로 시작하며 그 밑에 상수 그밑에 함수순으로 진행
-            되어야합니다.main함수는 어떤 이름이든 가질수 있으며(
-            <span style={{ color: "purple" }}>
-              main함수를 호출할 필요가 없음.
-            </span>
-            )스크립트 내의 유일한 함수이며 인수를 얼마든지 가질수 있고 값은
-            반환할수 없습니다.또한 스크립트에는 스크립트는 권한이 매우 제한되어
-            있습니다(
-            <span style={{ color: "purple" }}>
-              Friends함수를 선언하거나 유형을 구성하거나 전역저장소에 접근 할 수
-              없습니다.
-            </span>
-            )주요 목적은 모듈 함수를 호출하는 것입니다.
+            스크립트 블록은 모든 use 선언으로 시작해야 하며, 그 다음에는 상수
+            선언이 올 것이고, 마지막으로 main 함수가 선언되어야 합니다. main
+            함수는 임의의 이름을 가질 수 있으며 (즉, main일 필요는 없습니다),
+            스크립트 블록 내에서 유일한 함수이며, 임의의 개수의 인수를 가질 수
+            있으며, 값을 반환해서는 안 됩니다. 다음은 이러한 구성 요소를 모두
+            포함한 예시입니다:
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={12}>
-        <Box sx={{ width: "100%", textAlign: "left" }}></Box>
-        <Typography>
-          <span style={{ color: "purple" }}>
-            * friend: 현재 모듈에서 신뢰하는 모듈을 선언하는 데 사용됩니다.
-          </span>
-        </Typography>
-      </Grid>
+
       <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code2} />
       </Grid>
