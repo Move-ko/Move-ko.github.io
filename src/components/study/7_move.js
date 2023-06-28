@@ -107,9 +107,8 @@ const study_1 = () => {
           <Typography variant="body1" gutterBottom>
             Move는 참조를 만들고 확장할 뿐만 아니라 변경 가능한 참조를 변경
             불가능한 참조로 변환하기 위한 연산자를 제공합니다. 여기와 다른
-            곳에서는{" "}
+            곳에서는
             <span style={{ color: "purple" }}>
-              {" "}
               "표현식 e에는 T 유형이 있음"
             </span>
             에 대해 표기법 <span style={{ color: "purple" }}> e: T</span>를

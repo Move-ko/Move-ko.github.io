@@ -3,12 +3,348 @@ import Grid from "@mui/material/Unstable_Grid2";
 import Typography from "@mui/material/Typography";
 import Copy from "../util/copy";
 import Box from "@mui/material/Box";
+import Span from "../util/span";
 const study_1 = () => {
   const code1 = `  let x = 1;
   let y = x + x:
 `;
   const code2 = `  let x;
 `;
+  const code3 = ` let x;
+  if (cond) {
+    x = 1
+  } else {
+    x = 0
+  }
+`;
+  const code4 = `  let x;
+  let cond = true;
+  let i = 0;
+  loop {
+      (x, cond) = foo(i);
+      if (!cond) break;
+      i = i + 1;
+  }
+`;
+  const code5 = `  let x;
+  x + x // 에러발생!
+
+`;
+  const code6 = `  let x;
+  if (cond) x = 0;
+  x + x // 에러발생!`;
+  const code7 = `  let x;
+  while (cond) x = 0;
+  x + x // 에러발생!
+`;
+  const code8 = `  //모두 유효
+  let x = e;
+  let _x = e;
+  let _A = e;
+  let x0 = e;
+  let xA = e;
+  let foobar_123 = e;
+  
+  // 모두 유효하지 않음
+  let X = e; // 에러!
+  let Foo = e; // 에러!
+`;
+  const code9 = `  let x: T = e; // T 유형의 변수 x는 표현식 e로 초기화됩니다.
+`;
+  const code10 = `  address 0x42 {
+    module example {
+    
+        struct S { f: u64, g: u64 }
+    
+        fun annotated() {
+            let u: u8 = 0;
+            let b: vector<u8> = b"hello";
+            let a: address = @0x0;
+            let (x, y): (&u64, &mut u64) = (&0, &mut 1);
+            let S { f, g: f2 }: S = S { f: 0, g: 1 };
+        }
+    }
+}
+`;
+
+  const code11 = `  let (x: &u64, y: &mut u64) = (&0, &mut 1); // 오류! (x, y): ... =여야 합니다. `;
+
+  const code12 = `  let _v1 = vector::empty(); // 에러가 발생!
+  //        ^^^^^^^^^^^^^^^ 이 유형을 추론할 수 없습니다. 주석을 추가해 보세요.
+  let v2: vector<u64> = vector::empty(); //에러가 발생하지않음
+  `;
+  const code13 = `  let a: u8 = return ();
+  let b: bool = abort 0;
+  let c: signer = loop ();
+  
+  let x = return (); // 오류!
+  //  ^ 이 유형을 추론할 수 없습니다. 주석을 추가해 보세요
+  let y = abort 0; // 오류!
+  //  ^ 이 유형을 추론할 수 없습니다. 주석을 추가해 보세요
+  let z = loop (); // 오류!
+  //  ^ 이 유형을 추론할 수 없습니다. 주석을 추가해 보세요
+`;
+  const code14 = `  let () = ();
+  let (x0, x1) = (0, 1);
+  let (y0, y1, y2) = (0, 1, 2);
+  let (z0, z1, z2, z3) = (0, 1, 2, 3);
+`;
+  const code15 = `  let (x, y) = (0, 1, 2); // 오류!
+  let (x, y, z, q) = (0, 1, 2); // 오류!
+`;
+  const code16 = `  let (x, x) = 0; // 오류!
+`;
+  const code17 = `  struct T { f1: u64, f2: u64 }`;
+  const code18 = `  let T { f1: local1, f2: local2 } = T { f1: 1, f2: 2 };
+  // local1: u64
+  // local2: u64
+`;
+  const code19 = `  address 0x42 {
+    module example {
+        struct X { f: u64 }
+        struct Y { x1: X, x2: X }
+    
+        fun new_x(): X {
+            X { f: 1 }
+        }
+    
+        fun example() {
+            let Y { x1: X { f }, x2 } = Y { x1: new_x(), x2: new_x() };
+            assert!(f + x2.f == 2, 42);
+    
+            let Y { x1: X { f: f1 }, x2: X { f: f2 } } = Y { x1: new_x(), x2: new_x() };
+            assert!(f1 + f2 == 2, 42);
+        }
+    }
+    }
+`;
+  const code20 = `  let X { f } = e;`;
+  const code21 = `  let X { f: f } = e;`;
+  const code22 = `  let Y { x1: x, x2: x } = e; // 오류!`;
+  //여기부터
+  const code23 = `  struct T { f1: u64, f2: u64 }`;
+  const code24 = `  let T { f1: local1, f2: local2 } = T { f1: 1, f2: 2 };
+  // local1: u64
+  // local2: u64`;
+  const code25 = `  let t = T { f1: 1, f2: 2 };
+  let T { f1: local1, f2: local2 } = &t;
+  // local1: &u64
+  // local2: &u64`;
+  const code26 = `  let t = T { f1: 1, f2: 2 };
+  let T { f1: local1, f2: local2 } = &mut t;
+  // local1: &mut u64
+  // local2: &mut u64`;
+  const code27 = `  address 0x42 {
+    module example {
+        struct X { f: u64 }
+        struct Y { x1: X, x2: X }
+    
+        fun new_x(): X {
+            X { f: 1 }
+        }
+    
+        fun example() {
+            let y = Y { x1: new_x(), x2: new_x() };
+    
+            let Y { x1: X { f }, x2 } = &y;
+            assert!(*f + x2.f == 2, 42);
+    
+            let Y { x1: X { f: f1 }, x2: X { f: f2 } } = &mut y;
+            *f1 = *f1 + 1;
+            *f2 = *f2 + 1;
+            assert!(*f1 + *f2 == 4, 42);
+        }
+    }
+    }`;
+  const code28 = `  fun three(): (u64, u64, u64) {
+    (0, 1, 2)
+}`;
+  const code29 = `  let (x1, _, z1) = three();
+  let (x2, _y, z2) = three();
+  assert!(x1 + z1 == x2 + z2, 42);`;
+  const code30 = `  let (x1, y, z1) = three(); // ERROR!
+  //       ^ unused local 'y'`;
+  const code31 = `      let (x, y): (u64, u64) = (0, 1);
+  //       ^                           local-variable
+  //       ^                           pattern
+  //          ^                        local-variable
+  //          ^                        pattern
+  //          ^                        pattern-list
+  //       ^^^^                        pattern-list
+  //      ^^^^^^                       pattern-or-list
+  //            ^^^^^^^^^^^^           type-annotation
+  //                         ^^^^^^^^  initializer
+  //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ let-binding
+  
+      let Foo { f, g: x } = Foo { f: 0, g: 1 };
+  //      ^^^                                    struct-type
+  //            ^                                field
+  //            ^                                field-binding
+  //               ^                             field
+  //                  ^                          local-variable
+  //                  ^                          pattern
+  //               ^^^^                          field-binding
+  //            ^^^^^^^                          field-binding-list
+  //      ^^^^^^^^^^^^^^^                        pattern
+  //      ^^^^^^^^^^^^^^^                        pattern-or-list
+  //                      ^^^^^^^^^^^^^^^^^^^^   initializer
+  //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ let-binding`;
+  const code32 = `  x = e`;
+  const code33 = `  (x = e: ())`;
+  const code34 = `  let x = 0;
+  if (cond) x = 1 else x = 2;`;
+  const code35 = `  address 0x42 {
+    module example {
+        struct X { f: u64 }
+    
+        fun new_x(): X {
+            X { f: 1 }
+        }
+    
+        // This example will complain about unused variables and assignments.
+        fun example() {
+           let (x, _, z) = (0, 1, 3);
+           let (x, y, f, g);
+    
+           (X { f }, X { f: x }) = (new_x(), new_x());
+           assert!(f + x == 2, 42);
+    
+           (x, y, z, f, _, g) = (0, 0, 0, 0, 0, 0);
+        }
+    }
+    }`;
+  const code36 = `  let x;
+  x = 0;
+  x = false; // ERROR!`;
+  const code37 = `  let x = 0;
+  let r = &mut x;
+  *r = 1;
+  assert!(x == 1, 42);`;
+  const code38 = `  let x = 0;
+  let y = 1;
+  let r = if (cond) &mut x else &mut y;
+  *r = *r + 1;`;
+  const code39 = `  let x = 0;
+  modify_ref(&mut x);`;
+  const code40 = `  let v = vector::empty();
+  vector::push_back(&mut v, 100);
+  assert!(*vector::borrow(&v, 0) == 100, 42);`;
+  const code41 = `  let x = 0;
+  {
+      let y = 1;
+  };
+  x + y // ERROR!
+  //  ^ unbound local 'y'`;
+  const code42 = `  {
+    let x = 0;
+    {
+        let y = x + 1; // valid
+    }
+}`;
+  const code43 = `  let x = 0;
+  x = x + 1;
+  assert!(x == 1, 42);
+  {
+      x = x + 1;
+      assert!(x == 2, 42);
+  };
+  assert!(x == 2, 42);`;
+  const code44 = `  { let x = 1; let y = 1; x + y }`;
+
+  const code45 = `  { let x; let y = 1; x = 1; x + y }`;
+  const code46 = `  { let v = vector::empty(); vector::push_back(&mut v, 1); v }`;
+  const code47 = `  {
+    let x = 0;
+    x + 1; // value is discarded
+    x + 2; // value is discarded
+    b"hello"; // value is discarded
+}`;
+  const code48 = `  {
+    let x = 0;
+    Coin { value: x }; // ERROR!
+//  ^^^^^^^^^^^^^^^^^ unused value without the drop ability
+    x
+}`;
+  const code49 = `  // Both are equivalent
+  { x = x + 1; 1 / x; }
+  { x = x + 1; 1 / x; () }`;
+  const code50 = `  // Both are equivalent
+  { }
+  { () }`;
+  const code51 = `  let my_vector: vector<vector<u8>> = {
+    let v = vector::empty();
+    vector::push_back(&mut v, b"hello");
+    vector::push_back(&mut v, b"goodbye");
+    v
+};`;
+  const code52 = `  let x = 0;
+  assert!(x == 0, 42);
+  
+  let x = 1; // x is shadowed
+  assert!(x == 1, 42);
+  
+  `;
+  const code53 = `  let x = 0;
+  assert!(x == 0, 42);
+  
+  let x = b"hello"; // x is shadowed
+  assert!(x == b"hello", 42);
+  
+  `;
+  const code54 = `  address 0x42 {
+    module example {
+        struct Coin has store { value: u64 }
+
+        fun unused_resource(): Coin {
+            let x = Coin { value: 0 }; // ERROR!
+//              ^ This local still contains a value without the drop ability
+            x.value = 1;
+            let x = Coin { value: 10 };
+            x
+//          ^ Invalid return
+        }
+    }
+}`;
+  const code55 = `  let x = 0;
+  {
+      let x = 1;
+      assert!(x == 1, 42);
+  };
+  assert!(x == 0, 42);`;
+  const code56 = `  let x = 0;
+  {
+      let x = b"hello";
+      assert!(x = b"hello", 42);
+  };
+  assert!(x == 0, 42);`;
+  const code57 = `  let x = 0;
+  let y = copy x + 1;
+  let z = copy x + 2;`;
+  const code58 = `  let x = 1;
+  let y = move x + 1;
+  //      ------ Local was moved here
+  let z = move x + 2; // Error!
+  //      ^^^^^^ Invalid usage of local 'x'
+  y + z`;
+  const code59 = `  let s = b"hello";
+  let foo = Foo { f: 0 };
+  let coin = Coin { value: 0 };
+  
+  let s2 = s; // move
+  let foo2 = foo; // move
+  let coin2 = coin; // move
+  
+  let x = 0;
+  let b = false;
+  let addr = @0x42;
+  let x_ref = &x;
+  let coin_ref = &mut coin2;
+  
+  let x2 = x; // copy
+  let b2 = b; // copy
+  let addr2 = @0x42; // copy
+  let x_ref2 = x_ref; // copy
+  let coin_ref2 = coin_ref; // copy`;
   return (
     <Grid container>
       <Grid xs={12}>
@@ -21,7 +357,9 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            Move의 지역 변수는 어휘(정적으로) 범위가 지정됩니다. 새 변수는 let
+            Move의 지역 변수는 어휘(
+            <Span text={"정적으로"} />) 범위가 지정됩니다. 새 변수는
+            <Span text={"let"} />
             키워드로 도입되며 동일한 이름을 가진 이전 로컬을 숨깁니다. 로컬은
             변경 가능하며 직접 업데이트하거나 변경 가능한 참조를 통해 업데이트할
             수 있습니다.
@@ -35,7 +373,6 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
@@ -46,7 +383,8 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            이동 프로그램은 let을 사용하여 변수 이름을 값에 바인딩합니다.
+            Move는 <Span text={"let"} />을 사용하여 변수 이름을 값에
+            바인딩합니다.
           </Typography>
         </Box>
       </Grid>
@@ -56,7 +394,8 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            let은 로컬에 값을 바인딩하지 않고 사용할 수도 있습니다.{" "}
+            <Span text={"let"} />은 지역변수에 값을 바인딩하지 않고 사용할 수도
+            있습니다.
           </Typography>
         </Box>
       </Grid>
@@ -66,32 +405,28 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            그런 다음 로컬에 나중에 값을 할당할 수 있습니다.{" "}
+            그런 다음 지역변수에 나중에 값을 할당할 수 있습니다.
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        9_3
+      <Grid xs={12} md={12}>
+        <Copy code={code3} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             이는 기본값을 제공할 수 없을 때 루프에서 값을 추출하려고 할 때 매우
-            유용할 수 있습니다.{" "}
+            유용할 수 있습니다.
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        9_4
+      <Grid xs={12} md={12}>
+        <Copy code={code4} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
-          <Typography variant="h3" gutterBottom>
-            사용하기 전에 변수를 할당해야 함
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
+            사용하기 전에 변수를 초기화해야합니다
           </Typography>
         </Box>
       </Grid>
@@ -103,42 +438,35 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code5} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code6} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code7} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
-          <Typography variant="h3" gutterBottom>
-            유효한 변수 이름{" "}
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
+            유효한 변수 이름
           </Typography>
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            변수 이름에는 밑줄 _, 문자 a~z, 문자 A~Z, 숫자 0~9가 포함될 수
-            있습니다. 변수 이름은 밑줄 _ 또는 문자 a~z로 시작해야 합니다.
-            대문자로 시작할 수 없습니다.
+            변수 이름에는 밑줄 <Span text={"_, 문자 a~z, 문자 A~Z, 숫자 0~9"} />
+            가 포함될 수 있습니다. 변수 이름은 <Span text={"밑줄 _"} />
+            또는 문자 <Span text={" a~z"} />로 시작해야 합니다. 대문자로 시작할
+            수 없습니다.
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code8} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
@@ -155,13 +483,19 @@ const study_1 = () => {
             다음과 같습니다.
           </Typography>
         </Box>
+        <Box sx={{ width: "100%", textAlign: "center" }}>
+          <Typography variant="body1" gutterBottom>
+            <Span
+              text={
+                "    *유형주석:변수, 매개변수, 반환 값 등에 대해 유형 정보를 명시적으로 표기하는 것을 의미"
+              }
+            />
+          </Typography>
+        </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code9} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -169,11 +503,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code10} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -181,51 +513,46 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code11} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h3" gutterBottom>
-            주석이 필요한 경우{" "}
+            주석이 필요한 경우
           </Typography>
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            경우에 따라 유형이 다음과 같은 경우 로컬 유형 주석이 필요합니다.
+            경우에 따라 유형이 다음과 같은 경우 지역변수 유형 주석이 필요합니다.
             시스템이 유형을 유추할 수 없습니다. 이것은 일반적으로 유형이 다음과
             같은 경우에 발생합니다. 제네릭 형식에 대한 인수를 유추할 수
             없습니다. 예를 들어:
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code12} />
       </Grid>
-
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             드물게 유형 시스템이 유형을 유추하지 못할 수 있습니다. 발산 코드의
-            경우(다음 코드에 도달할 수 없는 경우). return과 abort는 둘 다
-            표현식이며 모든 유형을 가질 수 있습니다. 루프 중단이 있으면 ()
+            경우( <Span text={"다음 코드에 도달할 수 없는 경우"} />
+            ). <Span text={"return"} />과 <Span text={"abort"} />는 둘 다
+            표현식이며 모든 유형을 가질 수 있습니다. 루프 중단이 있으면{" "}
+            <Span text={"()"} />
             유형을 가지지만 중단이 없는 경우 루프, 모든 유형을 가질 수 있습니다.
             이러한 유형을 유추할 수 없는 경우 유형 주석이 필요합니다. 예를 들어
             이 코드는 다음과 같습니다.
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code13} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -235,9 +562,8 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-
       <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h3" gutterBottom>
             튜플을 사용한 여러 선언
           </Typography>
@@ -246,17 +572,15 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            let은 튜플을 사용하여 한 번에 둘 이상의 로컬을 소개할 수 있습니다.
-            그만큼 괄호 안에 선언된 지역은 다음으로 초기화됩니다. 튜플의 해당
-            값.
+            let을 사용하여 튜플을 이용해 한 번에 여러 개의 로컬 변수를 동시에
+            선언할 수 있습니다. 괄호 내에 선언된 로컬 변수들은 튜플에서 해당하는
+            값으로 초기화됩니다.
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code14} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -264,12 +588,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code15} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -277,11 +598,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code16} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
@@ -298,16 +617,12 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code17} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code18} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -315,11 +630,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code19} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -328,23 +641,19 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code20} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            다음과 같습니다.{" "}
+            다음과 같습니다.
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code21} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -353,11 +662,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code22} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
@@ -373,16 +680,12 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code23} />
+      </Grid>{" "}
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code24} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
-      </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -392,11 +695,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code25} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -404,11 +705,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code26} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -416,11 +715,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code27} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
@@ -436,16 +733,12 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code28} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code29} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -454,11 +747,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code30} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
@@ -475,11 +766,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code31} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
@@ -502,11 +791,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code32} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -515,11 +802,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code33} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -529,11 +814,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code34} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -541,11 +824,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code35} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -554,11 +835,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code36} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
@@ -574,11 +853,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code37} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -587,11 +864,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code38} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -599,11 +874,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code39} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -611,11 +884,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code40} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -639,11 +910,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code41} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -651,11 +920,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code42} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -665,11 +932,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code43} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
@@ -685,11 +950,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code44} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -698,11 +961,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code45} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -711,11 +972,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code46} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -724,11 +983,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code47} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -738,11 +995,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code48} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -752,16 +1007,12 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code49} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code50} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -771,11 +1022,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code51} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -800,11 +1049,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code52} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -812,11 +1059,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code53} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -827,11 +1072,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code54} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -840,11 +1083,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code55} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -853,11 +1094,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code56} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
@@ -879,11 +1118,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code57} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -893,11 +1130,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code58} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
@@ -935,11 +1170,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        사진
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code59} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
     </Grid>
   );
 };
