@@ -815,14 +815,14 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h3" gutterBottom>
-            변경
+            변경(Mutations)
           </Typography>
         </Box>
       </Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
-            할당
+            할당(Assignments)
           </Typography>
         </Box>
       </Grid>
@@ -945,8 +945,8 @@ const study_1 = () => {
       </Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
-          <Typography variant="h3" gutterBottom>
-            범위
+          <Typography variant="h4" gutterBottom>
+            범위(Scope)
           </Typography>
         </Box>
       </Grid>
@@ -1075,9 +1075,11 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            만약 블록 안에 최종 표현식이 없는 경우 - 즉, 후행 세미콜론 ;이 있는
-            경우 - 암시적으로 단위 () 값이 존재합니다. 마찬가지로, 표현식 블록이
-            비어있는 경우에도 암시적으로 단위 () 값이 있습니다.
+            만약 블록 안에 최종 표현식이 없는 경우 - 즉, 후행 세미콜론{" "}
+            <Span text={";"} /> 이 있는 경우 - 암시적으로 단위
+            <Span text={"()"} /> 값이 존재합니다. 마찬가지로, 표현식 블록이
+            비어있는 경우에도 암시적으로 단위 <Span text={"()"} /> 값이
+            있습니다.
           </Typography>
         </Box>
       </Grid>
@@ -1090,9 +1092,14 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            표현식 블록은 그 자체로 표현식이며, 표현식이 사용되는 모든 곳에서
-            사용할 수 있습니다. (참고: 함수의 본문도 표현식 블록이지만, 함수
-            본문은 다른 표현식으로 대체할 수 없습니다.)
+            <Span text={"표현식블록"} />은 그 자체로 표현식이며, 표현식이
+            사용되는 모든 곳에서 사용할 수 있습니다. (참고:{" "}
+            <Span
+              text={
+                "함수의 본문도 표현식 블록이지만, 함수 본문은 다른 표현식으로 대체할수 없습니다."
+              }
+            />
+            )
           </Typography>
         </Box>
       </Grid>
@@ -1110,16 +1117,17 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h3" gutterBottom>
-            섀도잉
+            섀도잉(shadowing)
           </Typography>
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            만약 let을 사용하여 이미 스코프에 존재하는 이름의 로컬 변수를
-            도입한다면, 해당 이전 변수는 이후에 해당 스코프에서 더 이상 접근할
-            수 없습니다. 이를 shadowing이라고 합니다.
+            만약 let을 사용하여 이미 <Span text={"scope"} />에 존재하는 이름의
+            지역 변수를 도입한다면, 해당 이전 변수는 이후에 해당 스코프에서 더
+            이상 접근할 수 없습니다. 이를 <Span text={"shadowing"} />
+            이라고 합니다.
           </Typography>
         </Box>
       </Grid>
@@ -1129,8 +1137,8 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            로컬 변수가 shadowing되면, 이전과 동일한 타입을 유지할 필요는
-            없습니다.
+            지역 변수가 <Span text={"shadowing"} />
+            되면, 이전과 동일한 타입을 유지할 필요는 없습니다.
           </Typography>
         </Box>
       </Grid>
@@ -1140,10 +1148,11 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            로컬 변수가 shadowing된 후에도 해당 변수에 저장된 값은 여전히
-            존재하지만 더 이상 접근할 수 없습니다. 이는 drop 기능이 없는 타입의
-            값들에 대해 유의해야 하는 중요한 사항입니다. 해당 값의 소유권은
-            함수가 끝나기 전에 전달되어야 합니다.
+            지역 변수가 <Span text={"shadowing"} />된 후에도 해당 변수에 저장된
+            값은 여전히 존재하지만 더 이상 접근할 수 없습니다. 이는{" "}
+            <Span text={"drop"} /> 기능이 없는 타입의 값들에 대해 유의해야 하는
+            중요한 사항입니다. 해당 값의 <Span text={"소유권"} />은 함수가
+            끝나기 전에 전달되어야 합니다.
           </Typography>
         </Box>
       </Grid>
@@ -1153,9 +1162,10 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            로컬 변수가 스코프 내에서 shadowing된 경우, 해당 shadowing은 그
-            스코프 내에서만 유지됩니다. 해당 스코프가 종료되면 shadowing은
-            사라집니다.
+            지역 변수가 <Span text={"scope"} /> 내에서{" "}
+            <Span text={"shadowing"} />된 경우, 해당 <Span text={"shadowing"} />
+            은 그 <Span text={"scope"} /> 내에서만 유지됩니다. 해당 scope가
+            종료되면 <Span text={"shadowing"} />은 사라집니다.
           </Typography>
         </Box>
       </Grid>
@@ -1165,7 +1175,8 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            기억해 주세요, 로컬 변수는 shadowing될 때 타입이 변경될 수 있습니다.
+            기억해 주세요, 지역 변수는 <Span text={"shadowing"} />될 때 타입이
+            변경될 수 있습니다.
           </Typography>
         </Box>
       </Grid>
@@ -1182,18 +1193,23 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            Move 언어에서는 모든 로컬 변수를 move 또는 copy의 두 가지 방법으로
-            사용할 수 있습니다. 둘 중 하나가 명시되지 않은 경우, Move 컴파일러는
-            복사(copy) 또는 이동(move)을 사용해야 하는지를 추론할 수 있습니다.
-            이는 위의 모든 예제에서 컴파일러가 move 또는 copy를 삽입한다는 것을
-            의미합니다. 로컬 변수는 move 또는 copy 없이 사용할 수 없습니다.
+            Move 언어에서는 모든 지역 변수를 <Span text={"move"} /> 또는
+            <Span text={"copy"} />의 두 가지 방법으로 사용할 수 있습니다. 둘 중
+            하나가 명시되지 않은 경우, Move 컴파일러는 복사(
+            <Span text={"copy"} />) 또는 이동( <Span text={"move"} />
+            )을 사용해야 하는지를 추론할 수 있습니다. 이는 위의 모든 예제에서
+            컴파일러가 <Span text={"move"} /> 또는 <Span text={"copy"} />를
+            삽입한다는 것을 의미합니다. 지역변수 변수는 <Span text={"move"} />{" "}
+            또는
+            <Span text={"copy"} /> 없이 사용할 수 없습니다.
           </Typography>
         </Box>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            copy는 다른 프로그래밍 언어에서 익숙할 것입니다. 변수 내부의 값을
-            새로 복사하여 해당 표현식에서 사용합니다. copy를 사용하면 로컬
-            변수를 한 번 이상 사용할 수 있습니다.
+            <Span text={"copy"} />는 다른 프로그래밍 언어에서 익숙할 것입니다.
+            변수 내부의 값을 새로 복사하여 해당 표현식에서 사용합니다.
+            <Span text={"copy"} />를 사용하면 로컬 변수를 한 번 이상 사용할 수
+            있습니다.
           </Typography>
         </Box>
       </Grid>
@@ -1203,9 +1219,10 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            copy와 달리, move는 데이터를 복사하지 않고 로컬 변수에서 값을
-            가져옵니다. Move가 발생한 후에는 해당 로컬 변수를 사용할 수
-            없습니다. move는 로컬 변수에서 값을 가져오는 동시에 변수를 비웁니다.
+            copy와 달리, <Span text={"move"} />는 데이터를 복사하지 않고 지역
+            변수에서 값을 가져옵니다. Move가 발생한 후에는 해당 지역 변수를
+            사용할 수 없습니다. move는 지역 변수에서 값을 가져오는 동시에
+            <Span text={"변수를 비웁니다."} />
           </Typography>
         </Box>
       </Grid>
@@ -1222,9 +1239,10 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            Move의 타입 시스템은 값을 move한 후에 사용되는 것을 방지합니다. 이는
-            let 선언에서 설명한 것과 동일한 안전성 검사입니다. 이는 로컬 변수가
-            값을 할당하기 전에 사용되는 것을 방지하는 기능입니다.
+            Move의 타입 시스템은 값을 <Span text={"move"} />한 후에 사용되는
+            것을 방지합니다. 이는 let 선언에서 설명한 것과 동일한 안전성
+            검사입니다. 이는 로컬 변수가 값을 할당하기 전에 사용되는 것을
+            방지하는 기능입니다.
           </Typography>
         </Box>
       </Grid>
@@ -1238,20 +1256,25 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            앞서 언급한대로, Move 컴파일러는 명시적으로 복사(copy) 또는
-            이동(move)가 지정되지 않은 경우에도 자동으로 복사 또는 이동을
-            추론합니다. 이를 위한 알고리즘은 매우 간단합니다.
+            앞서 언급한대로, Move 컴파일러는 명시적으로 복사({" "}
+            <Span text={"copy"} />) 또는 이동( <Span text={"move"} />
+            )가 지정되지 않은 경우에도 자동으로 <Span text={"복사"} /> 또는
+            <Span text={"이동"} />을 추론합니다. 이를 위한 알고리즘은 매우
+            간단합니다.
           </Typography>
         </Box>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            ﹥복사(copy) 능력을 갖는 스칼라 값은 복사(copy)로 처리됩니다.
+            ﹥복사( <Span text={"copy"} />) 능력을 갖는 스칼라 값은 복사({" "}
+            <Span text={"copy"} />
+            )로 처리됩니다.
           </Typography>
         </Box>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            &emsp; &emsp; ⇥참조자 (가변 &mut 및 불변 &) 는 복사(copy)로
-            처리됩니다.
+            &emsp; &emsp; ⇥참조자 ( <Span text={"가변 &mut 및 불변 &"} />) 는
+            복사( <Span text={"copy"} />
+            )로 처리됩니다.
           </Typography>
         </Box>
         <Box sx={{ width: "100%", textAlign: "left" }}>
@@ -1262,13 +1285,15 @@ const study_1 = () => {
         </Box>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            ﹥다른 모든 값은 이동(move)으로 처리됩니다.
+            ﹥다른 모든 값은 이동( <Span text={"move"} />
+            )으로 처리됩니다.
           </Typography>
         </Box>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            &emsp; &emsp; ⇥이는 다른 값들이 복사(copy) 능력을 가질지라도,
-            프로그래머가 명시적으로 복사를 해주어야 한다는 것을 의미합니다.
+            &emsp; &emsp; ⇥이는 다른 값들이 복사( <Span text={"copy"} />) 능력을
+            가질지라도, 프로그래머가 명시적으로 복사를 해주어야 한다는 것을
+            의미합니다.
           </Typography>
         </Box>
         <Box sx={{ width: "100%", textAlign: "left" }}>
