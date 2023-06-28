@@ -1,12 +1,138 @@
 import Grid from "@mui/material/Unstable_Grid2";
-
+import Copy from "../util/copy";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { Button } from "@mui/material";
 import { useRouter } from "next/router";
 const study_1 = () => {
-  const router = useRouter();
+  const code1 = `  script {
+    <use>*
+    <constants>*
+    fun <identifier><[type parameters: constraint]*>([identifier: type]*) <function_body>
+}
 
+`;
+  const code2 = `  script {
+    // Import the debug module published at the named account address std.
+    use std::debug;
+
+    const ONE: u64 = 1;
+
+    fun main(x: u64) {
+        let sum = x + ONE;
+        debug::print(&sum)
+    }
+}
+`;
+  const code3 = `  module <address>::<identifier> {
+    (<use> | <friend> | <type> | <function> | <constant>)*
+}
+`;
+  const code4 = `  module 0x42::example {
+    struct Example has copy, drop {
+       i: u64 
+       }
+
+    use std::debug;
+
+    friend 0x42::another_example;
+       
+    const ONE: u64 = 1;
+       
+    public fun print(x: u64) {
+               let sum = x + ONE;
+               let example = Example { i: sum };
+               debug::print(&sum)
+    }
+}
+`;
+  const code5 = `  module example_addr::example {
+    struct Example has copy, drop { a: address }
+
+    use std::debug;
+    friend example_addr::another_example;
+
+    public fun print() {
+        let example = Example { a: @example_addr };
+        debug::print(&example)
+    }
+}
+`;
+  const code6_1 = `  script {
+    fun example() {
+        my_addr::m::foo(@my_addr);
+    }
+}
+`;
+  const code6 = `  script {
+    fun example() {
+        0xC0FFEE::m::foo(@0xC0FFEE);
+    }
+}
+`;
+  const code7 = `  module my_module {}
+  module foo_bar_42 {}
+`;
+  const code8 = `  // Example Module
+  module overmind::bananas {
+  
+      use std::vector;
+      use std::signer;
+  
+      struct BananaStore has key {
+          bushels: vector<Bushel>
+      }
+  
+      struct Bushel has store, drop {
+          bananas: vector<Banana>
+      }
+  
+      struct Banana has store, drop {}
+  
+      public entry fun buy_banana(buyer: &signer) acquires BananaStore {
+          let buyer_address = signer::address_of(buyer);
+  
+          if (!exists<BananaStore>(buyer_address)) {
+              move_to(
+                  buyer,
+                  BananaStore {
+                      bushels: vector<Bushel>[]
+                  }
+              );
+          };
+  
+          let bananaStore = borrow_global_mut<BananaStore>(buyer_address);
+  
+          let bushels_mut_ref = &mut bananaStore.bushels;
+  
+          let bushel_new = Bushel {
+              bananas: vector<Banana>[
+                  Banana {},
+                  Banana {},
+                  Banana {},
+                  Banana {}
+              ]
+          };
+  
+          vector::push_back<Bushel>(bushels_mut_ref, bushel_new);
+      }
+  
+      public entry fun eat_banana(account: &signer) acquires BananaStore {
+          let account_address = signer::address_of(account);
+  
+          let bananaStore = borrow_global_mut<BananaStore>(account_address);
+          let bushels_mut_ref = &mut bananaStore.bushels;
+          let first_bushel = vector::remove<Bushel>(bushels_mut_ref, 0);
+  
+          let _ = vector::pop_back<Banana>(&mut first_bushel.bananas);
+  
+          if (vector::length<Banana>(&mut first_bushel.bananas) != 0) {
+              vector::insert<Bushel>(bushels_mut_ref, 0, first_bushel);
+          }
+      }
+  }
+  
+
+`;
   return (
     <Grid container>
       <Grid xs={12}>
@@ -19,23 +145,20 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            Move에는 <span style={{ color: "purple" }}>모듈</span> 과{" "}
-            <span style={{ color: "purple" }}>스크립트</span>
-            라는 두 가지 유형의 프로그램이 있습니다.{" "}
-            <span style={{ color: "purple" }}>모듈</span>은 이러한 유형에서
-            작동하는 함수와 함께 구조체 유형을 정의하는 라이브러리이며,구조체
-            유형은 Move의 전역저장소 스키마를 정의하고 모듈 함수는 저장소
-            업데이트 규칙을 정의하고 있으며,모듈은 전역저장소에 저장됩니다.
-            <span style={{ color: "purple" }}>스크립트</span>는 전역저장소에
-            게시되지 않는 재사용 가능한 소스 코드, 이며, 일반적으로 전역저장소에
-            대한 업데이트를 수행하는 게시된 모듈의 기능을 호출합니다.또한
-            main스크립트는 기존 언어의 함수와 유사한 실행 가능한 진입점입니다.
+            Move는 두 가지 종류의 프로그램인 모듈(Module)과 스크립트(Script)를
+            가지고 있습니다. 모듈은 구조체 타입과 이러한 타입에 작용하는 함수를
+            정의하는 라이브러리입니다. 구조체 타입은 Move의 전역 스토리지의
+            스키마를 정의하며, 모듈 함수는 스토리지를 업데이트하는 규칙을
+            정의합니다. 모듈 자체도 전역 스토리지에 저장됩니다. 스크립트는
+            전통적인 언어에서의 main 함수와 유사한 실행 가능한 진입점입니다.
+            스크립트는 일반적으로 전역 스토리지에 대한 업데이트를 수행하는
+            게시된 모듈의 함수를 호출합니다. 스크립트는 전역 스토리지에 게시되지
+            않는 일시적인 코드 조각입니다.
           </Typography>
           <Typography variant="body1" gutterBottom>
-            Move 소스 파일({" "}
-            <span style={{ color: "purple" }}>또는 컴파일 단위</span> )에는 여러
-            모듈과 스크립트가 포함될 수 있습니다. 그러나 모듈 게시 또는 스크립트
-            실행은 각각 별도의 VM 작업입니다.
+            Move 소스 파일(또는 컴파일 단위)에는 여러 개의 모듈과 스크립트를
+            포함할 수 있습니다. 그러나 모듈을 게시하거나 스크립트를 실행하는
+            것은 별개의 VM(가상 머신) 작업입니다.
           </Typography>
         </Box>
       </Grid>
@@ -47,26 +170,9 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12}> ex)스크립트 구조</Grid>
-      <Grid xs={0} md={2}></Grid>
-
-      <Grid xs={12} md={8} sx={{ marginTop: "30px" }}>
-        <Button
-          variant="contained"
-          size="medium"
-          onClick={e => {
-            router.push(
-              "https://github.com/Move-ko/Move-ko.github.io/blob/main/Move/1/1_1.move"
-            );
-          }}
-        >
-          Code
-        </Button>
-        <img
-          src={"/img/1_1.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "20px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code1} />
       </Grid>
-      <Grid xs={0} md={2}></Grid>
       <Grid xs={12} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -98,25 +204,9 @@ const study_1 = () => {
           </span>
         </Typography>
       </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
-        <Button
-          variant="contained"
-          size="medium"
-          onClick={e => {
-            router.push(
-              "https://github.com/Move-ko/Move-ko.github.io/blob/main/Move/1/1_2.move"
-            );
-          }}
-        >
-          Code
-        </Button>
-        <img
-          src={"/img/1_2.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code2} />
       </Grid>
-      <Grid xs={0} md={2}></Grid>
 
       <Grid xs={12} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%" }}>
@@ -130,24 +220,8 @@ const study_1 = () => {
         {" "}
         <span style={{ color: "purple" }}>*모듈 구조</span>
       </Grid>
-      <Grid xs={0} md={2}></Grid>
-
-      <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
-        <Button
-          variant="contained"
-          size="medium"
-          onClick={e => {
-            router.push(
-              "https://github.com/Move-ko/Move-ko.github.io/blob/main/Move/1/1_3.move"
-            );
-          }}
-        >
-          Code
-        </Button>
-        <img
-          src={"/img/1_3.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code3} />
       </Grid>
       <Typography variant="body1" gutterBottom>
         일반적으로 모듈 이름은 소문자로 시작합니다 명명된 모듈은 my_module명명된
@@ -172,25 +246,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
-        <Button
-          variant="contained"
-          size="medium"
-          onClick={e => {
-            router.push(
-              "https://github.com/Move-ko/Move-ko.github.io/blob/main/Move/1/1_4.move"
-            );
-          }}
-        >
-          Code
-        </Button>
-        <img
-          src={"/img/1_4.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code4} />
       </Grid>
-      <Grid xs={0} md={2}></Grid>
       <Grid xs={12} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -202,26 +260,9 @@ const study_1 = () => {
         </Box>
       </Grid>
 
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
-        <Button
-          variant="contained"
-          size="medium"
-          onClick={e => {
-            router.push(
-              "https://github.com/Move-ko/Move-ko.github.io/blob/main/Move/1/1_5.move"
-            );
-          }}
-        >
-          Code
-        </Button>
-        <img
-          src={"/img/1_5.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code5} />
       </Grid>
-
-      <Grid xs={0} md={2}></Grid>
       <Grid xs={12} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -232,25 +273,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "40px" }}>
-        <Button
-          variant="contained"
-          size="medium"
-          onClick={e => {
-            router.push(
-              "https://github.com/Move-ko/Move-ko.github.io/blob/main/Move/1/1_6.move"
-            );
-          }}
-        >
-          Code
-        </Button>
-        <img
-          src={"/img/1_6.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code6} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -260,25 +285,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "40px" }}>
-        <Button
-          variant="contained"
-          size="medium"
-          onClick={e => {
-            router.push(
-              "https://github.com/Move-ko/Move-ko.github.io/blob/main/Move/1/1_7.move"
-            );
-          }}
-        >
-          Code
-        </Button>
-        <img
-          src={"/img/1_7.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code7} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -391,26 +400,9 @@ const study_1 = () => {
       </Grid>
       <Grid xs={0} md={2}></Grid>
       <Grid xs={12}>ex)예시</Grid>
-      <Grid xs={0} md={2}></Grid>
-
-      <Grid xs={12} md={8}>
-        <Button
-          variant="contained"
-          size="medium"
-          onClick={e => {
-            router.push(
-              "https://github.com/Move-ko/Move-ko.github.io/blob/main/Move/1/1_9.move"
-            );
-          }}
-        >
-          Code
-        </Button>
-        <img
-          src={"/img/1_9.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code8} />
       </Grid>
-      <Grid xs={0} md={2}></Grid>
     </Grid>
   );
 };

@@ -4,7 +4,6 @@ import Typography from "@mui/material/Typography";
 import Copy from "../util/copy";
 import Box from "@mui/material/Box";
 import Span from "../util/span";
-import { Spa } from "@mui/icons-material";
 const study_1 = () => {
   const code1 = `  let x = 1;
   let y = x + x:
