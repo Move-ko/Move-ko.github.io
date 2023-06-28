@@ -1,9 +1,14 @@
 import Grid from "@mui/material/Unstable_Grid2";
 
 import Typography from "@mui/material/Typography";
+import Copy from "../util/copy";
 import Box from "@mui/material/Box";
-
 const study_1 = () => {
+  const code1 = `  let x = 1;
+  let y = x + x:
+`;
+  const code2 = `  let x;
+`;
   return (
     <Grid container>
       <Grid xs={12}>
@@ -26,7 +31,7 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
-            지역 변수 선언{" "}
+            지역 변수 선언
           </Typography>
         </Box>
       </Grid>
@@ -45,11 +50,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        9_1
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code1} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -57,11 +60,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        9_2
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code2} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
