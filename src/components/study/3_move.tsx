@@ -10,6 +10,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
+import Copy from "../util/copy";
 
 const study_1 = () => {
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -49,6 +50,19 @@ const study_1 = () => {
       등가표현: "!p에 해당합니다 if(q) false else true",
     },
   ];
+  const code1 = `      
+  if bool_표현식 {
+ // bool_표현식이 true일 경우 실행되는 코드 블록
+ } else {
+  // bool_표현식이 false일 경우 실행되는 코드 블록
+ }
+
+`;
+  const code2 = `      while bool_표현식 {
+    // bool_표현식이 true인 동안 반복적으로 실행되는 코드 블록
+  }
+`;
+  const code3 = `     assert!(bool_표현식, 오류_메시지); `;
   return (
     <Grid container>
       <Grid xs={12}>
@@ -116,27 +130,17 @@ const study_1 = () => {
           <span style={{ color: "purple" }}>* if문</span>
         </Typography>
       </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
-        <img
-          src={"/img/3_2_1.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code1} />
       </Grid>
-      <Grid xs={0} md={4}></Grid>
       <Grid xs={12} sx={{ marginTop: "30px" }}>
         <Typography variant="body1" gutterBottom>
           <span style={{ color: "purple" }}>* while문</span>
         </Typography>
       </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
-        <img
-          src={"/img/3_2_2.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code2} />
       </Grid>
-      <Grid xs={0} md={4}></Grid>
       <Grid xs={12} sx={{ marginTop: "30px" }}>
         <Typography variant="body1" gutterBottom>
           <span style={{ color: "purple" }}>
@@ -145,14 +149,9 @@ const study_1 = () => {
           </span>
         </Typography>
       </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
-        <img
-          src={"/img/3_2_3.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code3} />
       </Grid>
-      <Grid xs={0} md={4}></Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>

@@ -3,9 +3,9 @@ module example::test {
 
 
         if bool_표현식 {
-    // bool_표현식이 true일 경우 실행되는 코드 블록
+       // bool_표현식이 true일 경우 실행되는 코드 블록
        } else {
-    // bool_표현식이 false일 경우 실행되는 코드 블록
+        // bool_표현식이 false일 경우 실행되는 코드 블록
        }
 
 
