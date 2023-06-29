@@ -54,11 +54,10 @@ const study_1 = () => {
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             <span style={{ color: "purple" }}>서명자 </span>는 기본 제공 이동
-            자원 유형입니다. 서명자는{" "}
+            자원 유형입니다. 서명자는
             <span style={{ color: "purple" }}>
-              {" "}
-              소유자가 특정 주소를 대신하여 작업{" "}
-            </span>{" "}
+              소유자가 특정 주소를 대신하여 작업
+            </span>
             할 수 있도록 하는 기능입니다. 기본 구현을 다음과 같이 생각할 수
             있습니다.
           </Typography>
@@ -75,7 +74,7 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            서명자는 이동 외부의 코드(예:{" "}
+            서명자는 이동 외부의 코드(예:
             <span style={{ color: "purple" }}>암호화 서명 또는 암호 확인 </span>
             )로 인증된 사용자를 나타낸다는 점에서 Unix UID와 다소 유사합니다.
           </Typography>
@@ -107,7 +106,7 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            그러나 서명자 값은 리터럴이나 지침을 통해 생성할 수 없고{" "}
+            그러나 서명자 값은 리터럴이나 지침을 통해 생성할 수 없고
             <span style={{ color: "purple" }}>Move VM에서만 생성 </span> 할 수
             있기 때문에 특별합니다. VM이 서명자 유형의 매개변수를 사용하여
             스크립트를 실행하기 전에 서명자 값을 자동으로 생성하여 스크립트에
@@ -191,11 +190,11 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            또한{" "}
+            또한
             <span style={{ color: "purple" }}>
               move_to{"<T>"}
-              (&signer, T){" "}
-            </span>{" "}
+              (&signer, T)
+            </span>
             전역 저장소 연산자는 signer.address의 계정에 리소스 T를 게시하기
             위해 <span style={{ color: "purple" }}>&signer </span>인수가
             필요합니다. 이렇게 하면 인증된 사용자만 자신의 주소로 리소스를
@@ -213,9 +212,8 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            단순 스칼라 값과 달리 서명자 값은 복사할 수 없습니다. 즉{" "}
+            단순 스칼라 값과 달리 서명자 값은 복사할 수 없습니다. 즉
             <span style={{ color: "purple" }}>
-              {" "}
               명시적 복사 명령을 통해서이든 역참조 *를 통해서든 어떤 작업에서도
               복사할 수 없습니다.
             </span>

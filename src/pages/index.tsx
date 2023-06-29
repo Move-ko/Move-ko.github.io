@@ -76,7 +76,6 @@ export default function Home() {
             color: "white",
           }}
         >
-          {" "}
           <img src="/img/move.webp" style={{ width: "50px" }} />
           <div>MOVE BOOK</div>
         </Grid>

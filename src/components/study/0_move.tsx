@@ -17,9 +17,8 @@ const study_1 = () => {
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             Diem 블록체인의 구현을 위해 Rust언어에서 힌트를 받아
-            만들어졌으며,현재는 <span style={{ color: "purple" }}>Aptos</span>{" "}
-            및 <span style={{ color: "purple" }}>Sui</span>에서 사용하고
-            있습니다.
+            만들어졌으며,현재는 <span style={{ color: "purple" }}>Aptos</span>및{" "}
+            <span style={{ color: "purple" }}>Sui</span>에서 사용하고 있습니다.
           </Typography>
           <Typography variant="body1" gutterBottom>
             Move를 사용하면 개발자가 자산을 유연하게 관리하고 전송하는

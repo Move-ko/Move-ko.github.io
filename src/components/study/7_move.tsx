@@ -82,12 +82,12 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            Move에는 <span style={{ color: "purple" }}>불변 &</span>및{" "}
+            Move에는 <span style={{ color: "purple" }}>불변 &</span>및
             <span style={{ color: "purple" }}>가변 &mut</span>의 두 가지 유형의
-            참조가 있습니다. 변경할 수 없는 참조는{" "}
+            참조가 있습니다. 변경할 수 없는 참조는
             <span style={{ color: "purple" }}> 읽기 전용</span>
             이며 기본 값(또는 해당 필드)을 수정할 수 없습니다. 변경 가능한
-            참조는 해당 참조를 통한{" "}
+            참조는 해당 참조를 통한
             <span style={{ color: "purple" }}>쓰기를 통한 수정</span>을
             허용합니다. Move의 유형 시스템은 참조 오류를 방지하는 소유권 규율을
             적용합니다. 참조 규칙에 대한 자세한 내용은 구조체 및 리소스를
@@ -143,7 +143,7 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            <span style={{ color: "purple" }}> &e.f</span>및{" "}
+            <span style={{ color: "purple" }}> &e.f</span>및
             <span style={{ color: "purple" }}> &mut e.f </span>
             연산자는 구조체에 대한 새 참조를 만들거나 기존 참조를 확장하는 데
             모두 사용할 수 있습니다.
@@ -177,7 +177,7 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            마지막으로 참조에 대한 참조는{" "}
+            마지막으로 참조에 대한 참조는
             <span style={{ color: "purple" }}>허용되지 않습니다.</span>
           </Typography>
         </Box>
@@ -193,7 +193,7 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
-            참고 문헌을 통한 읽기 및 쓰기{" "}
+            참고 문헌을 통한 읽기 및 쓰기
           </Typography>
         </Box>
       </Grid>
@@ -202,9 +202,9 @@ const study_1 = () => {
           <Typography variant="body1" gutterBottom>
             변경 가능한 참조와 변경 불가능한 참조를 모두 읽어 참조된 값의
             <span style={{ color: "purple" }}>복사본</span>을 생성할 수
-            있습니다. 변경 가능한 참조만 작성할 수 있습니다. 쓰기{" "}
+            있습니다. 변경 가능한 참조만 작성할 수 있습니다. 쓰기
             <span style={{ color: "purple" }}> *x = v</span>는 이전에 x에 저장된
-            값을 버리고 v로 업데이트합니다. 두 작업 모두 C와 유사한{" "}
+            값을 버리고 v로 업데이트합니다. 두 작업 모두 C와 유사한
             <span style={{ color: "purple" }}>* 구문</span>을 사용합니다. 그러나
             읽기는 표현식인 반면 쓰기는 등호의 왼쪽에서 발생해야 하는
             변형입니다.
@@ -238,12 +238,11 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            참조를 읽으려면 기본 유형에{" "}
+            참조를 읽으려면 기본 유형에
             <span style={{ color: "purple" }}>복사</span>
             기능이 있어야 합니다. 참조를 읽으면 값의 새 복사본이 생성되기
-            때문입니다.{" "}
+            때문입니다.
             <span style={{ color: "purple" }}>
-              {" "}
               이 규칙은 리소스 값 복사를 방지합니다.
             </span>
           </Typography>
@@ -278,7 +277,7 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
-            동결 추론{" "}
+            동결 추론
           </Typography>
         </Box>
       </Grid>
@@ -324,8 +323,8 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            이 동결 추론을 통해 Move 유형 검사기는{" "}
-            <span style={{ color: "purple" }}>&mut T</span>를{" "}
+            이 동결 추론을 통해 Move 유형 검사기는
+            <span style={{ color: "purple" }}>&mut T</span>를
             <span style={{ color: "purple" }}>&T</span>의 하위 유형으로 볼 수
             있습니다. 위에 표시된 것처럼 이것은 &T 값이 사용되는 모든 표현식에
             대해 &mut T 값도 사용할 수 있음을 의미합니다. 이 용어는 &T가 제공된
@@ -360,7 +359,7 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            현재 하위 유형이 있는 유일한 다른 유형은{" "}
+            현재 하위 유형이 있는 유일한 다른 유형은
             <span style={{ color: "purple" }}>튜플</span>입니다.
           </Typography>
         </Box>
@@ -408,18 +407,18 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            <span style={{ color: "purple" }}>참조</span> 와{" "}
+            <span style={{ color: "purple" }}>참조</span> 와
             <span style={{ color: "purple" }}>튜플</span>은 구조체의 필드 값으로
             저장할 수 없는 <span style={{ color: "purple" }}>유일한 유형</span>
-            이며, 이는{" "}
+            이며, 이는
             <span style={{ color: "purple" }}>
               전역 저장소에 존재할 수 없음을 의미
             </span>
-            하기도 합니다. 프로그램 실행 중에 생성된 모든 참조는{" "}
+            하기도 합니다. 프로그램 실행 중에 생성된 모든 참조는
             <span style={{ color: "purple" }}>
               Move 프로그램이 종료될 때 삭제
             </span>
-            됩니다. 그들은 완전히{" "}
+            됩니다. 그들은 완전히
             <span style={{ color: "purple" }}> 일시적</span> 입니다. 이 불변성은
             저장 기능이 없는 유형의 값에도 적용되지만 참조와 튜플은 애초에
             구조체에서 허용되지 않음으로써 한 단계 더 나아갑니다. 이것은 Move와
@@ -427,9 +426,8 @@ const study_1 = () => {
             현재 Move는 참조를 직렬화할 수 없기 때문에 이를 지원할 수 없지만
             모든 Move 값은 직렬화 가능해야 합니다. 이 요구 사항은 프로그램 실행
             간에 값을 유지하기 위해 값을 직렬화해야 하는 Move의 영구 전역
-            저장소에서 비롯됩니다.{" "}
+            저장소에서 비롯됩니다.
             <span style={{ color: "purple" }}>
-              {" "}
               구조체는 전역 저장소에 쓸 수 있으므로 직렬화 가능해야 합니다.
             </span>
             참조를 구조체에 저장하고 해당 구조체가 전역 저장소에 존재하는 것을

@@ -62,8 +62,8 @@ const study_1 = () => {
       <Grid xs={12} md={8}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="body1" gutterBottom>
-            <span style={{ color: "purple" }}>부울</span>은 Move에서 boolean{" "}
-            <span style={{ color: "purple" }}>true</span>와{" "}
+            <span style={{ color: "purple" }}>부울</span>은 Move에서 boolean
+            <span style={{ color: "purple" }}>true</span>와
             <span style={{ color: "purple" }}>false</span> 값을 표현하기 위한
             원시 타입입니다.또한 bool 타입의 리터럴은 true 또는 false로
             표현됩니다.

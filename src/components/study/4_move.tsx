@@ -19,9 +19,9 @@ const study_1 = () => {
           <Typography variant="body1" gutterBottom>
             <span style={{ color: "purple" }}>주소(Address)</span> 는 Move
             언어에서 글로벌 스토리지의 위치(가끔은 계정이라고도 함)를 나타내기
-            위해 사용되는 내장된 유형입니다. 주소 값은{" "}
+            위해 사용되는 내장된 유형입니다. 주소 값은
             <span style={{ color: "purple" }}>128비트(16바이트)</span>
-            식별자입니다. 특정 주소에는{" "}
+            식별자입니다. 특정 주소에는
             <span style={{ color: "purple" }}>모듈(Module)</span>과
             <span style={{ color: "purple" }}>리소스(Resource)</span>두 가지
             요소를 저장할 수 있습니다.
@@ -38,7 +38,7 @@ const study_1 = () => {
             </span>
           </Typography>
           <Typography variant="body1" gutterBottom>
-            런타임 주소 값({" "}
+            런타임 주소 값(
             <span style={{ color: "purple" }}>주소 유형의 값</span>)을 사용하여
             해당 주소에 있는 리소스에 접근할 수 있습니다. 주소 값을 통해
             런타임에서 모듈에 액세스할 수는 없습니다.
@@ -61,7 +61,7 @@ const study_1 = () => {
             두 가지 형태로 나뉩니다. 명명된 주소의 구문은 Move에서 일반적으로
             사용되는 명명된 식별자의 규칙을 따릅니다. 숫자형 주소의 구문은
             16진수로 인코딩된 값에 제한되지 않으며, 유효한 u128 숫자 값으로 주소
-            값으로 사용할 수 있습니다. 예를 들어,{" "}
+            값으로 사용할 수 있습니다. 예를 들어,
             <span style={{ color: "purple" }}>42, 0xCAFE, 2021</span> 은 모두
             유효한 숫자형 주소 리터럴입니다.
           </Typography>
@@ -70,18 +70,18 @@ const study_1 = () => {
             주소를 사용하는 구문은 사용되는 컨텍스트에 따라 다릅니다:
           </Typography>
           <Typography variant="body1" gutterBottom>
-            주소가 식으로 사용될 때는 주소 앞에 @ 문자가 붙어야 합니다. 즉,{" "}
-            <span style={{ color: "purple" }}> {"@<numerical_value>"}</span>{" "}
-            또는{" "}
+            주소가 식으로 사용될 때는 주소 앞에 @ 문자가 붙어야 합니다. 즉,
+            <span style={{ color: "purple" }}> {"@<numerical_value>"}</span>
+            또는
             <span style={{ color: "purple" }}>
               {"@<named_address_identifier>"}
-            </span>{" "}
+            </span>
             형태여야 합니다. 식 컨텍스트 이외의 곳에서는 주소를 @ 문자 없이 쓸
-            수 있습니다. 즉,{" "}
-            <span style={{ color: "purple" }}>{" <numerical_value>"}</span> 또는{" "}
+            수 있습니다. 즉,
+            <span style={{ color: "purple" }}>{" <numerical_value>"}</span> 또는
             <span style={{ color: "purple" }}>
               {"<named_address_identifier>"}
-            </span>{" "}
+            </span>
             형태로 쓸 수 있습니다. 일반적으로 @는 주소를 네임스페이스 항목에서
             식 항목으로 전환하는 연산자로 생각할 수 있습니다.
           </Typography>
@@ -110,17 +110,15 @@ const study_1 = () => {
             대신 식별자를 사용할 수 있도록 하는 기능입니다. 명명된 주소는 Move
             패키지의 최상위 요소(모듈 및 스크립트 외부)로 선언되고 바인딩됩니다.
             또한 Move 컴파일러에 인수로 전달될 수도 있습니다. 명명된 주소는 값
-            수준뿐만 아니라 주소가 사용되는{" "}
+            수준뿐만 아니라 주소가 사용되는
             <span style={{ color: "purple" }}>모든 위치</span>에서 사용될 수
             있으며, 소스 언어 수준에서만 존재하며 바이트코드 수준에서는 완전히
             해당 값을 <span style={{ color: "purple" }}>대체</span>합니다.
             따라서 모듈과 모듈 멤버는 모듈의 명명된 주소를 통해 접근해야 하며,
             명명된 주소에 할당된 숫자 값으로 모듈 및 모듈 멤버에 접근해서는 안
             됩니다. 예를 들어,
-            <span style={{ color: "purple" }}>
-              my_addr이 0x2로 설정된 상태
-            </span>{" "}
-            에서 Move 프로그램이 컴파일되더라도{" "}
+            <span style={{ color: "purple" }}>my_addr이 0x2로 설정된 상태</span>
+            에서 Move 프로그램이 컴파일되더라도
             <span style={{ color: "purple" }}>
               use my_addr::foo는 use 0x2::foo와 동일하지 않습니다
             </span>
@@ -143,7 +141,7 @@ const study_1 = () => {
             있습니다. 주소 값은
             <span style={{ color: "purple" }}>
               exists, borrow_global, borrow_global_mut, move_from
-            </span>{" "}
+            </span>
             등의 작업과 함께 사용됩니다. 주소를 사용하지 않는 유일한 글로벌
             스토리지 작업은 <span style={{ color: "purple" }}>move_to</span>
             입니다. move_to 작업은
@@ -193,7 +191,7 @@ const study_1 = () => {
             가능(copyable)합니다. 이는 "copy"와 같은
             <span style={{ color: "purple" }}>
               명시적인 명령 없이도 주소 값이 복사될 수 있다는 것을 의미
-            </span>{" "}
+            </span>
             합니다. 주소 값을 새 변수에 할당하거나 함수에 인수로 전달할 때, 주소
             값의 복사본이 생성되며 원본과 복사본 주소 모두 독립적으로 사용할 수
             있습니다.

@@ -216,16 +216,15 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            Move에서 제공하는 유일한 원시 컬렉션 타입은{" "}
+            Move에서 제공하는 유일한 원시 컬렉션 타입은
             <span style={{ color: "purple" }}> {"vector<T>"}</span>
             입니다. {"vector<T>"}는 T의 동일한 유형의 항목들로 구성된
-            컬렉션으로, 값들을 끝에{" "}
+            컬렉션으로, 값들을 끝에
             <span style={{ color: "purple" }}>push</span>
             하거나 <span style={{ color: "purple" }}>pop</span>하여 크기를
             조절할 수 있습니다.{"vector<T>"}는 어떤 유형 T로도 인스턴스화할 수
-            있습니다. 예를 들어,{" "}
+            있습니다. 예를 들어,
             <span style={{ color: "purple" }}>
-              {" "}
               {
                 "vector<u64>, vector<address>, vector<0x42::MyModule::MyResource> 및 vector<vector<u8>>"
               }
@@ -310,9 +309,9 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            Move에서 벡터를 사용하는 일반적인 사례는{" "}
+            Move에서 벡터를 사용하는 일반적인 사례는
             <span style={{ color: "purple" }}>바이트 배열</span>을 나타내는
-            것인데, 이는{" "}
+            것인데, 이는
             <span style={{ color: "purple" }}> {"vector<u8>"}</span>로
             표현됩니다. 이러한 값들은 종종 공개 키나 해시 결과와 같은 암호화
             목적으로 사용됩니다. 이러한 값들은 널리 사용되어 특정 구문이
@@ -321,9 +320,9 @@ const study_1 = () => {
             사용해야 하는 대신에 특정 구문을 사용할 수 있습니다.
           </Typography>
           <Typography variant="body1" gutterBottom>
-            현재 지원되는 두 가지 유형의 {"vector<u8>"} 리터럴은{" "}
+            현재 지원되는 두 가지 유형의 {"vector<u8>"} 리터럴은
             <span style={{ color: "purple" }}>바이트 문자열(byte strings)</span>
-            과{" "}
+            과
             <span style={{ color: "purple" }}>16진수 문자열(hex strings)</span>
             입니다.
           </Typography>
@@ -345,7 +344,7 @@ const study_1 = () => {
           </Typography>
           <Typography variant="body1" gutterBottom>
             이는 <span style={{ color: "purple" }}>ASCII</span> 로 인코딩된
-            문자열로서{" "}
+            문자열로서
             <span style={{ color: "purple" }}>이스케이프 시퀀스</span> 를
             허용합니다. 현재 지원되는 이스케이프 시퀀스는 다음과 같습니다:
           </Typography>
@@ -387,9 +386,9 @@ const study_1 = () => {
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             16진수 문자열은 x로 접두사가 붙은 따옴표로 둘러싸인 문자열
-            리터럴입니다. 예를 들어,{" "}
+            리터럴입니다. 예를 들어,
             <span style={{ color: "purple" }}> x"48656C6C6F210A"</span>와
-            같습니다. 각각의 바이트 쌍은{" "}
+            같습니다. 각각의 바이트 쌍은
             <span style={{ color: "purple" }}> 00</span>
             부터 <span style={{ color: "purple" }}>FF</span>
             까지의 16진수로 인코딩된 <span style={{ color: "purple" }}>u8</span>
@@ -469,12 +468,12 @@ const study_1 = () => {
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             <span style={{ color: "purple" }}>{"vector<T>"}</span>의 일부 동작은
-            원소 유형 T의 기능에 따라 달라집니다. 예를 들어,{" "}
+            원소 유형 T의 기능에 따라 달라집니다. 예를 들어,
             <span style={{ color: "purple" }}> 드롭(drop) </span>
             기능이 없는 원소를 포함하는 벡터는 위의 예시에서 v와 같이 암묵적으로
-            폐기될 수 없으며, 명시적으로{" "}
+            폐기될 수 없으며, 명시적으로
             <span style={{ color: "purple" }}> vector::destroy_empty</span>를
-            사용하여 파괴해야 합니다.{" "}
+            사용하여 파괴해야 합니다.
             <span style={{ color: "purple" }}> vector::destroy_empty</span>는
             vec에 원소가 없을 경우에만 실행 시점에서 중단됩니다:
           </Typography>
@@ -508,9 +507,9 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            마찬가지로, 원소 유형이{" "}
+            마찬가지로, 원소 유형이
             <span style={{ color: "purple" }}>복사 가능한 경우</span>
-            에만 벡터를 복사할 수 있습니다. 다시 말해, T가 복사 가능한 경우에만{" "}
+            에만 벡터를 복사할 수 있습니다. 다시 말해, T가 복사 가능한 경우에만
             {"vector<T>"}가 복사 가능합니다. 그러나 복사 가능한 벡터조차도
             암묵적으로 복사되지는 않습니다.
           </Typography>
@@ -529,8 +528,8 @@ const study_1 = () => {
           <Typography variant="body1" gutterBottom>
             대용량 벡터의 복사는 비용이 많이 들 수 있으므로 컴파일러는 복사가
             명시적으로 이루어지도록 요구하여 어디에서 복사가 발생하는지 쉽게
-            파악할 수 있도록 합니다. 자세한 내용은{" "}
-            <span style={{ color: "purple" }}>유형 능력(type abilities)</span>과{" "}
+            파악할 수 있도록 합니다. 자세한 내용은
+            <span style={{ color: "purple" }}>유형 능력(type abilities)</span>과
             <span style={{ color: "purple" }}>제네릭(generics) </span>
             섹션을 참조하십시오.
           </Typography>
@@ -539,17 +538,17 @@ const study_1 = () => {
       <Grid xs={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
-            소유권{" "}
+            소유권
           </Typography>
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            위에서 언급한 대로,{" "}
+            위에서 언급한 대로,
             <span style={{ color: "purple" }}>원소가 복사 가능한 경우</span>
             에만 벡터 값들을 복사할 수 있습니다. 이 경우에는 복사가 명시적으로
-            이루어져야 하며, 복사 또는{" "}
+            이루어져야 하며, 복사 또는
             <span style={{ color: "purple" }}> 역참조 *</span>를 통해
             이루어집니다.
           </Typography>

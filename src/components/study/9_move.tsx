@@ -535,9 +535,9 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            더 드물게, 유형 시스템은 타입을 추론할 수 없는 비상귀 코드({" "}
+            더 드물게, 유형 시스템은 타입을 추론할 수 없는 비상귀 코드(
             <Span text={"모든 다음 코드는 접근 불가능한 경우"} />
-            )에 대한 타입을 결정할 수 없을 수도 있습니다.{" "}
+            )에 대한 타입을 결정할 수 없을 수도 있습니다.
             <Span text={"return"} /> 과 <Span text={"abort"} />는 모두 식(
             <Span text={"expression"} />
             )이므로 어떤 타입이든 가질 수 있습니다. <Span text={"break"} />가
@@ -629,7 +629,7 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            다음은 더 복잡한 예입니다.{" "}
+            다음은 더 복잡한 예입니다.
           </Typography>
         </Box>
       </Grid>
@@ -688,7 +688,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code23} />
-      </Grid>{" "}
+      </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code24} />
       </Grid>
@@ -698,7 +698,7 @@ const study_1 = () => {
             이 경우
             <Span text={" T { f1: 1, f2: 2 }"} />와 같은 구조체 값은
             <Span text={" let"} /> 이후에 더 이상 존재하지 않습니다. 대신 구조체
-            값을 이동시키지 않고 파괴하지 않고 각 필드를 빌림({" "}
+            값을 이동시키지 않고 파괴하지 않고 각 필드를 빌림(
             <Span text={"borrow"} />
             )하려면 다음과 같이 할 수 있습니다:
           </Typography>
@@ -1069,7 +1069,7 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            만약 블록 안에 최종 표현식이 없는 경우 - 즉, 후행 세미콜론{" "}
+            만약 블록 안에 최종 표현식이 없는 경우 - 즉, 후행 세미콜론
             <Span text={";"} /> 이 있는 경우 - 암시적으로 단위
             <Span text={"()"} /> 값이 존재합니다. 마찬가지로, 표현식 블록이
             비어있는 경우에도 암시적으로 단위 <Span text={"()"} /> 값이
@@ -1087,7 +1087,7 @@ const study_1 = () => {
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             <Span text={"표현식블록"} />은 그 자체로 표현식이며, 표현식이
-            사용되는 모든 곳에서 사용할 수 있습니다. (참고:{" "}
+            사용되는 모든 곳에서 사용할 수 있습니다. (참고:
             <Span
               text={
                 "함수의 본문도 표현식 블록이지만, 함수 본문은 다른 표현식으로 대체할수 없습니다."
@@ -1143,7 +1143,7 @@ const study_1 = () => {
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             지역 변수가 <Span text={"shadowing"} />된 후에도 해당 변수에 저장된
-            값은 여전히 존재하지만 더 이상 접근할 수 없습니다. 이는{" "}
+            값은 여전히 존재하지만 더 이상 접근할 수 없습니다. 이는
             <Span text={"drop"} /> 기능이 없는 타입의 값들에 대해 유의해야 하는
             중요한 사항입니다. 해당 값의 <Span text={"소유권"} />은 함수가
             끝나기 전에 전달되어야 합니다.
@@ -1156,7 +1156,7 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            지역 변수가 <Span text={"scope"} /> 내에서{" "}
+            지역 변수가 <Span text={"scope"} /> 내에서
             <Span text={"shadowing"} />된 경우, 해당 <Span text={"shadowing"} />
             은 그 <Span text={"scope"} /> 내에서만 유지됩니다. 해당 scope가
             종료되면 <Span text={"shadowing"} />은 사라집니다.
@@ -1193,7 +1193,7 @@ const study_1 = () => {
             <Span text={"copy"} />) 또는 이동( <Span text={"move"} />
             )을 사용해야 하는지를 추론할 수 있습니다. 이는 위의 모든 예제에서
             컴파일러가 <Span text={"move"} /> 또는 <Span text={"copy"} />를
-            삽입한다는 것을 의미합니다. 지역변수 변수는 <Span text={"move"} />{" "}
+            삽입한다는 것을 의미합니다. 지역변수 변수는 <Span text={"move"} />
             또는
             <Span text={"copy"} /> 없이 사용할 수 없습니다.
           </Typography>
@@ -1250,7 +1250,7 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            앞서 언급한대로, Move 컴파일러는 명시적으로 복사({" "}
+            앞서 언급한대로, Move 컴파일러는 명시적으로 복사(
             <Span text={"copy"} />) 또는 이동( <Span text={"move"} />
             )가 지정되지 않은 경우에도 자동으로 <Span text={"복사"} /> 또는
             <Span text={"이동"} />을 추론합니다. 이를 위한 알고리즘은 매우
@@ -1259,7 +1259,7 @@ const study_1 = () => {
         </Box>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            ﹥복사( <Span text={"copy"} />) 능력을 갖는 스칼라 값은 복사({" "}
+            ﹥복사( <Span text={"copy"} />) 능력을 갖는 스칼라 값은 복사(
             <Span text={"copy"} />
             )로 처리됩니다.
           </Typography>
