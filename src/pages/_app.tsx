@@ -1,6 +1,8 @@
 import Layout from "../components/Layout";
 import "../../styles/index.css";
-const MyApp = ({ Component, pageProps }) => {
+import type { AppProps } from "next/app";
+
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Layout>
@@ -8,5 +10,4 @@ const MyApp = ({ Component, pageProps }) => {
       </Layout>
     </>
   );
-};
-export default MyApp;
+}

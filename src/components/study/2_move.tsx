@@ -138,7 +138,7 @@ const study_1 = () => {
             </TableHead>
             <TableBody component="div">
               {integers1.map(item => (
-                <StyledTableRow key={item?.drop_name}>
+                <StyledTableRow>
                   <StyledTableCell component="div" scope="row">
                     {item?.type}
                   </StyledTableCell>
@@ -206,7 +206,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12}>
-        <Box sx={{ width: "100%", textAlign: "left", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             각각의 유형은 동일한 집합의 체크된 산술 연산을 지원합니다. 이러한
             모든 연산에서는 두 인수({" "}
@@ -236,7 +236,7 @@ const study_1 = () => {
             </TableHead>
             <TableBody component="div">
               {integers2.map(item => (
-                <StyledTableRow key={item?.drop_name}>
+                <StyledTableRow>
                   <StyledTableCell component="div" scope="row">
                     {item?.통사론}
                   </StyledTableCell>
@@ -284,7 +284,7 @@ const study_1 = () => {
             </TableHead>
             <TableBody component="div">
               {integers3.map(item => (
-                <StyledTableRow key={item?.drop_name}>
+                <StyledTableRow>
                   <StyledTableCell component="div" scope="row">
                     {item?.통사론}
                   </StyledTableCell>
@@ -337,7 +337,7 @@ const study_1 = () => {
             </TableHead>
             <TableBody component="div">
               {integers4.map(item => (
-                <StyledTableRow key={item?.drop_name}>
+                <StyledTableRow>
                   <StyledTableCell component="div" scope="row">
                     {item?.통사론}
                   </StyledTableCell>
@@ -383,7 +383,7 @@ const study_1 = () => {
             </TableHead>
             <TableBody component="div">
               {integers5.map(item => (
-                <StyledTableRow key={item?.drop_name}>
+                <StyledTableRow>
                   <StyledTableCell component="div" scope="row">
                     {item?.통사론}
                   </StyledTableCell>
@@ -429,7 +429,7 @@ const study_1 = () => {
             </TableHead>
             <TableBody component="div">
               {integers6.map(item => (
-                <StyledTableRow key={item?.drop_name}>
+                <StyledTableRow>
                   <StyledTableCell component="div" scope="row">
                     {item?.통사론}
                   </StyledTableCell>
@@ -480,7 +480,7 @@ const study_1 = () => {
             </TableHead>
             <TableBody component="div">
               {integers7.map(item => (
-                <StyledTableRow key={item?.drop_name}>
+                <StyledTableRow>
                   <StyledTableCell component="div" scope="row">
                     {item?.통사론}
                   </StyledTableCell>

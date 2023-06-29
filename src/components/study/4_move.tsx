@@ -97,17 +97,6 @@ const study_1 = () => {
       </Grid>
       <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={6} sx={{ marginTop: "30px" }}>
-        <Button
-          variant="contained"
-          size="medium"
-          onClick={e => {
-            router.push(
-              "https://github.com/Move-ko/Move-ko.github.io/blob/main/Move/2/4_1.move"
-            );
-          }}
-        >
-          Code
-        </Button>
         <img
           src={"/img/4_1.png"}
           style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}

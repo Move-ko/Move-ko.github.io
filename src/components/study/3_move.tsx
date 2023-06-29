@@ -91,7 +91,7 @@ const study_1 = () => {
             </TableHead>
             <TableBody component="div">
               {bools.map(item => (
-                <StyledTableRow key={item?.drop_name}>
+                <StyledTableRow>
                   <StyledTableCell component="div" scope="row">
                     {item?.통사론}
                   </StyledTableCell>

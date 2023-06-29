@@ -178,7 +178,7 @@ const study_1 = () => {
             </TableHead>
             <TableBody component="div">
               {integers1.map(item => (
-                <StyledTableRow key={item?.drop_name}>
+                <StyledTableRow>
                   <StyledTableCell>{item?.함수}</StyledTableCell>
                   <StyledTableCell>{item?.설명}</StyledTableCell>
                 </StyledTableRow>

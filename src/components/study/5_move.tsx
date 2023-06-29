@@ -261,7 +261,7 @@ const study_1 = () => {
             </TableHead>
             <TableBody component="div">
               {integers1.map(item => (
-                <StyledTableRow key={item?.drop_name}>
+                <StyledTableRow>
                   <StyledTableCell component="div" scope="row">
                     {item?.통사론}
                   </StyledTableCell>
@@ -363,7 +363,7 @@ const study_1 = () => {
             </TableHead>
             <TableBody component="div">
               {integers2.map(item => (
-                <StyledTableRow key={item?.drop_name}>
+                <StyledTableRow>
                   <StyledTableCell component="div" scope="row">
                     {item?.이스케이프_시퀀스}
                   </StyledTableCell>
@@ -428,7 +428,7 @@ const study_1 = () => {
             </TableHead>
             <TableBody component="div">
               {integers3.map(item => (
-                <StyledTableRow key={item?.drop_name}>
+                <StyledTableRow>
                   <StyledTableCell component="div" scope="row">
                     {item?.Function}
                   </StyledTableCell>

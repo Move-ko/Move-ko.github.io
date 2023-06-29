@@ -24,12 +24,7 @@ export default function Home() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  useEffect(() => {
-    if (!localStorage.getItem("refreshed")) {
-      localStorage.setItem("refreshed", true);
-      window.location.reload();
-    }
-  }, []);
+
   useEffect(() => {
     setMounted(true);
   }, []);
