@@ -63,6 +63,21 @@ const study_1 = () => {
   }
 `;
   const code3 = `     assert!(bool_표현식, 오류_메시지); `;
+
+  const code4 = `module example::test {
+    fun example(){
+          let a = true  //true
+          let b = false //false
+          let c = true && false //false
+          let d = false || true //true
+          let e = true || false && true //true
+          let f = !true //false
+          let g = !false  //true
+          let h = !true || true //true
+          let i = false || true && false //false  
+    }
+}
+`;
   return (
     <Grid container>
       <Grid xs={12}>
@@ -167,6 +182,16 @@ const study_1 = () => {
             있습니다.
           </Typography>
         </Box>
+      </Grid>
+      <Grid xs={12}>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
+            정리
+          </Typography>
+        </Box>
+      </Grid>
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code4} />
       </Grid>
     </Grid>
   );
