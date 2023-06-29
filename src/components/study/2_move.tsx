@@ -158,7 +158,7 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
-            2️⃣ 정수
+            2 정수
           </Typography>
         </Box>
       </Grid>

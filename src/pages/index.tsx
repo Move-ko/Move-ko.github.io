@@ -104,132 +104,120 @@ export default function Home() {
             >
               <Tab
                 sx={{ color: "white" }}
-                label="0️⃣ 소개 및 설치"
+                label="0️_소개 및 설치"
                 {...a11yProps(0)}
               />
               <Tab
                 sx={{ color: "white" }}
-                label="1️⃣ 모듈 및 스크립트"
+                label="1️_모듈 및 스크립트"
                 {...a11yProps(1)}
               />
-              <Tab sx={{ color: "white" }} label="2️⃣ 정수" {...a11yProps(2)} />
-              <Tab sx={{ color: "white" }} label="3️⃣ 부울" {...a11yProps(3)} />
-              <Tab sx={{ color: "white" }} label="4️⃣ 주소" {...a11yProps(4)} />
-              <Tab sx={{ color: "white" }} label="5️⃣ 벡터" {...a11yProps(5)} />
-              <Tab
-                sx={{ color: "white" }}
-                label="6️⃣ 서명자"
-                {...a11yProps(6)}
-              />
+              <Tab sx={{ color: "white" }} label="2️_정수" {...a11yProps(2)} />
+              <Tab sx={{ color: "white" }} label="3️_부울" {...a11yProps(3)} />
+              <Tab sx={{ color: "white" }} label="4️_주소" {...a11yProps(4)} />
+              <Tab sx={{ color: "white" }} label="5️_벡터" {...a11yProps(5)} />
+              <Tab sx={{ color: "white" }} label="6_서명자" {...a11yProps(6)} />
 
-              <Tab sx={{ color: "white" }} label="7️⃣ 참조" {...a11yProps(7)} />
+              <Tab sx={{ color: "white" }} label="7️_참조" {...a11yProps(7)} />
 
               <Tab
                 sx={{ color: "white" }}
-                label="8️⃣ 튜플 및 단위"
+                label="8️_튜플 및 단위"
                 {...a11yProps(8)}
               />
 
               <Tab
                 sx={{ color: "white" }}
-                label="9️⃣ 지역 변수 및 범위"
+                label="9️_지역 변수 및 범위"
                 {...a11yProps(9)}
               />
 
-              <Tab sx={{ color: "white" }} label="🔟 평등" {...a11yProps(10)} />
+              <Tab sx={{ color: "white" }} label="10_평등" {...a11yProps(10)} />
 
               <Tab
                 sx={{ color: "white" }}
-                label="1️⃣1️⃣ 중단 및 어성셜"
+                label="1️1_중단 및 어성셜"
                 {...a11yProps(11)}
               />
 
               <Tab
                 sx={{ color: "white" }}
-                label="1️⃣2️⃣ 조건부"
+                label="12_조건부"
                 {...a11yProps(12)}
               />
 
               <Tab
                 sx={{ color: "white" }}
-                label="1️⃣3️⃣ 반복문"
+                label="13_반복문"
                 {...a11yProps(13)}
               />
 
-              <Tab
-                sx={{ color: "white" }}
-                label="1️⃣4️⃣ 기능"
-                {...a11yProps(14)}
-              />
+              <Tab sx={{ color: "white" }} label="14_기능" {...a11yProps(14)} />
 
               <Tab
                 sx={{ color: "white" }}
-                label="1️⃣5️⃣ 구조체 리소스"
+                label="15_구조체 리소스"
                 {...a11yProps(15)}
               />
 
+              <Tab sx={{ color: "white" }} label="16_상수" {...a11yProps(16)} />
               <Tab
                 sx={{ color: "white" }}
-                label="1️⃣6️⃣ 상수"
-                {...a11yProps(16)}
-              />
-              <Tab
-                sx={{ color: "white" }}
-                label="1️⃣7️⃣ 제네릭"
+                label="17️_제네릭"
                 {...a11yProps(17)}
               />
               <Tab
                 sx={{ color: "white" }}
-                label="1️⃣8️⃣ 능력"
+                label="18️_능력"
                 {...a11yProps(18)}
               />
               <Tab
                 sx={{ color: "white" }}
-                label="1️⃣9️⃣ 용도 및 별칭"
+                label="19️_용도 및 별칭"
                 {...a11yProps(19)}
               />
               <Tab
                 sx={{ color: "white" }}
-                label="2️⃣0️⃣ 친구"
+                label="20️_친구"
                 {...a11yProps(20)}
               />
               <Tab
                 sx={{ color: "white" }}
-                label="2️⃣1️⃣ 패키지"
+                label="21_패키지"
                 {...a11yProps(21)}
               />
               <Tab
                 sx={{ color: "white" }}
-                label="2️⃣2️⃣ 패키지 업그레이드"
+                label="22_패키지 업그레이드"
                 {...a11yProps(22)}
               />
               <Tab
                 sx={{ color: "white" }}
-                label="2️⃣3️⃣ 단위 및 테스트"
+                label="23️_단위 및 테스트"
                 {...a11yProps(23)}
               />
 
               <Tab
                 sx={{ color: "white" }}
-                label="2️⃣4️⃣ 글로벌 스토리지 구조"
+                label="24️_글로벌 스토리지 구조"
                 {...a11yProps(24)}
               />
 
               <Tab
                 sx={{ color: "white" }}
-                label="2️⃣5️⃣ 글로벌 스토리지 사업자"
+                label="25_글로벌 스토리지 사업자"
                 {...a11yProps(25)}
               />
 
               <Tab
                 sx={{ color: "white" }}
-                label="2️⃣6️⃣ 도서관"
+                label="26_도서관"
                 {...a11yProps(26)}
               />
 
               <Tab
                 sx={{ color: "white" }}
-                label="2️⃣7️⃣ 코딩 규칙 이동"
+                label="27️_코딩 규칙 이동"
                 {...a11yProps(27)}
               />
               <Tab

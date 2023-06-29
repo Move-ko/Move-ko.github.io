@@ -137,7 +137,7 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
-            1️⃣ 모듈과 스크립트
+            1 모듈과 스크립트
           </Typography>
         </Box>
       </Grid>
