@@ -162,33 +162,33 @@ const study_1 = () => {
   const code29 = `  let (x1, _, z1) = three();
   let (x2, _y, z2) = three();
   assert!(x1 + z1 == x2 + z2, 42);`;
-  const code30 = `  let (x1, y, z1) = three(); // ERROR!
-  //       ^ unused local 'y'`;
+  const code30 = `  let (x1, y, z1) = three(); // 오류!
+  //       ^ 미사용 지역 변수 'y'`;
   const code31 = `      let (x, y): (u64, u64) = (0, 1);
-  //       ^                           local-variable
-  //       ^                           pattern
-  //          ^                        local-variable
-  //          ^                        pattern
-  //          ^                        pattern-list
-  //       ^^^^                        pattern-list
-  //      ^^^^^^                       pattern-or-list
-  //            ^^^^^^^^^^^^           type-annotation
-  //                         ^^^^^^^^  initializer
-  //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ let-binding
+  //       ^                           지역변수
+  //       ^                           패턴
+  //          ^                        지역변수
+  //          ^                        패턴
+  //          ^                        패턴목록
+  //       ^^^^                        패턴목록
+  //      ^^^^^^                       패턴 또는 목록
+  //            ^^^^^^^^^^^^           타입주석
+  //                         ^^^^^^^^  초기화자
+  //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ let-바인딩
   
       let Foo { f, g: x } = Foo { f: 0, g: 1 };
-  //      ^^^                                    struct-type
-  //            ^                                field
-  //            ^                                field-binding
-  //               ^                             field
-  //                  ^                          local-variable
-  //                  ^                          pattern
-  //               ^^^^                          field-binding
-  //            ^^^^^^^                          field-binding-list
-  //      ^^^^^^^^^^^^^^^                        pattern
-  //      ^^^^^^^^^^^^^^^                        pattern-or-list
-  //                      ^^^^^^^^^^^^^^^^^^^^   initializer
-  //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ let-binding`;
+  //      ^^^                                    구조체타입
+  //            ^                                필드
+  //            ^                                필드-binding
+  //               ^                             필드
+  //                  ^                          지역변수
+  //                  ^                          패턴
+  //               ^^^^                          필드-binding
+  //            ^^^^^^^                          필드 바인딩 목록
+  //      ^^^^^^^^^^^^^^^                        패턴
+  //      ^^^^^^^^^^^^^^^                        패턴 또는 목록
+  //                      ^^^^^^^^^^^^^^^^^^^^   초기화자
+  //  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ let-바인딩`;
   const code32 = `  x = e`;
   const code33 = `  (x = e: ())`;
   const code34 = `  let x = 0;
@@ -201,7 +201,7 @@ const study_1 = () => {
             X { f: 1 }
         }
     
-        // This example will complain about unused variables and assignments.
+        //이 예제는 사용되지 않은 변수와 할당에 대한 경고를 발생시킬 것입니다.
         fun example() {
            let (x, _, z) = (0, 1, 3);
            let (x, y, f, g);
@@ -215,7 +215,7 @@ const study_1 = () => {
     }`;
   const code36 = `  let x;
   x = 0;
-  x = false; // ERROR!`;
+  x = false; // 오류!`;
   const code37 = `  let x = 0;
   let r = &mut x;
   *r = 1;
@@ -233,12 +233,12 @@ const study_1 = () => {
   {
       let y = 1;
   };
-  x + y // ERROR!
-  //  ^ unbound local 'y'`;
+  x + y // 오류!
+  //  ^ 선언되었지만 어떠한 값에도 바인딩되지 않은 'y'`;
   const code42 = `  {
     let x = 0;
     {
-        let y = x + 1; // valid
+        let y = x + 1; // 유효
     }
 }`;
   const code43 = `  let x = 0;
@@ -255,20 +255,20 @@ const study_1 = () => {
   const code46 = `  { let v = vector::empty(); vector::push_back(&mut v, 1); v }`;
   const code47 = `  {
     let x = 0;
-    x + 1; // value is discarded
-    x + 2; // value is discarded
-    b"hello"; // value is discarded
+    x + 1; // 값이 버려졌습니다
+    x + 2; // 값이 버려졌습니다
+    b"hello"; // 값이 버려졌습니다
 }`;
   const code48 = `  {
     let x = 0;
-    Coin { value: x }; // ERROR!
-//  ^^^^^^^^^^^^^^^^^ unused value without the drop ability
+    Coin { value: x }; // 오류!
+//  ^^^^^^^^^^^^^^^^^ 삭제(drop) 기능 없이 사용되지 않는 값
     x
 }`;
-  const code49 = `  // Both are equivalent
+  const code49 = `  // 두 번역은 동등합니다
   { x = x + 1; 1 / x; }
   { x = x + 1; 1 / x; () }`;
-  const code50 = `  // Both are equivalent
+  const code50 = `  // 두 번역은 동등합니다
   { }
   { () }`;
   const code51 = `  let my_vector: vector<vector<u8>> = {
@@ -280,14 +280,14 @@ const study_1 = () => {
   const code52 = `  let x = 0;
   assert!(x == 0, 42);
   
-  let x = 1; // x is shadowed
+  let x = 1; // x 가 가려졌습니다
   assert!(x == 1, 42);
   
   `;
   const code53 = `  let x = 0;
   assert!(x == 0, 42);
   
-  let x = b"hello"; // x is shadowed
+  let x = b"hello"; // x 가 가려졌습니다
   assert!(x == b"hello", 42);
   
   `;
@@ -296,12 +296,12 @@ const study_1 = () => {
         struct Coin has store { value: u64 }
 
         fun unused_resource(): Coin {
-            let x = Coin { value: 0 }; // ERROR!
-//              ^ This local still contains a value without the drop ability
+            let x = Coin { value: 0 }; // 오류!
+//              ^ 이 지역 변수는 여전히 삭제 기능이 없는 값을 포함하고 있습니다.
             x.value = 1;
             let x = Coin { value: 10 };
             x
-//          ^ Invalid return
+//          ^ 잘못된 반환
         }
     }
 }`;
@@ -322,9 +322,9 @@ const study_1 = () => {
   let z = copy x + 2;`;
   const code58 = `  let x = 1;
   let y = move x + 1;
-  //      ------ Local was moved here
-  let z = move x + 2; // Error!
-  //      ^^^^^^ Invalid usage of local 'x'
+  //      ------ 지역 변수가 여기로 이동되었습니다
+  let z = move x + 2; // 오류!
+  //      ^^^^^^"지역 변수 'x'의 잘못된 사용"
   y + z`;
   const code59 = `  let s = b"hello";
   let foo = Foo { f: 0 };
@@ -350,7 +350,7 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
-            로컬 변수 및 범위
+            지역변수에 변수 및 범위
           </Typography>
         </Box>
       </Grid>
@@ -361,15 +361,10 @@ const study_1 = () => {
             <Span text={"정적으로"} />) 범위가 지정됩니다. 새 변수는
             <Span text={"let"} />
             키워드로 도입되며 동일한 이름을 가진 이전의 지역 변수를
-            가려버립니다. 지역 변수는 가변(mutable)이며, 직접적으로
-            업데이트하거나 가변 참조를 통해 업데이트할 수 있습니다.
-          </Typography>
-        </Box>
-      </Grid>
-      <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
-          <Typography variant="h4" gutterBottom>
-            지역 변수 선언
+            가려버립니다. 지역 변수는 가변(
+            <Span text={"mutable"} />
+            )이며, 직접적으로 업데이트하거나 가변 참조를 통해 업데이트할 수
+            있습니다.
           </Typography>
         </Box>
       </Grid>
@@ -470,7 +465,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
-          <Typography variant="h3" gutterBottom>
+          <Typography variant="h4" gutterBottom>
             유형 주석
           </Typography>
         </Box>
@@ -520,7 +515,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
-          <Typography variant="h3" gutterBottom>
+          <Typography variant="h4" gutterBottom>
             주석이 필요한 경우
           </Typography>
         </Box>
@@ -540,10 +535,10 @@ const study_1 = () => {
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
-            더 드물게, 유형 시스템은 타입을 추론할 수 없는 비상귀 코드(모든 다음
-            코드는 접근 불가능한 경우)에 대한 타입을 결정할 수 없을 수도
-            있습니다. <Span text={"return"} /> 과 <Span text={"abort"} />는 모두
-            식(
+            더 드물게, 유형 시스템은 타입을 추론할 수 없는 비상귀 코드({" "}
+            <Span text={"모든 다음 코드는 접근 불가능한 경우"} />
+            )에 대한 타입을 결정할 수 없을 수도 있습니다.{" "}
+            <Span text={"return"} /> 과 <Span text={"abort"} />는 모두 식(
             <Span text={"expression"} />
             )이므로 어떤 타입이든 가질 수 있습니다. <Span text={"break"} />가
             있는 경우 loop의 타입은 ()이지만, loop에서 <Span text={"break"} />가
@@ -566,7 +561,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
-          <Typography variant="h3" gutterBottom>
+          <Typography variant="h4" gutterBottom>
             튜플을 사용한 여러개의 선언
           </Typography>
         </Box>
@@ -610,7 +605,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
-          <Typography variant="h3" gutterBottom>
+          <Typography variant="h4" gutterBottom>
             구조체가 있는 여러개의 선언
           </Typography>
         </Box>
@@ -993,7 +988,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
-          <Typography variant="h3" gutterBottom>
+          <Typography variant="h4" gutterBottom>
             표현식 블록(Expression Blocks)
           </Typography>
         </Box>
@@ -1115,7 +1110,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
-          <Typography variant="h3" gutterBottom>
+          <Typography variant="h4" gutterBottom>
             섀도잉(shadowing)
           </Typography>
         </Box>
@@ -1184,7 +1179,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
-          <Typography variant="h3" gutterBottom>
+          <Typography variant="h4" gutterBottom>
             이동 및 복사
           </Typography>
         </Box>
@@ -1230,7 +1225,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
-          <Typography variant="h3" gutterBottom>
+          <Typography variant="h4" gutterBottom>
             안전
           </Typography>
         </Box>
@@ -1247,7 +1242,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
-          <Typography variant="h3" gutterBottom>
+          <Typography variant="h4" gutterBottom>
             추론
           </Typography>
         </Box>
