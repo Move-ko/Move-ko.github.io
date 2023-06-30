@@ -10,7 +10,149 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
+import Copy from "../util/copy";
+
 const study_1 = () => {
+  const code1 = `  module example::test {
+    fun  main(){
+      let s= S {f:10}
+      let f_ref1:&u64 = &s.f; //공장
+      let s_ref:&S= &s;
+      let f_ref2: &u64= &s_ref.f //또한 작동
+    }
+   }
+`;
+  const code2 = `  module example::test {
+    struct A {b:B}
+ 
+    struct B {
+        c:u64
+    }
+ 
+    fun f(a:&A): &u64{
+       &a.b.c
+    }
+ }
+`;
+  const code3 = `  module example::test {
+    fun main(){
+  
+      let x= 7;
+      let y:&u64= &x;
+      let z:&&u64= &y;//컴파일 되지 않습니다.
+    }
+  }
+`;
+  const code4 = `  module example::test {
+    fun copy_resource_via_ref_bad(c:Coin){
+      let c_ref= &c;
+      let counterfeit:Coin= *c_ref;//허용되지 않습니다!
+      pay(c);
+      pay(counterfeit);
+    }
+  }
+`;
+  const code5 = `  module example::test {
+    fun destroy_resource_via_ref_bad(ten_coins:Coin,c:Coin){
+     let ref= &mut ten_coins;
+     *ref =c;//허용되지 않음-10개의 코인을 파괴합니다!
+    }
+ }
+`;
+  const code6 = `  module example::test {
+    fun main(){
+      let x=  7;
+      let y= &u64= &mut x;
+    }
+  }
+`;
+  const code7 = `  module example::test {
+    fun takes_immut_returns_immut(x:&u64):&u64{x}
+ 
+    //반환값에 대한 추론 고정
+    fun takes_mut_returns_immut(x:&mut u64):&u64{x}
+ 
+    fun expression_examples(){
+ 
+     let x= 0;
+     let y= 0;
+     takes_immut_returns_immut(&x);//추론없음
+     takes_immut_returns_immut(&mut x);//추정 동결(&mut x)
+     takes_mut_returns_immut(&mut x);//추론없음
+ 
+     assert!(&x == &mut y,42);//추정 동결(&mut y)
+    }
+    
+ 
+    fun assignment_examples(){
+       let x= 0;
+       let y= 0;
+       let imm_ref:&u64 = &x;
+ 
+       imm_ref= &x;//추론없음
+       imm_ref= &mut y;//추정 동결(&mut y)
+     
+    }
+ 
+    
+    
+    }
+`;
+  const code8 = `  address 0x42 {
+    module example{
+        fun read_and_assign(store:&mut u64,new_value:&u64){
+            *store= *new_value
+        }
+
+        fun subtype_examples(){
+            let x:&u64 = &0;
+            let y:&mut u64= &mut 1;
+
+            x= &mut 1;//유효한
+            y= &2 //유효하지 않은
+
+            read_and_assign(y,x);//유효한
+            read_and_assign(x,y);//유효하지 않은
+        }  
+    }
+}
+`;
+  const code9 = `  error:
+
+  ┌── example.move:12:9 ───
+  │
+12 │         y = &2; // 유효하지 않은!
+  │         ^ Invalid assignment to local 'y'
+  ·
+12 │         y = &2; // 유효하지 않음!
+  │             -- The type: '&{integer}'
+  ·
+9 │         let y: &mut u64 = &mut 1;
+  │                -------- Is not a subtype of: '&mut u64'
+  │
+
+error:
+
+  ┌── example.move:15:9 ───
+  │
+15 │         read_and_assign(x, y); // 유효하지 않음!
+  │         ^^^^^^^^^^^^^^^^^^^^^ Invalid call of '0x42::example::read_and_assign'. Invalid argument for parameter 'store'
+  ·
+8 │         let x: &u64 = &0;
+  │                ---- The type: '&u64'
+  ·
+3 │     fun read_and_assign(store: &mut u64, new_value: &u64) {
+  │                                -------- Is not a subtype of: '&mut u64'
+  │
+`;
+  const code10 = `  module example::test {
+    fun reference_copies(s:&mut S){
+      let s_copy1=s;//유효
+      let s_extension= &mut s.f;//유효
+      let s_copy2 = s;//유효
+    }
+  }
+`;
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: " #171B1C",
@@ -150,14 +292,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4} sx={{ marginTop: "30px" }}>
-        <img
-          src={"/img/7_1.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code1} />
       </Grid>
-      <Grid xs={0} md={4}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -166,14 +303,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4} sx={{ marginTop: "30px" }}>
-        <img
-          src={"/img/7_2.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code2} />
       </Grid>
-      <Grid xs={0} md={4}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -182,14 +314,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4} sx={{ marginTop: "30px" }}>
-        <img
-          src={"/img/7_3.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code3} />
       </Grid>
-      <Grid xs={0} md={4}></Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
@@ -248,14 +375,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
-        <img
-          src={"/img/7_4.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code4} />
       </Grid>
-      <Grid xs={0} md={4}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -266,14 +388,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
-        <img
-          src={"/img/7_5.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code5} />
       </Grid>
-      <Grid xs={0} md={4}></Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
@@ -289,14 +406,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
-        <img
-          src={"/img/7_6.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code6} />
       </Grid>
-      <Grid xs={0} md={4}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -305,14 +417,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
-        <img
-          src={"/img/7_7.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code7} />
       </Grid>
-      <Grid xs={0} md={4}></Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
@@ -333,14 +440,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
-        <img
-          src={"/img/7_8.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code8} />
       </Grid>
-      <Grid xs={0} md={4}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -348,14 +450,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
-        <img
-          src={"/img/7_9.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code9} />
       </Grid>
-      <Grid xs={0} md={4}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -379,14 +476,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
-        <img
-          src={"/img/7_10.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code10} />
       </Grid>
-      <Grid xs={0} md={4}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>

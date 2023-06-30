@@ -10,7 +10,98 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
+import Copy from "../util/copy";
+
 const study_1 = () => {
+  const code1 = `  address 0x42 {
+    module example {
+        // 이 세 가지 기능은 모두 동일합니다.
+    
+    //반환 유형이 제공되지 않으면 ()로 간주됩니다.
+        fun returns_unit_1() { }
+    
+    
+    // 빈 표현식 블록에 암시적() 값이 있습니다.
+        fun returns_unit_2(): () { }
+    
+    
+    // returns_unit_1 및 returns_unit_2의 명시적 버전
+        fun returns_unit_3(): () { () }
+    
+    
+        fun returns_3_values(): (u64, bool, address) {
+            (0, false, @0x42)
+        }
+        fun returns_4_values(x: &u64): (&u64, u8, u128, vector<u8>) {
+            (x, 0, 1, b"foobar")
+        }
+    }
+    }
+`;
+  const code2 = `  address 0x42 {
+    module example {
+        
+    // 이 3개의 함수는 모두 동일합니다.
+    
+    
+     fun returns_uint(){}
+    
+     fun returns_2_values():(bool,bool){
+        (true,false)
+     } 
+    
+     fun return_4_values(x:&u64):(&u64,u8,u128,vector<u8>){
+        (x,0,1,b"foobar")
+     }
+    
+     fun examples(cond:bool){
+        let ()= ();
+        let (x,y):(u8,u64)= (0,1);
+        let (a,b,c,d)= (@0x0,0,false,b"");
+    
+        ()= ();
+        (x,y)= if(cond)(1,2)else (3,4);
+        (a,b,c,d)= (@0x1,1,true,b"1");
+     }
+    
+     fun example_with_function_calls(){
+        let ()=  returns_unit();
+        let (x,y):(bool,bool)= returns_2_values();
+        let (a,b,c,d)= returns_4_values(&0);
+    
+        ()= returns_unit();
+        (x,y)= returns_2_values();
+        (a,b,c,d )= return_4_values(&1);
+     }
+    
+    
+    }
+    }
+`;
+  const code3 = `  module example ::test {
+    fun main(){
+     let x:&u64= &0;
+     let y:&mut u64= &mut 1;
+    
+     // (&u64, &mut u64)는 (&u64, &u64)의 하위 유형입니다.
+     //&mut u64는 &u64의 하위 유형이므로
+     let (a, b): (&u64, &u64) = (x, y);
+      
+ 
+     // (&mut u64, &mut u64)는 (&u64, &u64)의 하위 유형입니다.
+     // &mut u64는 &u64의 하위 유형이므로 
+     let (c, d): (&u64, &u64) = (y, y);
+     
+ 
+      // 오류! (&u64, &mut u64)는 (&mut u64, &mut u64)의 하위 유형이 아닙니다.
+     // &u64는 &mut u64의 하위 유형이 아니므로
+ 
+     let (e, f): (&mut u64, &mut u64) = (x, y);
+ 
+ 
+     }
+ }
+`;
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: " #171B1C",
@@ -139,14 +230,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        <img
-          src={"/img/8_1.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code1} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
@@ -176,14 +262,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
-        <img
-          src={"/img/8_2.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code2} />
       </Grid>
-      <Grid xs={0} md={4}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -209,14 +290,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
-        <img
-          src={"/img/8_3.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code3} />
       </Grid>
-      <Grid xs={0} md={4}></Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>

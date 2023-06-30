@@ -10,7 +10,38 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
+import Copy from "../util/copy";
+
 const study_1 = () => {
+  const code1 = `  module example::test {
+    struct signer has drop{
+     a:address
+    }
+ }
+`;
+  const code2 = `  module example::test {
+    fun main(){
+     let a1= @0x1;
+     let a1= @0x2;
+     // ... 다른 모든 가능한 주소에 대해 등등
+    }
+ }
+`;
+  const code3 = `  script {
+    use std::signer;
+    fun main(s: signer) {
+        assert!(signer::address_of(&s) == @0x42, 0);
+    }
+}
+`;
+  const code4 = `  script {
+    use std::signer;
+    fun main(s1: signer, s2: signer, x: u64, y: u8) {
+        // ...
+    }
+}
+`;
+
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: " #171B1C",
@@ -63,14 +94,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
-        <img
-          src={"/img/6_1.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code1} />
       </Grid>
-      <Grid xs={0} md={4}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -95,14 +121,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
-        <img
-          src={"/img/6_2.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code2} />
       </Grid>
-      <Grid xs={0} md={4}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -114,14 +135,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        <img
-          src={"/img/6_3.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code3} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -132,14 +148,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        <img
-          src={"/img/6_4.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code4} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>

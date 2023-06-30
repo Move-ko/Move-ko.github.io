@@ -10,7 +10,98 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
+import Copy from "../util/copy";
+
 const study_1 = () => {
+  const code1 = `  module example::test {
+    fun main(){
+
+   vector<T>[]: vector<T>
+   vector<T>[e1, ..., en]: vector<T>
+   
+    }
+
+}
+`;
+  const code2 = `  module example::test {
+    fun main(){
+
+(vector[]: vector<bool>);
+(vector[0u8, 1u8, 2u8]: vector<u8>);
+(vector<u128>[]: vector<u128>);
+(vector<address>[@0x42, @0x100]: vector<address>);
+
+
+    }
+`;
+  const code3 = `  script {
+    fun byte_and_hex_strings() {
+        assert!(b"" == x"", 0);
+        assert!(b"Hello!\\n" == x"48656C6C6F210A", 1);
+        assert!(b"\\x48\\x65\\x6C\\x6C\\x6F\\x21\\x0A" == x"48656C6C6F210A", 2);
+        assert!(
+            b"\\"Hello\\tworld!\\"\\n \\r \\\Null=\\0" ==
+                x"2248656C6C6F09776F726C6421220A200D205C4E756C6C3D00",
+            3
+        );
+    }
+    }
+`;
+  const code4 = `  module example::test {
+    use std::vector;
+    
+    fun main(){
+      let v = vector::empty<u64>();
+      vector::push_back(&mut v, 5);
+      vector::push_back(&mut v, 6);
+
+      assert!(*vector::borrow(&v, 0) == 5, 42);
+      assert!(*vector::borrow(&v, 1) == 6, 42);
+      assert!(vector::pop_back(&mut v) == 6, 42);
+      assert!(vector::pop_back(&mut v) == 5, 42);
+    }
+`;
+  const code5 = `  module example::test {
+    fun destory_any_vector<T>(vec:vector<T>){
+     vector::destory_empty(vec)//이 줄을 삭제하면 컴파일러 오류가 발생합니다.
+    }
+ }
+`;
+  const code6 = `  module example::test {
+    fun destroy_droppable_vector<T: drop>(vec: vector<T>) {
+       // 유효한!
+       // 벡터를 파괴하기 위해 명시적으로 수행할 필요가 없습니다.
+       // nothing needs to be done explicitly to destroy the vector
+   }
+   }
+`;
+  const code7 = `  module example::test {
+    fun example(){
+        let x = vector::singleton<u64>(10);
+        let y = copy x; // 사본이 없는 컴파일러 오류!
+    }
+    }
+`;
+  const code8 = `  module example::test {
+  fun main(){
+
+ vector<T>[]: vector<T>
+ vector<T>[e1, ..., en]: vector<T>
+ 
+  }
+
+}
+`;
+  const code9 = `  module example::test {
+  fun main(){
+
+ vector<T>[]: vector<T>
+ vector<T>[e1, ..., en]: vector<T>
+ 
+  }
+
+}
+`;
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: " #171B1C",
@@ -283,22 +374,12 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
-        <img
-          src={"/img/5_1.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code1} />
       </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4} sx={{ marginTop: "0px" }}>
-        <img
-          src={"/img/5_2.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code2} />
       </Grid>
-      <Grid xs={0} md={4}></Grid>
       <Grid xs={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
@@ -397,14 +478,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        <img
-          src={"/img/5_3.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code3} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -449,14 +525,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        <img
-          src={"/img/5_4.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code4} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
@@ -479,14 +550,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        <img
-          src={"/img/5_5.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code5} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -496,14 +562,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        <img
-          src={"/img/5_7.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code6} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -515,14 +576,9 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={3}></Grid>
-      <Grid xs={12} md={6} sx={{ marginTop: "0px" }}>
-        <img
-          src={"/img/5_8.png"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "10px" }}
-        />
+      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        <Copy code={code7} />
       </Grid>
-      <Grid xs={0} md={3}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
