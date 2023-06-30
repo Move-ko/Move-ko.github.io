@@ -1,5 +1,5 @@
 module example::test {
     fun main(){
-        if (condition) () else abort code
+       let z = if (x < 100) x else 100;
     }
 }

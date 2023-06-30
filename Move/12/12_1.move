@@ -1,5 +1,5 @@
 module example::test {
     fun main(){
-        if (condition) () else abort code
+        if (x>5) x= x-5
     }
 }
