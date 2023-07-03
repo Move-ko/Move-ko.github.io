@@ -107,136 +107,170 @@ script {
     }
 }
 `;
-  const code7 = `  module example::test {
-    fun foo() {
-        let i = 0;
-        loop { i = i + 1 }
+  const code7 = `  address 0x42 {
+    module m {
+        entry fun foo():u64 {0}//// 유효! entry 함수는 public이 필요하지 않습니다.
+    }
+
+    module n {
+        fun calls_m_foo():u64 {
+            0x42::m::foo()//오류 
+            // ^^^^^^^^^^^^ 'foo'는 '0x42::m' 내부에서만 사용 가능합니다.
+        }
+    }
+    
+    module other {
+        public entry fun calls_m_foo():u64 {
+            0x42::m::foo()//오류 
+            // ^^^^^^^^^^^^ 'foo'는 '0x42::m' 내부에서만 사용 가능합니다.
+        }
+    }
+}
+script {
+    fun calls_m_foo():u64 {
+        0x42::m::foo()//오류 
+     // ^^^^^^^^^^^^ 'foo'는 '0x42::m' 내부에서만 사용 가능합니다.
     }
 }
 `;
   const code8 = `  module example::test {
-    fun sum(n: u64): u64 {
-        let sum = 0;
-        let i = 0;
-        loop {
-            i = i + 1;
-            if (i > n) break;
-            sum = sum + i
-        };
-    
-        sum
-    }
+    fun FOO(){}
+    fun bar_42(){}
+    fun _bAZ19(){}
 }
 `;
   const code9 = `  module example::test {
-    fun sum_intermediate(n: u64): u64 {
-        let sum = 0;
-        let i = 0;
-        loop {
-            i = i + 1;
-            if (i % 10 == 0) continue;
-            if (i > n) break;
-            sum = sum + i
-        };
-    
-        sum
-    }
+    fun id<T>(x:T):T {x}
+    fun example<T1:copy,T2>(x:T1,y:T2):(T1,T1,T2){(copy,x,x,y)}
 }
 `;
   const code10 = `  module example::test {
-    fun main(){
-        let () = while (i < 10) { i = i + 1 };
-    }
+    fun add(x:u64,y:u64):u64 {x+y}
 }
 `;
 
   const code11 = `  module example::test {
-    fun main(){
-        (loop { if (i < 10) i = i + 1 else break }: ());
-        let () = loop { if (i < 10) i = i + 1 else break };
+    fun useless(){}
+}
+`;
+  const code12 = `  address 0x42 {
+    module example{
+        struct Counter {
+            count:u64
+        }
+        fun new_counter():Counter {
+            Counter {count:0}
+        }
     }
 }
 `;
-  const code12 = `  module example::test {
-    fun main(){
-        (loop (): u64);
-        (loop (): address);
-        (loop (): &vector<vector<u8>>);
-    }
-}
-`;
-  const code13 = `  module example::test {
-    fun main(){
-        (loop (): u64);
-        (loop (): address);
-        (loop (): &vector<vector<u8>>);
+  const code13 = `  address 0x42 {
+    module example {
+        struct Balance has key {
+            value :u64
+        }
+        public fun add_balance(s:&signer, value :u64){
+            move_to(s,Balance{value})
+        }
+
+        public fun extract_balance(addr:address ) :u64 acquires Balance {
+            let Balance {value}= move_from(addr);//acquires 필요
+            value
+        }
     }
 }
 `;
 
-  const code14 = `  module example::test {
-    fun main(){
-        (loop (): u64);
-        (loop (): address);
-        (loop (): &vector<vector<u8>>);
+  const code14 = `  address 0x42 {
+    module example {
+        struct Balance has key {
+            value:u64
+        }
+       public fun add_balance(s:&signer) {
+        move_to(s,Balance{value})
+       }
+
+
+       public fun extract_balance(addr:address):u64 acquires Balance {
+            let Balance { value}= move_from(addr);//acquires 필요
+            value
+        }  
+        public fun extract_and_add(sender:address,receiver:&signer)acquires Balance {
+            let value = extract_balance(sender);//여기에서는 acquires가 필요합니다.
+            add_balance(receiver, value)
+
+        }
+    }
+}
+address 0x42 {
+    module other {
+        fun extract_balance(addr:address):u64 {
+            0x42::example::extract_balance(addr)//acquires이 필요하지 않습니다.
+        }
     }
 }
 `;
 
-  const code15 = `  module example::test {
-    fun main(){
-        (loop (): u64);
-        (loop (): address);
-        (loop (): &vector<vector<u8>>);
+  const code15 = `  address 0x42 {
+    module example {
+        use std::vector;
+
+        struct Balance has key { 
+            value:u64
+        }
+
+        struct Box<T> has key {
+            items:vector<T>
+        }
+
+        public fun store_two<Item1:store,Item2:store>(
+            addr:address,
+            item1:Item1,
+            item2:Item2,
+        )acquires Balance ,Box {
+            let balance = borrow_global_mut<Balance>(addr);//acquires 필요
+            balance.value= balance.value - 2;
+            let box1=borrow_global_mut<Box<Item1>>(addr);//acquires 필요
+            vector::push_back(&mut box1.items,item1);
+            let box2= borrow_global_mut<Box<Item2>>(addr);//acquires 필요
+            vector::push_back(&mut box2,items,item2);
+        }
+
     }
 }
 `;
   const code16 = `  module example::test {
-    fun main(){
-        (loop (): u64);
-        (loop (): address);
-        (loop (): &vector<vector<u8>>);
-    }
+    fun zero():u64 {0}
 }
 `;
   const code17 = `  module example::test {
-    fun main(){
-        (loop (): u64);
-        (loop (): address);
-        (loop (): &vector<vector<u8>>);
+    fun one_two_three(): (u64, u64, u64) {
+         (0, 1, 2) 
     }
 }
 `;
   const code18 = `  module example::test {
-    fun main(){
-        (loop (): u64);
-        (loop (): address);
-        (loop (): &vector<vector<u8>>);
+    fun just_unit(): () { () }
+    fun just_unit() { () }
+    fun just_unit() { }
+}
+`;
+  const code19 = `  script {
+    fun do_nothing(){
     }
 }
 `;
-  const code19 = `  module example::test {
-    fun main(){
-        (loop (): u64);
-        (loop (): address);
-        (loop (): &vector<vector<u8>>);
+  const code20 = `  module examples::test {
+    fun example(): u64 {
+    let x = 0;
+    x = x + 1;
+    x // returns 'x'
     }
 }
 `;
-  const code20 = `  module example::test {
-    fun main(){
-        (loop (): u64);
-        (loop (): address);
-        (loop (): &vector<vector<u8>>);
-    }
-}
-`;
-  const code21 = `  module example::test {
-    fun main(){
-        (loop (): u64);
-        (loop (): address);
-        (loop (): &vector<vector<u8>>);
-    }
+  const code21 = `  module std::vector {
+    native public fun empty<Element>(): vector <Element>;
+    ...
 }
 `;
   const code22 = `  module example::test {
