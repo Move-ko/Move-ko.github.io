@@ -273,99 +273,113 @@ address 0x42 {
     ...
 }
 `;
-  const code22 = `  module example::test {
-    fun main(){
-        (loop (): u64);
-        (loop (): address);
-        (loop (): &vector<vector<u8>>);
+  const code22 = `  address 0x42 {
+    module example {
+        public fun zero():u64 {0}
+    }
+}
+
+script {
+    use 0x42::example::{Self,zero};
+    fun call_zero(){
+        0x42::example::zero();
+        example::zero();
+        zero();
     }
 }
 `;
-  const code23 = `  module example::test {
-    fun main(){
-        (loop (): u64);
-        (loop (): address);
-        (loop (): &vector<vector<u8>>);
+  const code23 = `  address 0x42 {
+    module example {
+        public fun takes_none():u64{0}
+        public fun takes_one(x:u64):u64 {x}
+        public fun takes_two(x:u64,y:u64):u64{x+y}
+        public fun takes_three(x:u64,y:u64,z:u64):u64 {x+y+z}
+    }
+}
+
+script {
+    use 0x42::example;
+    fun call_all(){
+        example::takes_none();
+        example::takes_one(0);
+        example::takes_two(0,1);
+        example::takes_three(0,1,2);
     }
 }
 `;
-  const code24 = `  module example::test {
-    fun main(){
-        (loop (): u64);
-        (loop (): address);
-        (loop (): &vector<vector<u8>>);
+  const code24 = `  address 0x42 {
+    module example {
+       public fun id<T>(x:T):T{x}
     }
-}
+   }
+   script {
+       use 0x42::example;
+       fun call_all() {
+           example::id(0);
+           example::id<u64>(0);
+       }
+   }
 `;
   const code25 = `  module example::test {
-    fun main(){
-        (loop (): u64);
-        (loop (): address);
-        (loop (): &vector<vector<u8>>);
+    fun add(x:u64,y:u64):u64 {
+        x+y
     }
 }
 `;
   const code26 = `  module example::test {
-    fun main(){
-        (loop (): u64);
-        (loop (): address);
-        (loop (): &vector<vector<u8>>);
+    fun double_and_add(x:u64,yPu64):u64 {
+        let double_x = x*2;
+        let double_y = y*2;
+        double_x + double_y
     }
 }
 `;
   const code27 = `  module example::test {
-    fun main(){
-        (loop (): u64);
-        (loop (): address);
-        (loop (): &vector<vector<u8>>);
-    }
+    fun f1():u64 {return 0}
+    fun f2():u64 {0}
 }
 `;
   const code28 = `  module example::test {
-    fun main(){
-        (loop (): u64);
-        (loop (): address);
-        (loop (): &vector<vector<u8>>);
+    fun safe_sub(x:u64,y:u64):u64 {
+        if(x>y)return 0;
+        x-y
     }
 }
 `;
   const code29 = `  module example::test {
-    fun main(){
-        (loop (): u64);
-        (loop (): address);
-        (loop (): &vector<vector<u8>>);
+    use std::vector;
+    use std::option::{Self,Option};
+    fun index_of<T>(v: &vector<T>, target: &T): Option<u64> {
+        let i = 0;
+        let n = vector::legnth(v);
+        while (i < n) {
+            if (vector::borrow(v,i) == target)return option::some(i);
+            i = i +1
+        };
+
+        option::none(i)
     }
 }
 `;
   const code30 = `  module example::test {
-    fun main(){
-        (loop (): u64);
-        (loop (): address);
-        (loop (): &vector<vector<u8>>);
-    }
+    fun foo() { return }
+    fun foo() { return () }
 }
 `;
   const code31 = `  module example::test {
-    fun main(){
-        (loop (): u64);
-        (loop (): address);
-        (loop (): &vector<vector<u8>>);
-    }
+    inline fun percent(x: u64, y: u64):u64 { x * 100 / y }
 }
 `;
   const code32 = `  module example::test {
-    fun main(){
-        (loop (): u64);
-        (loop (): address);
-        (loop (): &vector<vector<u8>>);
-    }
-}
-`;
-  const code33 = `  module example::test {
-    fun main(){
-        (loop (): u64);
-        (loop (): address);
-        (loop (): &vector<vector<u8>>);
+    //주어진 코드는 주어진 컬렉션의 요소에 함수를 "접어"나가는 개념을 나타냅니다. 예를 들어, fold(vector[1,2,3], 0, f)는 f(f(f(0, 1), 2), 3)와 같이 실행됩니다.
+    public inline fun fold<Accumulator, Element>(
+        v:vector<Element>,
+        init:Accumulator,
+        f:|Accumulator,Element|Accumulator
+    ):Accumulator{
+        let accu = init;
+        foreach(v, |elem| accu = g(accu, elem));
+        accu
     }
 }
 `;
