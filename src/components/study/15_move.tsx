@@ -392,14 +392,14 @@ script {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             구조체(struct)는 타입화된 필드를 포함하는 사용자 정의 데이터
             구조입니다. 구조체는 다른 구조체를 포함하여 모든
             비참조(non-reference) 타입을 저장할 수 있습니다.
           </Typography>
         </Box>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             구조체 값이 복사될 수 없고 삭제될 수 없는 경우, 우리는 종종 해당
             구조체 값을 자원(resource)으로 참조합니다. 이 경우 자원 값은 함수의
@@ -408,7 +408,7 @@ script {
             사용됩니다(예: 토큰).
           </Typography>
         </Box>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             기본적으로 구조체는 선형(linear)이고 일시적(ephemeral)입니다. 이는
             구조체가 복사될 수 없고 삭제될 수 없으며, 전역 저장소에 저장될 수
@@ -428,7 +428,7 @@ script {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             구조체는 모듈 내부에서 정의되어야 합니다.
           </Typography>
@@ -438,7 +438,7 @@ script {
         <Copy code={code1} />
       </Grid>{" "}
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             구조체는 재귀적으로 정의될 수 없으므로, 다음과 같은 정의는 올바르지
             않습니다.

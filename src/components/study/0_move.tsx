@@ -14,7 +14,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             Diem 블록체인의 구현을 위해 Rust언어에서 힌트를 받아
             만들어졌으며,현재는 <span style={{ color: "purple" }}>Aptos</span>및{" "}

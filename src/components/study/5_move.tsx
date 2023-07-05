@@ -305,7 +305,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             Move에서 제공하는 유일한 원시 컬렉션 타입은
             <span style={{ color: "purple" }}> {"vector<T>"}</span>
@@ -332,7 +332,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             벡터 리터럴을 사용하여 어떤 유형의 벡터든 생성할 수 있습니다.
           </Typography>
@@ -365,7 +365,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={0} md={2}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             이러한 경우에는 벡터의 유형이 원소 유형이나 벡터의 사용으로부터
             추론됩니다. 유형을 추론할 수 없는 경우 또는 명확성을 위해 유형을
@@ -388,7 +388,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             Move에서 벡터를 사용하는 일반적인 사례는
             <span style={{ color: "purple" }}>바이트 배열</span>을 나타내는
@@ -417,7 +417,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             <span style={{ color: "purple" }}>바이트 문자열</span> 은 b로
             접두사가 붙은 따옴표로 둘러싸인 문자열 리터럴입니다. 예를 들어,
@@ -464,7 +464,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             16진수 문자열은 x로 접두사가 붙은 따옴표로 둘러싸인 문자열
             리터럴입니다. 예를 들어,
@@ -482,7 +482,7 @@ const study_1 = () => {
         <Copy code={code3} />
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             vector는 아래와 같이 Move 표준 라이브러리의 std::vector 모듈을 통해
             여러 작업을 제공합니다. 시간이 지남에 따라 더 많은 작업이 추가될 수
@@ -536,7 +536,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             <span style={{ color: "purple" }}>{"vector<T>"}</span>의 일부 동작은
             원소 유형 T의 기능에 따라 달라집니다. 예를 들어,
@@ -554,7 +554,7 @@ const study_1 = () => {
         <Copy code={code5} />
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             하지만 <span style={{ color: "purple" }}> 드롭(drop) </span>
             기능이 있는 원소를 포함하는 벡터를 폐기하려고 할 때 오류가
@@ -566,7 +566,7 @@ const study_1 = () => {
         <Copy code={code6} />
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             마찬가지로, 원소 유형이
             <span style={{ color: "purple" }}>복사 가능한 경우</span>
@@ -580,7 +580,7 @@ const study_1 = () => {
         <Copy code={code7} />
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             대용량 벡터의 복사는 비용이 많이 들 수 있으므로 컴파일러는 복사가
             명시적으로 이루어지도록 요구하여 어디에서 복사가 발생하는지 쉽게
@@ -599,7 +599,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             위에서 언급한 대로,
             <span style={{ color: "purple" }}>원소가 복사 가능한 경우</span>

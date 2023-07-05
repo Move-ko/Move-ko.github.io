@@ -140,7 +140,7 @@ const study_1 = () => {
             모듈과 스크립트
           </Typography>
         </Box>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             Move는 두 가지 종류의 프로그램인 모듈(Module)과 스크립트(Script)를
             가지고 있습니다. 모듈은 구조체 타입과 이러한 타입에 작용하는 함수를
@@ -206,7 +206,7 @@ const study_1 = () => {
           </Typography>
         </Box>
         <Copy code={code4} />
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             0x42::example 모듈 부분은 example 모듈이 글로벌 저장소의 0x42 주소에
             있는 계정 아래에 게시될 것임을 지정합니다. 모듈은 명명된 주소(named
@@ -214,7 +214,7 @@ const study_1 = () => {
           </Typography>
         </Box>
         <Copy code={code5} />
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             명명된 주소는 소스 언어 수준에서만 존재하며, 컴파일 중에만
             사용되므로, 바이트코드 수준에서 명명된 주소는 해당 값으로 완전히
@@ -229,7 +229,7 @@ const study_1 = () => {
           </Typography>
         </Box>
         <Copy code={code6} />
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             하지만 소스 수준에서는 이러한 코드는 동등하지 않습니다. 함수
             m::foo는 my_addr이라는 명명된 주소를 통해 접근되어야 하며, 해당
@@ -242,7 +242,7 @@ const study_1 = () => {
           </Typography>
         </Box>
         <Copy code={code7} />
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             일반적으로 모듈 이름은 소문자로 시작합니다. my_module이라는 모듈은
             my_module.move라는 소스 파일에 저장되어야 합니다.
@@ -263,7 +263,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={0} md={2}></Grid>
       <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             1. 모듈 요소(사용, 상수, 함수 등)는 특정 순서로 구성되어야 합니다.
           </Typography>
@@ -303,7 +303,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={0} md={2}></Grid>
       <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             1.스크립트는 <span style={{ color: "purple" }}>전역저장소</span>에
             저장되지 않습니다.

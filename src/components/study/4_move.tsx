@@ -78,7 +78,7 @@ module std::other_module {  //네임드 어드레스를 네임스페이스 항�
       </Grid>
 
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             주소는 <span style={{ color: "purple" }}>명명된(named) 주소</span>와
             <span style={{ color: "purple" }}>숫자형(numerical) 주소</span> 로
@@ -123,7 +123,7 @@ module std::other_module {  //네임드 어드레스를 네임스페이스 항�
         <Copy code={code1} />
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             명명된 주소(named addresses)는 주소가 사용되는 모든 위치에서 숫자 값
             대신 식별자를 사용할 수 있도록 하는 기능입니다. 명명된 주소는 Move
@@ -154,7 +154,7 @@ module std::other_module {  //네임드 어드레스를 네임스페이스 항�
       </Grid>
 
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             주소 값의 주요 목적은 글로벌 스토리지 작업과 상호 작용하는 데에
             있습니다. 주소 값은
@@ -204,7 +204,7 @@ module std::other_module {  //네임드 어드레스를 네임스페이스 항�
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             언어에 내장된 다른 스칼라 값과 마찬가지로 주소 값도 암시적으로 복사
             가능(copyable)합니다. 이는 "copy"와 같은

@@ -179,7 +179,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             Move는 ==와 !=라는 두 가지 동등성 연산을 지원합니다.
           </Typography>
@@ -217,7 +217,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             같음(==) 및 같지 않음(!=) 연산은 두 피연산자가 동일한 유형이어야만
             작동합니다.
@@ -228,7 +228,7 @@ const study_1 = () => {
         <Copy code={code1} />
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             사용자 정의된 유형에 대해서도 같음(==)과 같지 않음(!=) 연산이
             작동합니다!
@@ -239,7 +239,7 @@ const study_1 = () => {
         <Copy code={code2} />
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             피연산자가 서로 다른 유형을 가지고 있다면, 유형 검사 오류가
             발생합니다.
@@ -257,7 +257,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             참조를 비교할 때 참조의 유형(불변 또는 가변)은 중요하지 않습니다.
             즉, 동일한 기저 유형의 불변한 & 참조와 가변한 &mut 참조를 비교할 수
@@ -269,7 +269,7 @@ const study_1 = () => {
         <Copy code={code4} />
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             위 내용은 필요한 경우 각 가변 참조에 명시적인 freeze를 적용하는 것과
             동일합니다.
@@ -280,7 +280,7 @@ const study_1 = () => {
         <Copy code={code5} />
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             다시 말씀드리면, 기저 유형은 동일한 유형이어야 합니다.
           </Typography>
@@ -297,7 +297,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             == 및 != 모두 비교 시 값을 소비합니다. 결과적으로, 유형 시스템은
             해당 유형이 drop을 가져야 한다는 사실을 강제합니다. drop 능력이
@@ -312,7 +312,7 @@ const study_1 = () => {
         <Copy code={code7} />
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             그러나, 프로그래머는 값을 직접 비교하는 대신 값이 먼저 대여될 수
             있으며, 참조 유형은 drop 기능을 가지고 있습니다. 예를 들어, 다음과
@@ -331,7 +331,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             프로그래머는 drop이 있는 모든 유형의 값을 비교할 수 있지만, 복사
             비용이 큰 경우 참조를 사용하여 비교하는 것이 좋습니다.
@@ -342,7 +342,7 @@ const study_1 = () => {
         <Copy code={code9} />
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             이 코드는 완벽하게 허용됩니다 (Foo가 drop을 가진다고 가정할 때),
             그러나 효율적이지는 않습니다. 강조된 복사본은 제거되고 대신 참조를
@@ -354,7 +354,7 @@ const study_1 = () => {
         <Copy code={code10} />
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             == 연산 자체의 효율성은 동일하지만, 복사본은 제거되어 프로그램이 더
             효율적이게 됩니다.

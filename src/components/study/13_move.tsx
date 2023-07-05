@@ -163,7 +163,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             Move는 두 가지 루핑 구조를 제공합니다: while과 loop입니다.
           </Typography>
@@ -177,7 +177,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             while 구조는 조건(타입이 bool인 표현식)이 거짓으로 평가될 때까지
             본문(타입이 unit인 표현식)을 반복합니다. 다음은 1부터 n까지의 숫자의
@@ -189,7 +189,7 @@ const study_1 = () => {
         <Copy code={code1} />
       </Grid>{" "}
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             무한 루프는 허용됩니다:
           </Typography>
@@ -206,7 +206,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             break 표현식은 조건이 거짓으로 평가되기 전에 루프를 종료하는 데
             사용될 수 있습니다. 예를 들어, 다음 루프는 1보다 큰 n의 가장 작은
@@ -218,7 +218,7 @@ const study_1 = () => {
         <Copy code={code3} />
       </Grid>{" "}
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             break 표현식은 루프 외부에서 사용할 수 없습니다.
           </Typography>
@@ -232,7 +232,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             continue 표현식은 루프의 나머지 부분을 건너뛰고 다음 반복으로
             진행합니다. 다음 예시의 루프는 숫자가 10으로 나누어떨어지지 않는
@@ -245,7 +245,7 @@ const study_1 = () => {
         <Copy code={code4} />
       </Grid>{" "}
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             continue 표현식은 루프 외부에서 사용할 수 없습니다.
           </Typography>
@@ -259,7 +259,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             break과 continue는 실제로 임의의 타입을 가질 수 있습니다. 다음
             예제는 이러한 유연한 타입 지정이 도움이 되는 경우를 보여줍니다:
@@ -280,7 +280,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             루프 표현식은 루프 본문(타입이 ()인 표현식)을 반복해서 실행하며,
             break를 만날 때까지 계속됩니다. break 없이 루프가 계속되면, 루프는
@@ -292,7 +292,7 @@ const study_1 = () => {
         <Copy code={code7} />
       </Grid>{" "}
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             다음은 루프를 사용하여 합계 함수를 작성하는 예시입니다:
           </Typography>
@@ -302,7 +302,7 @@ const study_1 = () => {
         <Copy code={code8} />
       </Grid>{" "}
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             예상하신 대로, continue는 루프 내부에서도 사용할 수 있습니다. 이전에
             사용한 while 대신 루프를 사용하여 위의 sum_intermediate 함수를 다시
@@ -321,7 +321,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             루프는 타입이 있는 표현식입니다. while 표현식은 항상 () 타입을
             가집니다.
@@ -332,7 +332,7 @@ const study_1 = () => {
         <Copy code={code10} />
       </Grid>{" "}
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             만약 루프에 break문이 포함되어 있다면, 해당 표현식은 unit () 타입을
             갖습니다.
@@ -343,7 +343,7 @@ const study_1 = () => {
         <Copy code={code11} />
       </Grid>{" "}
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             만약 루프에 break문이 없다면, return, abort, break, continue와
             마찬가지로 루프는 어떤 타입이든 가질 수 있습니다.

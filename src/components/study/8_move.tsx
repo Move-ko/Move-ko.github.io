@@ -144,7 +144,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             Move는 튜플을 일급 값으로 사용하는 다른 언어에서 온 것으로 예상할 수
             있으므로 튜플을 완전히 지원하지 않습니다. 그러나 여러 반환 값을
@@ -183,7 +183,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             튜플은 괄호 안에 쉼표로 구분된 표현식 목록으로 생성됩니다.
           </Typography>
@@ -214,7 +214,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={0} md={2}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             <span style={{ color: "purple" }}>(e)</span> 에는
             <span style={{ color: "purple" }}>(e): (t)</span> 유형이 없습니다.
@@ -241,7 +241,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             현재 튜플에서 수행할 수 있는 유일한 작업은
             <span style={{ color: "purple" }}>구조 분해</span> 입니다.
@@ -256,7 +256,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             모든 크기의 튜플에 대해 let 바인딩이나 할당에서 해체될 수 있습니다.
           </Typography>
@@ -266,7 +266,7 @@ const study_1 = () => {
         <Copy code={code2} />
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             자세한 내용은 변수 이동을 참조하십시오.
           </Typography>
@@ -280,7 +280,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             참조와 함께 튜플은 Move에서
             <span style={{ color: "purple" }}>하위 유형</span> 이 있는 유일한
@@ -301,7 +301,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             위에서 언급했듯이 튜플 값은 런타임에 실제로
             <span style={{ color: "purple" }}> 존재하지 않습니다. </span>그리고

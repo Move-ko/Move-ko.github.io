@@ -82,7 +82,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             <span style={{ color: "purple" }}>서명자 </span>는 기본 제공 이동
             자원 유형입니다. 서명자는
@@ -98,7 +98,7 @@ const study_1 = () => {
         <Copy code={code1} />
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             서명자는 이동 외부의 코드(예:
             <span style={{ color: "purple" }}>암호화 서명 또는 암호 확인 </span>
@@ -114,7 +114,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             Move 프로그램은 주소 리터럴을 사용하여 특별한 권한 없이 모든 주소
             값을 만들 수 있습니다.
@@ -125,7 +125,7 @@ const study_1 = () => {
         <Copy code={code2} />
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             그러나 서명자 값은 리터럴이나 지침을 통해 생성할 수 없고
             <span style={{ color: "purple" }}>Move VM에서만 생성 </span> 할 수
@@ -139,7 +139,7 @@ const study_1 = () => {
         <Copy code={code3} />
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             스크립트가 0x42 이외의 주소에서 전송되면 이 스크립트는 코드 0으로
             중단됩니다. 트랜잭션 스크립트는 서명자가 다른 인수의 접두사인 한
@@ -152,7 +152,7 @@ const study_1 = () => {
         <Copy code={code4} />
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             이는 여러 당사자의 권한으로 원자적으로 작동하는 다중 서명자
             스크립트를 구현하는 데 유용합니다. 예를 들어, 위 스크립트의 확장은
@@ -168,7 +168,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             <span style={{ color: "purple" }}> std::signer </span> 표준
             라이브러리 모듈은 서명자 값에 대해 두 가지 유틸리티 기능을
@@ -199,7 +199,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={0} md={2}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             또한
             <span style={{ color: "purple" }}>
@@ -221,7 +221,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             단순 스칼라 값과 달리 서명자 값은 복사할 수 없습니다. 즉
             <span style={{ color: "purple" }}>

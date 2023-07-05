@@ -233,7 +233,7 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={12} md={12}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             각각의 정수 타입은 동일한 집합의 검사된 산술 연산을 지원합니다.
             이러한 모든 연산에서는 인자(왼쪽 및 오른쪽 피연산자) 모두 동일한

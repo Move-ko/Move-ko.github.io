@@ -222,7 +222,7 @@ error:
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             Move에는 <span style={{ color: "purple" }}>불변 &</span>및
             <span style={{ color: "purple" }}>가변 &mut</span>의 두 가지 유형의
@@ -245,7 +245,7 @@ error:
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             Move는 참조를 만들고 확장할 뿐만 아니라 변경 가능한 참조를 변경
             불가능한 참조로 변환하기 위한 연산자를 제공합니다. 여기와 다른
@@ -283,7 +283,7 @@ error:
       </Grid>
       <Grid xs={0} md={2}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             <span style={{ color: "purple" }}> &e.f</span>및
             <span style={{ color: "purple" }}> &mut e.f </span>
@@ -296,7 +296,7 @@ error:
         <Copy code={code1} />
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             여러 필드가 있는 참조 표현식은 두 구조체가 동일한 모듈에 있는 한
             작동합니다.
@@ -307,7 +307,7 @@ error:
         <Copy code={code2} />
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             마지막으로 참조에 대한 참조는
             <span style={{ color: "purple" }}>허용되지 않습니다.</span>
@@ -325,7 +325,7 @@ error:
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             변경 가능한 참조와 변경 불가능한 참조를 모두 읽어 참조된 값의
             <span style={{ color: "purple" }}>복사본</span>을 생성할 수
@@ -363,7 +363,7 @@ error:
       </Grid>
       <Grid xs={0} md={2}></Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             참조를 읽으려면 기본 유형에
             <span style={{ color: "purple" }}>복사</span>
@@ -379,7 +379,7 @@ error:
         <Copy code={code4} />
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             이중: 참조를 작성하려면 기본 유형에 삭제 기능이 있어야 합니다.
             참조에 작성하면 이전 값이 삭제 (
@@ -399,7 +399,7 @@ error:
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             변경 불가능한 참조가 예상되는 상황에서 변경 가능한 참조를 사용할 수
             있습니다.
@@ -410,7 +410,7 @@ error:
         <Copy code={code6} />
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             이는 내부적으로 컴파일러가 필요한 곳에 고정 명령을 삽입하기 때문에
             작동합니다. 다음은 고정 추론의 몇 가지 예입니다.
@@ -428,7 +428,7 @@ error:
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             이 동결 추론을 통해 Move 유형 검사기는
             <span style={{ color: "purple" }}>&mut T</span>를
@@ -444,7 +444,7 @@ error:
         <Copy code={code8} />
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             다음과 같은 오류 메시지가 나타납니다
           </Typography>
@@ -454,7 +454,7 @@ error:
         <Copy code={code9} />
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             현재 하위 유형이 있는 유일한 다른 유형은
             <span style={{ color: "purple" }}>튜플</span>입니다.
@@ -469,7 +469,7 @@ error:
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             동일한 참조의 기존 복사본이나 확장이 있더라도 변경 가능한 참조와
             변경 불가능한 참조는 항상 복사 및 확장될 수 있습니다.
@@ -480,7 +480,7 @@ error:
         <Copy code={code10} />
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             이것은 위의 코드를 거부하는 Rust의 소유권 시스템에 익숙한
             프로그래머에게는 놀라운 일이 될 수 있습니다. Move의 타입 시스템은
@@ -497,7 +497,7 @@ error:
         </Box>
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             <span style={{ color: "purple" }}>참조</span> 와
             <span style={{ color: "purple" }}>튜플</span>은 구조체의 필드 값으로
