@@ -27,81 +27,31 @@ const study_1 = () => {
     }
 }
 `;
-  const code4 = `  address 0x42 {
-    module m {
-        public fun foo():u64 {0}
-        fun calls_foo():u64 {foo()}//유효
-    
-    }
+  const code4 = `  module example::test {
+    struct Foo {}
+    struct BAR {}
+    struct B_a_z_4_2 {}
+}
 
-    module other {
-        fun calls_m_foo():u64 {
-            0x42::m::foo()//유효
-        }
-    }
-}
-script {
-    fun calls_m_foo():u64 {
-        0x42::m::foo() //유효
-    }
-}
 `;
   const code5 = `  address 0x42 {
     module m {
-        friend 0x42::n;  // friend 선언
-        public(friend) fun foo(): u64 { 0 }
-        fun calls_foo(): u64 { foo() } // 유효
-    }
-    
-    module n {
-        fun calls_m_foo(): u64 {
-            0x42::m::foo() // 유효
-        }
-    }
-    
-    module other {
-        fun calls_m_foo(): u64 {
-            0x42::m::foo() // 오류!
-    //       ^^^^^^^^^^^^ 'foo'는 모듈 '0x42::m'의 'friend'에서만 호출할 수 있습니다.
-    
-    
-    
-    
-        }
-    }
-    }
-    
-    script {
-        fun calls_m_foo(): u64 {
-            0x42::m::foo() // 오류!
-    //       ^^^^^^^^^^^^ 'foo'는 모듈 '0x42::m'의 'friend'에서만 호출할 수 있습니다.
-        }
-    }
-`;
-  const code6 = `  address 0x42 {
-    module m {
-        public entry fun foo():u64 {0}
-        fun calls_foo():u64 {foo()}//유효
-    }
-    
-    module n {
-        fun calls_m_foo():u64 {
-            0x42::m::foo()//유효
-        }
-    }
+        struct Foo has drop {x:u64,y:bool}
+        struct Baz has drop {foo:Foo}
 
-
-    module other {
-        public entry fun calls_m_foo():u64 {
-            0x42::m::foo()//유효
+        fun example(){
+            let foo = Foo {x:0,y:false};
+            let baz = Baz {foo :foo};
         }
     }
-
 }
-
-script {
-    fun calls_m_foo():u64 {
-        0x42::m::foo()//유효
+`;
+  const code6 = `  module example::test {
+    fun main(){
+        //둘은 동등합니다
+        let baz = Baz {foo:foo};
+    
+        let baz= Baz {foo};
     }
 }
 `;
@@ -271,116 +221,6 @@ address 0x42 {
     ...
 }
 `;
-  const code22 = `  address 0x42 {
-    module example {
-        public fun zero():u64 {0}
-    }
-}
-
-script {
-    use 0x42::example::{Self,zero};
-    fun call_zero(){
-        0x42::example::zero();
-        example::zero();
-        zero();
-    }
-}
-`;
-  const code23 = `  address 0x42 {
-    module example {
-        public fun takes_none():u64{0}
-        public fun takes_one(x:u64):u64 {x}
-        public fun takes_two(x:u64,y:u64):u64{x+y}
-        public fun takes_three(x:u64,y:u64,z:u64):u64 {x+y+z}
-    }
-}
-
-script {
-    use 0x42::example;
-    fun call_all(){
-        example::takes_none();
-        example::takes_one(0);
-        example::takes_two(0,1);
-        example::takes_three(0,1,2);
-    }
-}
-`;
-  const code24 = `  address 0x42 {
-    module example {
-       public fun id<T>(x:T):T{x}
-    }
-   }
-   script {
-       use 0x42::example;
-       fun call_all() {
-           example::id(0);
-           example::id<u64>(0);
-       }
-   }
-`;
-  const code25 = `  module example::test {
-    fun add(x:u64,y:u64):u64 {
-        x+y
-    }
-}
-`;
-  const code26 = `  module example::test {
-    fun double_and_add(x:u64,yPu64):u64 {
-        let double_x = x*2;
-        let double_y = y*2;
-        double_x + double_y
-    }
-}
-`;
-  const code27 = `  module example::test {
-    fun f1():u64 {return 0}
-    fun f2():u64 {0}
-}
-`;
-  const code28 = `  module example::test {
-    fun safe_sub(x:u64,y:u64):u64 {
-        if(x>y)return 0;
-        x-y
-    }
-}
-`;
-  const code29 = `  module example::test {
-    use std::vector;
-    use std::option::{Self,Option};
-    fun index_of<T>(v: &vector<T>, target: &T): Option<u64> {
-        let i = 0;
-        let n = vector::legnth(v);
-        while (i < n) {
-            if (vector::borrow(v,i) == target)return option::some(i);
-            i = i +1
-        };
-
-        option::none(i)
-    }
-}
-`;
-  const code30 = `  module example::test {
-    fun foo() { return }
-    fun foo() { return () }
-}
-`;
-  const code31 = `  module example::test {
-    inline fun percent(x: u64, y: u64):u64 { x * 100 / y }
-}
-`;
-  const code32 = `  module example::test {
-    //주어진 코드는 주어진 컬렉션의 요소에 함수를 "접어"나가는 개념을 나타냅니다. 예를 들어, fold(vector[1,2,3], 0, f)는 f(f(f(0, 1), 2), 3)와 같이 실행됩니다.
-    public inline fun fold<Accumulator, Element>(
-        v:vector<Element>,
-        init:Accumulator,
-        f:|Accumulator,Element|Accumulator
-    ):Accumulator{
-        let accu = init;
-        foreach(v, |elem| accu = g(accu, elem));
-        accu
-    }
-}
-`;
 
   return (
     <Grid container>
@@ -390,8 +230,6 @@ script {
             구조체 와 자원
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             구조체(struct)는 타입화된 필드를 포함하는 사용자 정의 데이터
@@ -419,25 +257,17 @@ script {
             이 동작을 완화시킬 수 있습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             구조체(Structs) 정의하기
           </Typography>
-        </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
+        </Box>{" "}
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             구조체는 모듈 내부에서 정의되어야 합니다.
           </Typography>
-        </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        </Box>{" "}
         <Copy code={code1} />
-      </Grid>{" "}
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             구조체는 재귀적으로 정의될 수 없으므로, 다음과 같은 정의는 올바르지
@@ -452,6 +282,49 @@ script {
             있습니다.
           </Typography>
           <Copy code={code3} />
+        </Box>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
+            이름 짓기
+          </Typography>
+        </Box>{" "}
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            구조체는 반드시 영문 대문자 A부터 Z까지의 문자로 시작해야 합니다. 첫
+            글자 다음에는 밑줄(_), 영문 소문자 a부터 z까지의 문자, 영문 대문자
+            A부터 Z까지의 문자, 또는 숫자 0부터 9까지 포함될 수 있습니다.
+          </Typography>
+        </Box>
+        <Copy code={code4} />
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            A부터 Z로 시작하는 이름 지정 제한은 향후 언어 기능을 위한 여지를
+            주기 위해 설정되었습니다. 이 제한은 나중에 제거될 수도 있습니다.
+          </Typography>
+        </Box>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
+            구조체(Structs) 생성
+          </Typography>
+        </Box>{" "}
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            구조체 타입의 값을 생성하려면 구조체 이름을 지정하고, 각 필드에 대한
+            값들을 지정하여 "패킹"할 수 있습니다.
+          </Typography>
+        </Box>
+        <Copy code={code5} />
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            만약 필드와 동일한 이름을 가진 로컬 변수를 사용하여 구조체 필드를
+            초기화하려면 다음과 같은 축약형을 사용할 수 있습니다:
+          </Typography>
+        </Box>
+        <Copy code={code6} />
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            이를 종종 "필드 이름 퍼닝"이라고 부릅니다.
+          </Typography>
         </Box>
       </Grid>
     </Grid>
