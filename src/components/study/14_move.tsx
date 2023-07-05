@@ -391,67 +391,47 @@ script {
           <Typography variant="h3" gutterBottom>
             함수
           </Typography>
-        </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        </Box>{" "}
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             Move에서의 함수 구문은 모듈 함수와 스크립트 함수 간에 공유됩니다.
             모듈 내부의 함수는 재사용 가능한 함수로 사용되며, 스크립트 함수는
             트랜잭션을 호출하는 데 한 번만 사용됩니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             선언
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             함수는 fun 키워드를 사용하여 선언됩니다. 함수 선언은 함수 이름, 타입
             매개변수, 매개변수, 반환 타입, 어카이어(획득) 어노테이션들, 그리고
             마지막으로 함수 본문으로 구성됩니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code1} />
-      </Grid>{" "}
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             예를들어
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code2} />
-      </Grid>{" "}
-      <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             가시성
           </Typography>
-        </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        </Box>{" "}
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             모듈 함수는 기본적으로 동일한 모듈 내에서만 호출할 수 있습니다.
             이러한 내부 함수(가끔은 private 함수라고도 함)는 다른 모듈이나
             스크립트에서 호출할 수 없습니다.
           </Typography>
-        </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        </Box>{" "}
         <Copy code={code3} />
-      </Grid>{" "}
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             다른 모듈이나 스크립트에서 접근할 수 있도록 하려면 함수를 public
             또는 public(friend)로 선언해야 합니다.
@@ -483,12 +463,8 @@ script {
           <Typography variant="body1" gutterBottom>
             또한 public 함수는 인수의 타입과 반환 타입에 대한 제한이 없습니다.
           </Typography>
-        </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        </Box>{" "}
         <Copy code={code4} />
-      </Grid>{" "}
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             public(friend) 가시성 public(friend) 가시성 한정자는 함수를 사용할
@@ -513,13 +489,9 @@ script {
             모듈을 친구로 지정하는 것은 스크립트를 친구로 지정할 수 없으므로,
             스크립트에서 정의된 함수는 public(friend) 함수를 호출할 수 없습니다.
           </Typography>
-        </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+        </Box>{" "}
         <Copy code={code5} />
-      </Grid>{" "}
-      <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             entry 한정자
           </Typography>
@@ -579,8 +551,8 @@ script {
         </Box>
       </Grid>
       <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
-          <Typography variant="h3" gutterBottom>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
             Name
           </Typography>
         </Box>
@@ -599,8 +571,8 @@ script {
         <Copy code={code8} />
       </Grid>{" "}
       <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
-          <Typography variant="h3" gutterBottom>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
             타입 매개변수 (Type Parameters)
           </Typography>
         </Box>
@@ -617,8 +589,8 @@ script {
         <Copy code={code9} />
       </Grid>{" "}
       <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
-          <Typography variant="h3" gutterBottom>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
             매개변수 (Parameters)
           </Typography>
         </Box>
@@ -657,8 +629,8 @@ script {
         <Copy code={code12} />
       </Grid>{" "}
       <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
-          <Typography variant="h3" gutterBottom>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
             획득자
           </Typography>
         </Box>
@@ -702,8 +674,8 @@ script {
         <Copy code={code15} />
       </Grid>{" "}
       <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
-          <Typography variant="h3" gutterBottom>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
             반환 유형
           </Typography>
         </Box>
@@ -776,8 +748,8 @@ script {
         </Box>
       </Grid>
       <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
-          <Typography variant="h3" gutterBottom>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
             함수본문
           </Typography>
         </Box>
@@ -794,8 +766,8 @@ script {
         <Copy code={code20} />
       </Grid>{" "}
       <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
-          <Typography variant="h3" gutterBottom>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
             네이티브 함수
           </Typography>
         </Box>
@@ -826,8 +798,8 @@ script {
         <Copy code={code21} />
       </Grid>{" "}
       <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
-          <Typography variant="h3" gutterBottom>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
             함수 호출 (Calling)
           </Typography>
         </Box>
@@ -865,8 +837,8 @@ script {
         <Copy code={code24} />
       </Grid>{" "}
       <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
-          <Typography variant="h3" gutterBottom>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
             반환 값 (Returning Values)
           </Typography>
         </Box>
@@ -902,8 +874,8 @@ script {
         </Box>
       </Grid>
       <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
-          <Typography variant="h3" gutterBottom>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
             return 표현식 (Return Expression)
           </Typography>
         </Box>
@@ -955,8 +927,8 @@ script {
         <Copy code={code30} />
       </Grid>{" "}
       <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
-          <Typography variant="h3" gutterBottom>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
             인라인 함수(Inline functions)
           </Typography>
         </Box>
@@ -983,8 +955,8 @@ script {
         </Box>
       </Grid>
       <Grid xs={12}>
-        <Box sx={{ width: "100%" }}>
-          <Typography variant="h3" gutterBottom>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
             함수 파라메타(Function Parameters)
           </Typography>
         </Box>

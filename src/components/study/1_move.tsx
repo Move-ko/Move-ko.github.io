@@ -140,8 +140,6 @@ const study_1 = () => {
             모듈과 스크립트
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             Move는 두 가지 종류의 프로그램인 모듈(Module)과 스크립트(Script)를
@@ -160,20 +158,14 @@ const study_1 = () => {
             것은 별개의 VM(가상 머신) 작업입니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             스크립트
           </Typography>
+          <div>ex)스크립트 구조</div>
         </Box>
-      </Grid>
-      <Grid xs={12}> ex)스크립트 구조</Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code1} />
-      </Grid>
-      <Grid xs={12} sx={{ marginTop: "40px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "40px" }}>
           <Typography variant="body1" gutterBottom>
             스크립트 블록은 모든 사용 선언부로 시작해야 하며, 상수를 그 다음에
             위치시킨 뒤 (마지막으로) 메인 함수 선언을 해야 합니다. 메인 함수는
@@ -183,36 +175,21 @@ const study_1 = () => {
             예시입니다:
           </Typography>
         </Box>
-      </Grid>
-
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code2} />
-      </Grid>
-      <Grid xs={12} sx={{ marginTop: "40px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "40px" }}>
           <Typography variant="body1" gutterBottom>
             스크립트는 제한된 권한을 갖고 있으며, 친구(friends)를 선언하거나
             구조체(struct types)를 정의하거나 전역 저장소에 접근할 수 없습니다.
             스크립트의 주요 목적은 모듈 함수를 호출하는 것입니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} sx={{ marginTop: "40px" }}>
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: "100%", marginTop: "40px" }}>
           <Typography variant="h4" gutterBottom>
             모듈
           </Typography>
         </Box>
-      </Grid>
-
-      <Grid xs={12}>
         <span style={{ color: "purple" }}>*모듈 구조</span>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code3} />
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="body1" gutterBottom>
             <span style={{ color: "purple" }}>
@@ -228,11 +205,7 @@ const study_1 = () => {
             </span>
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code4} />
-      </Grid>
-      <Grid xs={12} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             0x42::example 모듈 부분은 example 모듈이 글로벌 저장소의 0x42 주소에
@@ -240,12 +213,7 @@ const study_1 = () => {
             addresses)를 사용하여 선언할 수도 있습니다. 예를 들어:
           </Typography>
         </Box>
-      </Grid>
-
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code5} />
-      </Grid>
-      <Grid xs={12} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             명명된 주소는 소스 언어 수준에서만 존재하며, 컴파일 중에만
@@ -253,22 +221,14 @@ const study_1 = () => {
             대체됩니다. 예를 들어, 다음과 같은 코드가 있다고 가정해 봅시다:
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code6_1} />
-      </Grid>
-      <Grid xs={12} sx={{ marginTop: "40px" }}>
-        <Box sx={{ width: "100%", textAlign: "left" }}>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "40px" }}>
           <Typography variant="body1" gutterBottom>
             그리고 my_addr을 0xC0FFEE로 설정하여 컴파일한다면, 실제로 다음과
             같이 동작합니다:
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code6} />
-      </Grid>
-      <Grid xs={12} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             하지만 소스 수준에서는 이러한 코드는 동등하지 않습니다. 함수
@@ -281,11 +241,7 @@ const study_1 = () => {
             0에서 9가 포함될 수 있습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code7} />
-      </Grid>
-      <Grid xs={12} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
             일반적으로 모듈 이름은 소문자로 시작합니다. my_module이라는 모듈은
@@ -299,16 +255,13 @@ const study_1 = () => {
             수 있는 비공개 상수를 정의합니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} sx={{ marginTop: "40px" }}>
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             🤨모듈 특징정리
           </Typography>
         </Box>
       </Grid>
       <Grid xs={0} md={2}></Grid>
-
       <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
@@ -349,7 +302,6 @@ const study_1 = () => {
         </Box>
       </Grid>
       <Grid xs={0} md={2}></Grid>
-
       <Grid xs={12} md={8} sx={{ marginTop: "40px" }}>
         <Box sx={{ width: "100%", textAlign: "left" }}>
           <Typography variant="body1" gutterBottom>
