@@ -55,29 +55,78 @@ const study_1 = () => {
     }
 }
 `;
-  const code7 = `  address 0x42 {
+  const code7 = `  address 0x2 {
     module m {
-        entry fun foo():u64 {0}//// 유효! entry 함수는 public이 필요하지 않습니다.
-    }
+        struct Foo {
+            x:u64,
+            y:bool
+        }
 
-    module n {
-        fun calls_m_foo():u64 {
-            0x42::m::foo()//오류 
-            // ^^^^^^^^^^^^ 'foo'는 '0x42::m' 내부에서만 사용 가능합니다.
+        struct Bar {
+            foo:Foo
         }
-    }
-    
-    module other {
-        public entry fun calls_m_foo():u64 {
-            0x42::m::foo()//오류 
-            // ^^^^^^^^^^^^ 'foo'는 '0x42::m' 내부에서만 사용 가능합니다.
+
+        struct Baz {
+
         }
-    }
-}
-script {
-    fun calls_m_foo():u64 {
-        0x42::m::foo()//오류 
-     // ^^^^^^^^^^^^ 'foo'는 '0x42::m' 내부에서만 사용 가능합니다.
+
+        fun example_destroy_foo(){
+            let foo = Foo { x:3 ,y:false};
+            let Foo { x ,y:foo_y} = foo;
+            //        ^ x: x와 같은 축약형
+
+            // 두 개의 새로운 바인딩
+            //   x: u64 = 3
+           //    foo_y: bool = false
+        }
+
+        fun example_detroy_foo_wildcard(){
+            let foo = Foo{x:3,y:false};
+            let Foo {x,y:_}= foo;
+            // y가 와일드카드에 바인딩되었으므로 새로운 바인딩은 하나뿐입니다.
+            // x: u64 = 3
+        }
+
+        fun example_destroy_foo_assignment(){
+            let x= u64;
+            let y =bool;
+            Foo {x,y}= Foo{x:3,y:false};
+             // 기존 변수 x와 y를 변경합니다.
+             // x = 3, y = false
+
+        }
+
+        fun exmaple_foo_ref(){
+            let foo= Foo{x:3,y:false};
+            let Foo {x,y}=&foo;
+
+           // 두 개의 새로운 바인딩이 있습니다.
+           // x: &u64
+           // y: &bool
+        }
+
+        fun example_foo_ref_mut(){
+            let foo = Foo {x:3,y:false};
+            let Foo {x,y}= &mut foo;
+            // 두 개의 새로운 바인딩이 있습니다.
+            // x: &mut u64
+            // y: &mut bool
+        }
+
+        fun example_destroy_bar(){
+            let bar = Bar {foo:Foo{x:3,y:false}};
+            let Bar {foo:Foo {x,y}}= bar;
+                       // ^ 중첩된 패턴
+
+          // 두 개의 새로운 바인딩이 있습니다.
+          // x: u64 = 3
+          // y: bool = false
+        }
+
+        fun example_destroy_baz(){
+            let baz = Baz{};
+            let Baz {}= baz;
+        }
     }
 }
 `;
@@ -326,6 +375,7 @@ address 0x42 {
             이를 종종 "필드 이름 퍼닝"이라고 부릅니다.
           </Typography>
         </Box>
+        <Copy code={code7} />
       </Grid>
     </Grid>
   );
