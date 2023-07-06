@@ -371,19 +371,24 @@ const study_1 = () => {
 }
 `;
   const code24 = `  address 0x2 {
-  module m {
-      struct Foo has copy,drop {x:u64}
+    module circle {
+        use 0x2::point::{Self,Point};
 
-      public fun run(){
-          let foo = Foo{x:100};
-          let foo_copy= copy foo;
-          // ^ 이 코드는 foo를 복사합니다. 반면, let x = foo 또는 let x = move foo는 모두 foo를 이동시킵니다.
-          let x= foo.x;//x= 100
-          let x_copy= foo_copy.x; //x=100
+        struct Circle has copy,drop,store {
+            center:Point,
+            redius:u64
+        }
+        public fun new(center:Point,redius:u64):Circle {
+            Circle{center,redius}
+        }
 
-          //함수가 반환될 때 foo와 foo_copy 모두 암묵적으로 폐기됩니다.
-      }
-  }
+        public fun overlaps(c1:&Circle,c2:&Circle):bool{
+          let d = point::dist_squared(&c1.center, &c2.center);
+          let r1 = c1.radius;
+          let r2 = c2.radius;
+          d*d <= r1*r1 + 2*r1*r2 + r2*r2
+        }
+    }
 }
 `;
   return (

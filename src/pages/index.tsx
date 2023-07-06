@@ -21,6 +21,7 @@ import Study_12 from "../components/study/12_move";
 import Study_13 from "../components/study/13_move";
 import Study_14 from "../components/study/14_move";
 import Study_15 from "../components/study/15_move";
+import Study_16 from "../components/study/16_move";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -279,7 +280,7 @@ export default function Home() {
               <Study_15 />
             </TabPanel>
             <TabPanel value={value} index={16}>
-              16장
+              <Study_16 />
             </TabPanel>
             <TabPanel value={value} index={17}>
               16장
