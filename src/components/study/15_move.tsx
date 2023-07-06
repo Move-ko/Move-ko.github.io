@@ -131,126 +131,121 @@ const study_1 = () => {
 }
 `;
   const code8 = `  module example::test {
-    fun FOO(){}
-    fun bar_42(){}
-    fun _bAZ19(){}
+    fun main(){
+        let foo = Foo{x:3,y:true};
+        let foo_ref:&Foo = &foo;
+        let y= bool= foo_ref.y; // 구조체에 대한 참조를 통해 필드를 읽는 중입니다.
+        let x_ref:&u64 = &foo.x;
+
+        let x_ref_mut:&mut u64= &mut foo.x;
+        *x_ref_mut= 42;// 가변 참조를 통해 필드를 수정 중입니다.
+    }
 }
 `;
   const code9 = `  module example::test {
-    fun id<T>(x:T):T {x}
-    fun example<T1:copy,T2>(x:T1,y:T2):(T1,T1,T2){(copy,x,x,y)}
+    fun main(){
+        let foo= Foo{x:3,y:true};
+        let bar= Bar{foo};
+        
+        let x_ref= &bar.foo.x;
+    }
 }
 `;
   const code10 = `  module example::test {
-    fun add(x:u64,y:u64):u64 {x+y}
+    fun main(){
+        let foo = Foo {x:3,y:true};
+        let foo_ref= &foo;
+        let x_ref= &foo_ref.x;
+        // 이는 let x_ref = &foo.x와 동일한 효과를 가지고 있습니다.
+    }
 }
 `;
 
   const code11 = `  module example::test {
-    fun useless(){}
-}
-`;
-  const code12 = `  address 0x42 {
-    module example{
-        struct Counter {
-            count:u64
-        }
-        fun new_counter():Counter {
-            Counter {count:0}
-        }
+    fun main(){
+        let foo = Foo {x:3,y:true};
+        let bar = Bar {foo:copy foo};
+        let x:u64 = *foo.x;
+        let y:bool = *&foo.y;
+        let foo2:Foo= *&bar.foo;
     }
 }
 `;
-  const code13 = `  address 0x42 {
-    module example {
-        struct Balance has key {
-            value :u64
-        }
-        public fun add_balance(s:&signer, value :u64){
-            move_to(s,Balance{value})
-        }
-
-        public fun extract_balance(addr:address ) :u64 acquires Balance {
-            let Balance {value}= move_from(addr);//acquires 필요
-            value
-        }
+  const code12 = `  module example::test {
+    fun main(){
+        let foo =Foo{x:3,y:true};
+        let x= foo.x; //x==3
+        let y= foo.y; //y ==true;
+    }
+}
+`;
+  const code13 = `  module example::test {
+    fun main(){
+        let baz= Baz{ foo:Foo{x:3,y:true}};
+        let x= baz.foo.x;;//x= 3;
     }
 }
 `;
 
-  const code14 = `  address 0x42 {
-    module example {
-        struct Balance has key {
-            value:u64
-        }
-       public fun add_balance(s:&signer) {
-        move_to(s,Balance{value})
-       }
-
-
-       public fun extract_balance(addr:address):u64 acquires Balance {
-            let Balance { value}= move_from(addr);//acquires 필요
-            value
-        }  
-        public fun extract_and_add(sender:address,receiver:&signer)acquires Balance {
-            let value = extract_balance(sender);//여기에서는 acquires가 필요합니다.
-            add_balance(receiver, value)
-
-        }
-    }
-}
-address 0x42 {
-    module other {
-        fun extract_balance(addr:address):u64 {
-            0x42::example::extract_balance(addr)//acquires이 필요하지 않습니다.
-        }
+  const code14 = `  module example::test {
+    fun main(){
+        let foo =Foo{x:3,y:true};
+        let bar= Bar {foo};
+        let foo2:Foo= *&bar.foo;
+        let foo3:Foo= bar.foo;// 오류! *&를 사용하여 명시적으로 복사를 추가해야 합니다.
     }
 }
 `;
 
-  const code15 = `  address 0x42 {
-    module example {
-        use std::vector;
-
-        struct Balance has key { 
-            value:u64
-        }
-
-        struct Box<T> has key {
-            items:vector<T>
-        }
-
-        public fun store_two<Item1:store,Item2:store>(
-            addr:address,
-            item1:Item1,
-            item2:Item2,
-        )acquires Balance ,Box {
-            let balance = borrow_global_mut<Balance>(addr);//acquires 필요
-            balance.value= balance.value - 2;
-            let box1=borrow_global_mut<Box<Item1>>(addr);//acquires 필요
-            vector::push_back(&mut box1.items,item1);
-            let box2= borrow_global_mut<Box<Item2>>(addr);//acquires 필요
-            vector::push_back(&mut box2,items,item2);
-        }
-
+  const code15 = `  module example::test {
+    fun main(){
+       let foo = Foo { x: 3, y: true };
+       foo.x = 42;     // foo = Foo { x: 42, y: true }
+       foo.y = !foo.y; // foo = Foo { x: 42, y: false }
+       let bar = Bar { foo };            // bar = Bar { foo: Foo { x: 42, y: false } }
+       bar.foo.x = 52;                   // bar = Bar { foo: Foo { x: 52, y: false } }
+       bar.foo = Foo { x: 62, y: true }; // bar = Bar { foo: Foo { x: 62, y: true } }
     }
 }
 `;
   const code16 = `  module example::test {
-    fun zero():u64 {0}
-}
-`;
-  const code17 = `  module example::test {
-    fun one_two_three(): (u64, u64, u64) {
-         (0, 1, 2) 
+    fun main(){
+        let foo = Foo {x:3,y:true};
+        let foo_ref= &mut foo;
+        foo_ref.x= foo_ref.x+1;
     }
 }
 `;
-  const code18 = `  module example::test {
-    fun just_unit(): () { () }
-    fun just_unit() { () }
-    fun just_unit() { }
-}
+  const code17 = `  //m.move
+  address 0x2 {
+      module m {
+        struct Foo has drop {x:u64}
+  
+        public fun new_foo() : Foo {
+            Foo { x : 42}
+        }
+      }
+  }
+`;
+  const code18 = `  //n.move
+  address 0x2 {
+      module n {
+          use 0x2::m;
+  
+          struct Wrapper has drop {
+              foo: m::Foo
+          }
+  
+          fun f1(foo: m::Foo){
+              let x= foo.x;
+              //      ^ 오류! 여기서 foo의 필드에 접근할 수 없습니다.
+          }
+  
+          fun f2(){
+              let foo_wrapper= Wrapper{foo:m::new_foo()}
+          }
+      }
+  }
 `;
   const code19 = `  script {
     fun do_nothing(){
@@ -376,6 +371,135 @@ address 0x42 {
           </Typography>
         </Box>
         <Copy code={code7} />
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
+            구조체와 필드 빌림
+          </Typography>
+        </Box>{" "}
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            & 및 &mut 연산자는 구조체나 필드에 대한 참조를 생성하는 데 사용될 수
+            있습니다. 이 예시들은 몇 가지 선택적인 타입 어노테이션 (예: :
+            &Foo)을 포함하여 작업의 타입을 보여주기 위해 포함되었습니다.
+          </Typography>
+        </Box>
+        <Copy code={code8} />
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            중첩된 구조체의 내부 필드를 빌릴 수 있습니다. .
+          </Typography>
+        </Box>
+        <Copy code={code9} />
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            또한 구조체에 대한 참조를 통해 필드를 대여할 수도 있습니다.
+          </Typography>
+        </Box>
+        <Copy code={code10} />
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
+            필드 읽기와 쓰기
+          </Typography>
+        </Box>{" "}
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            만약 필드의 값을 읽고 복사해야 한다면, 대여한 필드를 역참조할 수
+            있습니다.
+          </Typography>
+        </Box>
+        <Copy code={code11} />
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            필드가 암시적으로 복사 가능한 경우, 점 연산자를 사용하여 구조체의
+            필드를 대여하지 않고 읽을 수 있습니다. (복사 가능한 스칼라 값만
+            암시적으로 복사 가능합니다.)
+          </Typography>
+        </Box>
+        <Copy code={code12} />
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            점 연산자는 연쇄적으로 사용하여 중첩된 필드에 접근할 수 있습니다.
+          </Typography>
+        </Box>
+        <Copy code={code13} />
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            그러나 이는 벡터나 다른 구조체와 같은 비기본 타입을 포함하는 필드에
+            대해서는 허용되지 않습니다.
+          </Typography>
+        </Box>
+        <Copy code={code14} />
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            이 설계 결정의 이유는 벡터나 다른 구조체를 복사하는 것이 비용이 많이
+            들 수 있는 작업일 수 있기 때문입니다. 프로그래머는 이 복사 작업을
+            인식하고 다른 사람들도 명시적인 *& 구문을 통해 인식하도록 주의해야
+            합니다.
+          </Typography>
+          <Typography variant="body1" gutterBottom>
+            필드를 읽는 것 외에도, 점 구문을 사용하여 필드를 수정할 수 있습니다.
+            이는 필드가 기본 타입이든 다른 구조체이든 상관없이 가능합니다.
+          </Typography>
+        </Box>
+        <Copy code={code15} />
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            이 설계 결정의 이유는 벡터나 다른 구조체를 복사하는 것이 비용이 많이
+            들 수 있는 작업일 수 있기 때문입니다. 프로그래머는 이 복사 작업을
+            인식하고 다른 사람들도 명시적인 *& 구문을 통해 인식하도록 주의해야
+            합니다.
+          </Typography>
+          <Typography variant="body1" gutterBottom>
+            점 구문은 구조체에 대한 참조를 통해서도 동작합니다. .
+          </Typography>
+        </Box>
+        <Copy code={code16} />
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
+            특권 있는 구조체 작업
+          </Typography>
+        </Box>{" "}
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            구조체 타입 T에 대한 대부분의 구조체 작업은 T를 선언한 모듈 내에서만
+            수행할 수 있습니다:
+          </Typography>
+          <Typography variant="body1" gutterBottom>
+            - 구조체 타입은 구조체를 정의한 모듈 내에서만 생성("패킹") 및
+            해제("언패킹")할 수 있습니다.
+          </Typography>
+          <Typography variant="body1" gutterBottom>
+            - 구조체의 필드는 구조체를 정의한 모듈 내에서만 접근할 수 있습니다.
+          </Typography>
+          <Typography variant="body1" gutterBottom>
+            이러한 규칙을 따르면, 모듈 외부에서 구조체를 수정하려면 해당
+            구조체를 위한 공개 API를 제공해야 합니다. 이 장의 마지막 부분에는
+            이에 대한 예제가 포함되어 있습니다. 그러나 구조체 타입은 항상 다른
+            모듈이나 스크립트에서 볼 수 있습니다.{" "}
+          </Typography>
+        </Box>
+        <Copy code={code17} />
+        <Copy code={code18} />
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            참고로, 구조체에는 가시성 수정자(예: public 또는 private)가
+            없습니다.
+          </Typography>
+        </Box>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
+            소유권
+          </Typography>
+        </Box>{" "}
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            위에서 언급한 대로, 구조체는 기본적으로 선형적이고 일시적입니다.
+            이는 구조체가 복사되거나 삭제되지 않는다는 것을 의미합니다. 이
+            특성은 돈과 같은 실제 세계 자원을 모델링할 때 매우 유용할 수
+            있습니다. 돈을 복제하거나 유통 중에 잃어버리지 않기를 원하기
+            때문입니다.
+          </Typography>
+        </Box>
       </Grid>
     </Grid>
   );
