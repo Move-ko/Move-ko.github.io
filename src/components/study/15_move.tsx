@@ -247,25 +247,145 @@ const study_1 = () => {
       }
   }
 `;
-  const code19 = `  script {
-    fun do_nothing(){
+  const code19 = `  address 0x2 {
+    module m {
+        struct Foo { x:u64 }
+
+        public fun copying_resource(){
+            let foo = Foo {x:100};
+            let foo_copy= copy foo;//오류! '복사'는 '복사' 능력을 요구합니다.
+            let foo_ref = &foo;
+            let another_copy= *foo_ref//오류! 역참조는 '복사' 능력을 요구합니다.
+        }
+        public fun destroying_resource1(){
+            let foo = Foo{x:100};
+            // 오류! 함수가 반환되었을 때, foo는 여전히 값이 남아 있습니다.
+            // 이 파괴는 'drop' 능력을 요구합니다.
+        }
+        public fun destroying_resource2(f: &mut Foo) {
+           *f = Foo {x:100}//오류
+                           //과거 값을 파괴하기 위해 쓰기를 통해 'drop' 능력이 필요합니다.
+        }
+    }
+
+    
+}
+`;
+  const code20 = `  address 0x2 {
+    module m {
+        struct Foo {x:u64}
+
+        public fun destroying_resource!_fixed(){
+            let foo = Foo {x:100};
+            let Foo {x:_}= foo;
+        }
     }
 }
 `;
-  const code20 = `  module examples::test {
-    fun example(): u64 {
-    let x = 0;
-    x = x + 1;
-    x // returns 'x'
+  const code21 = `  address 0x2 {
+    module m {
+        struct Foo has copy,drop {x:u64}
+
+        public fun run(){
+            let foo = Foo{x:100};
+            let foo_copy= copy foo;
+            // ^ 이 코드는 foo를 복사합니다. 반면, let x = foo 또는 let x = move foo는 모두 foo를 이동시킵니다.
+            let x= foo.x;//x= 100
+            let x_copy= foo_copy.x; //x=100
+
+            //함수가 반환될 때 foo와 foo_copy 모두 암묵적으로 폐기됩니다.
+        }
     }
-}
-`;
-  const code21 = `  module std::vector {
-    native public fun empty<Element>(): vector <Element>;
-    ...
 }
 `;
 
+  const code22 = `  address 0x2{
+    module m {
+        //Coin이 복사되지 않도록 하고자 하기 때문에 "돈"을 복제하는 것은 바람직하지 않습니다. 따라서 구조체에 'copy' 능력을 부여하지 않습니다.
+        //마찬가지로, 프로그래머가 코인을 파괴하는 것을 원치 않기 때문에 구조체에 'drop' 능력을 부여하지 않습니다.
+        //그러나, 모듈 사용자가 이 코인을 영속적인 전역 저장소에 저장할 수 있기를 원하기 때문에 구조체에 'store' 능력을 부여합니다. 이 구조체는 전역 저장소 내의 다른 리소스 내에만 존재하게 될 것이므로 'key' 능력은 부여하지 않습니다.
+        struct Coin has store {
+            value:u64,
+        }
+        public fun mint(value:u64):Coin{
+        //누구나 이 모듈을 사용하여 무한한 양의 코인을 발행하는 것을 방지하기 위해, 이 함수에는 액세스 제어(access control) 형태의 게이트(gate)를 구현해야 합니다.
+         Coin{value}
+        }
+        public fun withdraw(coin:&mut Coin,amount:u64):Coin{
+          assert!(coin.balance>=amount,1000);
+          Coin.value = coin.value -amount;
+          Coin {value:amount}
+        }
+        public fun deposit(coin:&mut Coin,other :Coin){
+            let Coin {value}= other;
+            coin.value= coin.value +value;
+        }
+
+        public fun split(coin:Coin,amount:u64):(Coin,Coin){
+            let other= withdraw(&mut coin,amount);
+            (coin,other)
+        }
+        public fun merge(coin1:Coin,coin2:Coin):Coin{
+            deposit(&mut coin1,coin2);
+            coin1
+        }
+        public fun destroy_zero(coin:Coin){
+            let Coin {value}= coin;
+            assert!(value == 0,1001);
+        }
+    }
+}
+`;
+  const code23 = `  address 0x2 {
+    module point {
+        struct Point has copy,drop,store {
+            x:u64,
+            x:u64
+        }
+
+        public fun new (x:u64,y:u64):Point {
+            Point {
+                x,y
+            }
+        }
+        public fun x(p:&Point):u64 {
+            p.x
+        }
+        public fun y(p:&Point):u64 {
+            p.y
+        }
+        
+        fun abs_sub(a:u64,b:u64):u64 {
+            if (a>b){
+                b - a
+            }else {
+                a - b
+            }
+        }
+        public fun dist_squared(p1:&Point,p2:&Point):u64 {
+            let dx= abs_sub(p1.x,p2.x);
+            let dy= abs_sub(p1.y,p2.y);
+            dx *dx +dy*dy
+        }
+    }
+}
+`;
+  const code24 = `  address 0x2 {
+  module m {
+      struct Foo has copy,drop {x:u64}
+
+      public fun run(){
+          let foo = Foo{x:100};
+          let foo_copy= copy foo;
+          // ^ 이 코드는 foo를 복사합니다. 반면, let x = foo 또는 let x = move foo는 모두 foo를 이동시킵니다.
+          let x= foo.x;//x= 100
+          let x_copy= foo_copy.x; //x=100
+
+          //함수가 반환될 때 foo와 foo_copy 모두 암묵적으로 폐기됩니다.
+      }
+  }
+}
+`;
   return (
     <Grid container>
       <Grid xs={12}>
@@ -305,12 +425,12 @@ const study_1 = () => {
           <Typography variant="h4" gutterBottom>
             구조체(Structs) 정의하기
           </Typography>
-        </Box>{" "}
+        </Box>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             구조체는 모듈 내부에서 정의되어야 합니다.
           </Typography>
-        </Box>{" "}
+        </Box>
         <Copy code={code1} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
@@ -331,7 +451,7 @@ const study_1 = () => {
           <Typography variant="h4" gutterBottom>
             이름 짓기
           </Typography>
-        </Box>{" "}
+        </Box>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             구조체는 반드시 영문 대문자 A부터 Z까지의 문자로 시작해야 합니다. 첫
@@ -350,7 +470,7 @@ const study_1 = () => {
           <Typography variant="h4" gutterBottom>
             구조체(Structs) 생성
           </Typography>
-        </Box>{" "}
+        </Box>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             구조체 타입의 값을 생성하려면 구조체 이름을 지정하고, 각 필드에 대한
@@ -375,7 +495,7 @@ const study_1 = () => {
           <Typography variant="h4" gutterBottom>
             구조체와 필드 빌림
           </Typography>
-        </Box>{" "}
+        </Box>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             & 및 &mut 연산자는 구조체나 필드에 대한 참조를 생성하는 데 사용될 수
@@ -400,7 +520,7 @@ const study_1 = () => {
           <Typography variant="h4" gutterBottom>
             필드 읽기와 쓰기
           </Typography>
-        </Box>{" "}
+        </Box>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             만약 필드의 값을 읽고 복사해야 한다면, 대여한 필드를 역참조할 수
@@ -458,7 +578,7 @@ const study_1 = () => {
           <Typography variant="h4" gutterBottom>
             특권 있는 구조체 작업
           </Typography>
-        </Box>{" "}
+        </Box>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             구조체 타입 T에 대한 대부분의 구조체 작업은 T를 선언한 모듈 내에서만
@@ -475,7 +595,7 @@ const study_1 = () => {
             이러한 규칙을 따르면, 모듈 외부에서 구조체를 수정하려면 해당
             구조체를 위한 공개 API를 제공해야 합니다. 이 장의 마지막 부분에는
             이에 대한 예제가 포함되어 있습니다. 그러나 구조체 타입은 항상 다른
-            모듈이나 스크립트에서 볼 수 있습니다.{" "}
+            모듈이나 스크립트에서 볼 수 있습니다.
           </Typography>
         </Box>
         <Copy code={code17} />
@@ -490,7 +610,7 @@ const study_1 = () => {
           <Typography variant="h4" gutterBottom>
             소유권
           </Typography>
-        </Box>{" "}
+        </Box>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             위에서 언급한 대로, 구조체는 기본적으로 선형적이고 일시적입니다.
@@ -500,6 +620,65 @@ const study_1 = () => {
             때문입니다.
           </Typography>
         </Box>
+        <Copy code={code19} />
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            두 번째 예제 (fun destroying_resource1)를 수정하려면 리소스를
+            수동으로 "언팩(unpack)"해야 합니다.
+          </Typography>
+        </Box>
+        <Copy code={code20} />
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            기억하시죠? 정의된 모듈 내에서만 리소스를 해체할 수 있다는
+            사실입니다. 이는 시스템에서 특정 불변식을 강제하는 데 활용될 수
+            있습니다. 예를 들어, 돈의 보존 등이 있습니다.
+          </Typography>
+          <Typography variant="body1" gutterBottom>
+            반대로, 만약 구조체가 가치 있는 것을 나타내지 않는다면, 복사(copy)와
+            삭제(drop) 능력을 추가하여 다른 프로그래밍 언어에서 익숙한 구조체
+            값을 얻을 수 있습니다.
+          </Typography>
+        </Box>
+        <Copy code={code21} />
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
+            전역 저장소에 리소스 저장하기
+          </Typography>
+        </Box>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            영속적인 전역 저장소에 직접 저장할 수 있는 것은 키(key) 능력을 가진
+            구조체(structs) 뿐입니다. 이러한 키 구조체 내에 저장된 모든 값은
+            저장(store) 능력을 가져야 합니다. 자세한 내용은 능력(ability)과 전역
+            저장소(global storage) 장을 참조하십시오.
+          </Typography>
+        </Box>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
+            예제들
+          </Typography>
+        </Box>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            다음은 가치 있는 데이터를 나타내기 위해 구조체를 사용하는 두 가지
+            간단한 예시입니다. Coin의 경우 가치 있는 데이터를, Point와 Circle의
+            경우 더 고전적인 데이터를 나타내는 방법을 보여줍니다.
+          </Typography>
+        </Box>
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
+            Example 1: Coin
+          </Typography>
+        </Box>
+        <Copy code={code22} />
+        <Box sx={{ width: "100%", marginTop: "30px" }}>
+          <Typography variant="h4" gutterBottom>
+            Example 2: Geometry
+          </Typography>
+        </Box>
+        <Copy code={code23} />
+        <Copy code={code24} />
       </Grid>
     </Grid>
   );

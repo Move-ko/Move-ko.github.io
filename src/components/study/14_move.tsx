@@ -391,7 +391,7 @@ script {
           <Typography variant="h3" gutterBottom>
             함수
           </Typography>
-        </Box>{" "}
+        </Box>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             Move에서의 함수 구문은 모듈 함수와 스크립트 함수 간에 공유됩니다.
@@ -422,14 +422,14 @@ script {
           <Typography variant="h4" gutterBottom>
             가시성
           </Typography>
-        </Box>{" "}
+        </Box>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             모듈 함수는 기본적으로 동일한 모듈 내에서만 호출할 수 있습니다.
             이러한 내부 함수(가끔은 private 함수라고도 함)는 다른 모듈이나
             스크립트에서 호출할 수 없습니다.
           </Typography>
-        </Box>{" "}
+        </Box>
         <Copy code={code3} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
@@ -463,7 +463,7 @@ script {
           <Typography variant="body1" gutterBottom>
             또한 public 함수는 인수의 타입과 반환 타입에 대한 제한이 없습니다.
           </Typography>
-        </Box>{" "}
+        </Box>
         <Copy code={code4} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
@@ -489,7 +489,7 @@ script {
             모듈을 친구로 지정하는 것은 스크립트를 친구로 지정할 수 없으므로,
             스크립트에서 정의된 함수는 public(friend) 함수를 호출할 수 없습니다.
           </Typography>
-        </Box>{" "}
+        </Box>
         <Copy code={code5} />
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
@@ -530,7 +530,7 @@ script {
             실행의 시작 부분에서만 호출되는 것을 보장할 수 있습니다 (모듈 내
             다른 곳에서 호출하지 않는다고 가정할 경우). 예를 들어:
           </Typography>
-        </Box>{" "}
+        </Box>
         <Copy code={code7} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
@@ -576,21 +576,21 @@ script {
             선언됩니다.
           </Typography>
         </Box>
-        <Copy code={code10} />{" "}
+        <Copy code={code10} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             이것을 "x는 u64 타입을 갖는다"로 읽습니다. 함수는 전혀 파라미터를
             가지지 않을 수도 있습니다.
           </Typography>
-        </Box>{" "}
-        <Copy code={code11} />{" "}
+        </Box>
+        <Copy code={code11} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             이것은 새로운 데이터 구조를 생성하거나 비어있는 데이터 구조를 만드는
             함수에서 매우 흔히 사용됩니다.
           </Typography>
-        </Box>{" "}
-        <Copy code={code12} />{" "}
+        </Box>
+        <Copy code={code12} />
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             획득자
@@ -604,8 +604,8 @@ script {
             안전하다는 것을 보장하기 위해 사용됩니다. 특히, 전역 저장소로의
             끊어진 참조가 없는지 확인합니다.
           </Typography>
-        </Box>{" "}
-        <Copy code={code13} />{" "}
+        </Box>
+        <Copy code={code13} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             모듈 내에서 전이적인 호출(transitive calls)에 대해서도 acquires
@@ -615,23 +615,23 @@ script {
             안전성을 보장하기 위해 어노테이션이 필요하지 않습니다.
           </Typography>
         </Box>
-        <Copy code={code14} />{" "}
+        <Copy code={code14} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             함수는 필요한 만큼 많은 리소스를 획득할 수 있습니다.
           </Typography>
-        </Box>{" "}
-        <Copy code={code15} />{" "}
+        </Box>
+        <Copy code={code15} />
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             반환 유형
           </Typography>
-        </Box>{" "}
+        </Box>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             파라미터 이후에 함수는 반환 타입을 지정합니다.
           </Typography>
-        </Box>{" "}
+        </Box>
         <Copy code={code16} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
@@ -644,26 +644,26 @@ script {
             반환할 수 있습니다. 주의해야 할 점은 이것은 함수가 인라인 함수인
             경우가 아니라면 전역 저장소에 대한 참조를 반환할 수 없다는 것입니다.
           </Typography>
-        </Box>{" "}
+        </Box>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             튜플을 사용하여 함수는 여러 개의 값을 반환할 수 있습니다:
           </Typography>
-        </Box>{" "}
+        </Box>
         <Copy code={code17} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             만약 반환 타입이 명시되지 않은 경우, 함수의 암묵적인 반환 타입은
             unit ()입니다. 다음 함수들은 동등합니다:
           </Typography>
-        </Box>{" "}
+        </Box>
         <Copy code={code18} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             스크립트 함수는 반드시 unit () 타입의 반환 타입을 가져야 합니다:
           </Typography>
         </Box>
-        <Copy code={code19} />{" "}
+        <Copy code={code19} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             앞서 튜플 섹션에서 언급한 대로, 이러한 튜플 "값"은 가상적이며 실제
@@ -671,7 +671,7 @@ script {
             중에 어떤 값도 반환하지 않습니다. unit ()은 반환되지 않는다는 것을
             나타내는 특별한 타입입니다.
           </Typography>
-        </Box>{" "}
+        </Box>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             함수본문
@@ -682,13 +682,13 @@ script {
             함수의 본문은 표현식 블록(expression block)입니다. 함수의 반환 값은
             시퀀스에서 마지막 값입니다.
           </Typography>
-        </Box>{" "}
+        </Box>
         <Copy code={code20} />
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             네이티브 함수
           </Typography>
-        </Box>{" "}
+        </Box>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             일부 함수는 본문이 명시되지 않고, 대신 가상 머신(VM)에서 본문을
@@ -709,51 +709,51 @@ script {
             라이브러리 코드에 있을 것입니다.
           </Typography>
         </Box>
-        <Copy code={code21} />{" "}
+        <Copy code={code21} />
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             함수 호출 (Calling)
           </Typography>
-        </Box>{" "}
+        </Box>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             함수를 호출할 때, 이름은 별칭(alias)이나 완전한 정규 이름(fully
             qualified name)을 통해 지정할 수 있습니다.
           </Typography>
-        </Box>{" "}
-        <Copy code={code22} />{" "}
+        </Box>
+        <Copy code={code22} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             함수를 호출할 때는 매개변수마다 인수를 제공해야 합니다.
           </Typography>
-        </Box>{" "}
+        </Box>
         <Copy code={code23} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             타입 인수는 명시적으로 지정하거나 추론될 수 있습니다. 두 가지 호출은
             동일합니다.
           </Typography>
-        </Box>{" "}
-        <Copy code={code24} />{" "}
+        </Box>
+        <Copy code={code24} />
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             반환 값 (Returning Values)
           </Typography>
-        </Box>{" "}
+        </Box>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             함수의 결과, 즉 "반환 값"은 함수 본문의 마지막 값입니다. 예를 들어,
             다음과 같습니다:
           </Typography>
-        </Box>{" "}
-        <Copy code={code25} />{" "}
+        </Box>
+        <Copy code={code25} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             앞서 언급한 대로, 함수의 본문은 표현식 블록(expression block)입니다.
             표현식 블록은 여러 문장을 순차적으로 나열할 수 있으며, 블록의 마지막
             표현식은 해당 블록의 값이 됩니다.
           </Typography>
-        </Box>{" "}
+        </Box>
         <Copy code={code26} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
@@ -764,14 +764,14 @@ script {
           <Typography variant="h4" gutterBottom>
             return 표현식 (Return Expression)
           </Typography>
-        </Box>{" "}
+        </Box>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             함수는 본문이 평가한 값을 암묵적으로 반환합니다. 그러나 함수는
             명시적인 return 표현식을 사용할 수도 있습니다:
           </Typography>
-        </Box>{" "}
-        <Copy code={code27} />{" "}
+        </Box>
+        <Copy code={code27} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             이 두 함수는 동등합니다. 약간 더 복잡한 예제에서는 함수가 두 개의
@@ -786,15 +786,15 @@ script {
             구조 내부에서 깊숙이 종료할 때입니다. 다음 예제에서는 함수가 벡터를
             반복하여 주어진 값의 인덱스를 찾습니다:
           </Typography>
-        </Box>{" "}
-        <Copy code={code29} />{" "}
+        </Box>
+        <Copy code={code29} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             return 키워드를 인자 없이 사용하는 것은 return ()의 약식 표현입니다.
             즉, 다음 두 함수는 동일합니다:
           </Typography>
-        </Box>{" "}
-        <Copy code={code30} />{" "}
+        </Box>
+        <Copy code={code30} />
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             인라인 함수(Inline functions)
@@ -807,14 +807,14 @@ script {
             속도를 높일 수 있게 해줍니다. 예를 들어, 다음과 같이 인라인 함수를
             정의할 수 있습니다.
           </Typography>
-        </Box>{" "}
-        <Copy code={code31} />{" "}
+        </Box>
+        <Copy code={code31} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             이제 percent(2, 200)을 호출할 때, 컴파일러는 사용자가 2 * 100 /
             200으로 작성한 것처럼 함수 정의를 인라인으로 처리합니다.
           </Typography>
-        </Box>{" "}
+        </Box>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             함수 파라메타(Function Parameters)
@@ -829,8 +829,8 @@ script {
             지원하지 않더라도 지원할 수 있습니다. 다음은 vector 모듈에서 가져온
             다음 함수를 고려해 봅시다. 번역
           </Typography>
-        </Box>{" "}
-        <Copy code={code32} />{" "}
+        </Box>
+        <Copy code={code32} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             여기서 foreach는 인라인 함수입니다. 일반적으로, 함수 매개변수로는

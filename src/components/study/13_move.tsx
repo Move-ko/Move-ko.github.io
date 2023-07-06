@@ -187,7 +187,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code1} />
-      </Grid>{" "}
+      </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
@@ -197,7 +197,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code2} />
-      </Grid>{" "}
+      </Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
@@ -216,7 +216,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code3} />
-      </Grid>{" "}
+      </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
@@ -243,7 +243,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code4} />
-      </Grid>{" "}
+      </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
@@ -268,10 +268,10 @@ const study_1 = () => {
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code5} />
-      </Grid>{" "}
+      </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code6} />
-      </Grid>{" "}
+      </Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
@@ -290,7 +290,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code7} />
-      </Grid>{" "}
+      </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
@@ -300,7 +300,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code8} />
-      </Grid>{" "}
+      </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
@@ -312,7 +312,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code9} />
-      </Grid>{" "}
+      </Grid>
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
@@ -330,7 +330,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code10} />
-      </Grid>{" "}
+      </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
@@ -341,7 +341,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code11} />
-      </Grid>{" "}
+      </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
@@ -352,7 +352,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code12} />
-      </Grid>{" "}
+      </Grid>
     </Grid>
   );
 };
