@@ -10,52 +10,71 @@ const study_1 = () => {
     }
 }
 `;
-  const code2 = `  script {
-    const MY_ERROR_CODE:u64 =0;
+  const code2 = `  module example::test {
+    struct Foo<T> has copy,drop{x:T}
 
-    fun main(input :u64){
-        assert!(input >0,MY_ERROR_CODE);
-    }
-}
-
-address 0x42 {
-    module exampe {
-        const MY_ADDRESS:address= @0x42;
-
-        public fun permissioned(s:&signer){
-            assert!(std::signer::address_of(s)==MY_ADDRESS,0);
-        }
+    struct Bar<T1,T2>has copy,drop {
+        x:T1,
+        y:vector<T2>,
     }
 }
 `;
   const code3 = `  module example::test {
-    const FLAG: bool = false;
-    const MY_ERROR_CODE: u64 = 0;
-    const ADDRESS_42: address = @0x42;
+    fun foo(){
+        let x = id<bool>(true);
+    }
 }
 `;
   const code4 = `  module example::test {
-    const MY_BOOL:bool= false;
-    const MY_ADDRESS:address = @0x70DD;
-    const BYTES:vector<u8> =b"hello world";
-    const HEX_BYTES :vector<u8>= x"DEADBEEF";
+    fun foo(){
+        let foo = Foo<bool>{x:true};
+        let Foo<bool>{x}= foo;
+    }
 }
 `;
   const code5 = `  module example::test {
-    const RULE:bool = true && false;
-    const CAP:u64 = 10* 100+1;
-    const SHIFTY:u8= {
-        (1 <<1)*(1<<2) * (1 << 3) * (1 << 4)
-    };
-    const HALF_MAX: u128 = 340282366920938463463374607431768211455 / 2;
-    const REM: u256 = 57896044618658097711785492504343953926634992332820282019728792003956564819968 % 654321;
-    const EQUAL: bool = 1 == 1;
+    fun foo(){
+        let x= id<u64>(true);//오류입니다! true는 u64 형식이 아닙니다.
+    }
 }
 `;
   const code6 = `  module example::test {
-    const DIV_BY_ZERO: u64 = 1 / 0; // 오류!
-    const SHIFT_BY_A_LOT: u64 = 1 << 100; // 오류!
-    const NEGATIVE_U64: u64 = 0 - 1; // 오류!
+    fun foo(){
+        let foo = Foo<bool>{x:0};// 오류입니다! 0은 (bool) 형식이 아닙니다.
+        let Foo<address>{x}= foo;// 오류입니다! (bool)은 주소(address)와 호환되지 않습니다.
+    }
+}
+`;
+  const code7 = `  module example::test {
+    fun foo(){
+        let x= id(true);
+         //      ^ <bool>가 추론됩니다.
+        let foo =Foo {x:true};
+           //      ^ <bool>가 추론됩니다.
+        let Foo{x}= foo;
+      //      ^ <bool>가 추론됩니다.
+    }
+}
+`;
+  const code8 = `  module example::test {
+    using std::vector;
+
+    fun foo(){
+       // let v = vector::new();
+       //                   ^ 컴파일러가 원소의 형식을 결정할 수 없습니다.
+          let v = vector::new<u64>();
+          //                ^~~~~ 수동으로 주석을 추가해야 합니다.
+    }
+}
+`;
+  const code9 = `  module example::test {
+    using std::vector;
+
+    fun foo (){
+       let v= vector::new();
+       //               ^ <u64>가 추론됩니다.
+       vector::push_back(&mut v,42);
+    }
 }
 `;
 
@@ -115,6 +134,106 @@ address 0x42 {
           </Typography>
         </Box>
         <Copy code={code1} />
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            일단 정의된 형식 매개변수 T는 매개변수 유형, 반환 유형 및 함수 본문
+            내에서 사용할 수 있습니다.
+          </Typography>
+        </Box>
+        <Box sx={{ width: "100%" }}>
+          <Typography variant="h4" gutterBottom>
+            제네릭 구조체(Generic Structs)
+          </Typography>
+        </Box>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            구조체의 형식 매개변수는 구조체 이름 뒤에 배치되며, 필드의 형식을
+            지정하는 데 사용할 수 있습니다.
+          </Typography>
+        </Box>
+        <Copy code={code2} />
+        <Box sx={{ width: "100%" }}>
+          <Typography variant="h4" gutterBottom>
+            형식 인수(Type Arguments)
+          </Typography>
+        </Box>
+        <Box sx={{ width: "100%" }}>
+          <Typography variant="h4" gutterBottom>
+            제네릭 함수 호출
+          </Typography>
+        </Box>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            제네릭 함수를 호출할 때는 각 형식 매개변수에 대한 형식 인수를 각괄호
+            {"(< >)"}로 묶은 목록으로 지정할 수 있습니다.
+          </Typography>
+        </Box>
+        <Copy code={code3} />
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            형식 인수를 지정하지 않으면 Move의 형식 추론 기능이 대신 형식 인수를
+            제공합니다.
+          </Typography>
+        </Box>
+        <Box sx={{ width: "100%" }}>
+          <Typography variant="h4" gutterBottom>
+            제네릭 구조체 사용
+          </Typography>
+        </Box>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            제네릭 구조체의 값 생성 또는 해체 시에도, 제네릭 타입의 형식
+            매개변수에 대한 형식 인수 목록을 첨부할 수 있습니다.
+          </Typography>
+        </Box>
+        <Copy code={code4} />
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            형식 인수를 지정하지 않으면 Move의 형식 추론 기능이 대신 형식 인수를
+            제공합니다.
+          </Typography>
+        </Box>
+        <Box sx={{ width: "100%" }}>
+          <Typography variant="h4" gutterBottom>
+            형식 인수 불일치
+          </Typography>
+        </Box>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            형식 인수를 지정하고 제공된 실제 값과 충돌하는 경우에는 오류가
+            발생합니다:
+          </Typography>
+        </Box>
+        <Copy code={code5} />
+        <Copy code={code6} />
+        <Box sx={{ width: "100%" }}>
+          <Typography variant="h4" gutterBottom>
+            형식 추론
+          </Typography>
+        </Box>
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            대부분의 경우, Move 컴파일러는 형식 인수를 추론하여 명시적으로
+            작성하지 않아도 됩니다. 아래 예시에서 형식 인수를 생략한 경우를
+            보여드리겠습니다:
+          </Typography>
+        </Box>
+        <Copy code={code7} />
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            참고: 컴파일러가 형식을 추론할 수 없는 경우에는 수동으로 형식을
+            주석으로 지정해야 합니다. 일반적인 시나리오는 반환 위치에서만 형식
+            매개변수가 나타나는 함수를 호출하는 경우입니다.
+          </Typography>
+        </Box>
+        <Copy code={code8} />
+        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
+          <Typography variant="body1" gutterBottom>
+            그러나 만약 해당 반환 값이 함수 내에서 나중에 사용된다면, 컴파일러는
+            형식을 추론할 수 있습니다.
+          </Typography>
+        </Box>
+        <Copy code={code9} />
       </Grid>
     </Grid>
   );
