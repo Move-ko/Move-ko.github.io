@@ -236,7 +236,7 @@ const study_1 = () => {
         <Copy code={code9} />
       </Grid>
     </Grid>
-  );
+  ); //
 };
 
 export default study_1;
