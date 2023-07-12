@@ -1,0 +1,3 @@
+module 0x42::a {
+    friend 0x42::b;
+}
