@@ -1,3 +1,4 @@
 module 0x42::a {
-    friend 0x42::b;
+    use 0x42::b;
+    friend b; 
 }

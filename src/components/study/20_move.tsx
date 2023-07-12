@@ -3,66 +3,67 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Copy from "../util/copy";
 const study_1 = () => {
-  const code1 = `  module example::test {
-    use <address>::<module name>;
-    use <address>::<module name> as <module alias name>;
-}
-`;
-  const code2 = `  module example::test {
-    use std::vector;
-    use std::vector as V;
-}
-`;
-  const code3 = `  module examples::test {
-    use std::vector;
-    use std::vector as V;
+  const code1 = `  module 0x42::a {
+    friend 0x42::b;
 
-    fun new_vecs(): (vector<u8>, vector<u8>, vector<u8>) {
-       let v1 = std::vector::empty();
-       let v2 = vector::empty();
-       let v3 = V::empty();
-       (v1, v2, v3)
-    }
-    
 }
 `;
-  const code4 = `  module example::test {
-    use <address>::<module name>::<module member>;
-    use <address>::<module name>::<module member> as <member alias>;
+  const code2 = `  module 0x42::a {
+    use 0x42::b;
+    friend b; 
 }
 `;
-  const code5 = `  module example::test {
-    use std::vector::empty;
-    use std::vector::empty as empty_vec;
+  const code3 = `  module 0x42::a {
+    friend 0x42::b;
+    friend 0x42::c;
 }
 `;
-  const code6 = `  module example::test {
-    use std::vector::empty;
-    use std::vector::empty as empty_vec;
+  const code4 = ` module 0x42::m {
+    friend Self;//오류
+    //     ^^^^ 모듈 자체를 친구로 선언할 수 없습니다.
+}
+module 0x43::m {
+    friend 0x42::M;//오류
+        // ^^^^^^^ 모듈 자체를 친구로 선언할 수 없습니다.
+}
+`;
+  const code5 = `  module 0x42::m { 
+    friend 0x42::nonexistent; // ERROR! 
+//   ^^^^^^^^^^^^^^^^^ 연결되지 않은 모듈 '0x42::nonexistent'입니다.
+}
+`;
+  const code6 = `  module 0x42::m {
+}
 
-    fun new_vecs(): (vector<u8>, vector<u8>, vector<u8>) {
-        let v1 = std::vector::empty();
-        let v2 = empty();
-        let v3 = empty_vec();
-        (v1, v2, v3)
-    }
+module 0x42::n{
+    friend 0x42::m;//오류
+//       ^^^^^^^ 현재 주소 외부의 모듈을 친구로 선언할 수 없습니다.
 }
 `;
-  const code7 = `  module example::test {
-    use <address>::<module name>::{<module member>, <module member> as <member alias> ... };
-}
-`;
-  const code8 = `  module example::test {
-    use std::vector::{push_back, length as len, pop_back};
+  const code7 = `  module 0x2::a{
+    use 0x2::c;
+    friend 0x2::b;
 
-    fun swap_last_two<T>(v: &mut vector<T>) {
-        assert!(len(v) >= 2, 42);
-        let last = pop_back(v);
-        let second_to_last = pop_back(v);
-        push_back(v, last);
-        push_back(v, second_to_last)
+    public fun a(){
+        c::c()
     }
 }
+
+module 0x2::b{
+    friend 0x2::c;//오류
+        // ^^^^^^ 이 친구 관계는 종속성 사이클을 생성합니다: '0x2::b'는 '0x2::a'의 친구이며 '0x2::c'를 사용하고, '0x2::c'는 '0x2::b'의 친구입니다.
+}
+
+module 0x2::c {
+    public fun c(){}
+}
+`;
+  const code8 = `  module 0x42::a {}
+  module 0x42::m {
+      use 0x42::a as aliased_a;
+      friend aliased_a;//오류
+      // ^^^^^^^^^ 중복된 친구 선언 '0x42::a'입니다. 모듈 내의 친구 선언은 고유해야 합니다.
+  }
 `;
 
   return (

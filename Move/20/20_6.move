@@ -1,3 +1,7 @@
-module 0x42::a {
-    friend 0x42::b;
+module 0x42::m {
+}
+
+module 0x42::n{
+    friend 0x42::m;//오류
+//       ^^^^^^^ 현재 주소 외부의 모듈을 친구로 선언할 수 없습니다.
 }
