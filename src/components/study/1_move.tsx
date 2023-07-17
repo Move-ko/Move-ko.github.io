@@ -35,17 +35,7 @@ const study_1 = () => {
     }
 }
 `;
-  const code5 = `  module example_addr::example {
-    struct Example has copy, drop { a: address }
-
-    use std::debug;
-    friend example_addr::another_example;
-
-    public fun print() {
-        let example = Example { a: @example_addr };
-        debug::print(&example)
-    }
-}
+  const code5 = `  module example_addr::example {}//0x42대신 example_addr로 대체
 `;
   const code6_1 = `  script {
     fun example() {
