@@ -167,13 +167,13 @@ const study_1 = () => {
             #[expected_failure].
           </Typography>
           <Typography variant="body1" gutterBottom>
-            They respectively mark a function as a test, mark a module or module
-            member (use, function, or struct) as code to be included for testing
-            only, and mark that a test is expected to fail. These annotations
-            can be placed on a function with any visibility. Whenever a module
-            or module member is annotated as #[test_only] or #[test], it will
-            not be included in the compiled bytecode unless it is compiled for
-            testing.
+            각각 함수를 테스트로 표시하는 #[test], 모듈 또는 모듈 멤버 (use,
+            함수 또는 구조체)를 테스트 전용 코드로 표시하는 #[test_only], 그리고
+            테스트가 실패할 것으로 예상되는 것을 표시하는
+            #[expected_failure]입니다. 이러한 주석들은 어떤 가시성을 갖는
+            함수에도 위치시킬 수 있습니다. 모듈 또는 모듈 멤버가 #[test_only]
+            또는 #[test]로 주석 처리되면, 해당 모듈이 테스트를 위해 컴파일되지
+            않는 한 컴파일된 바이트코드에 포함되지 않습니다.
           </Typography>
         </Box>
         <Box sx={{ width: "100%" }}>
@@ -183,26 +183,24 @@ const study_1 = () => {
         </Box>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
-            Both the #[test] and #[expected_failure] annotations can be used
-            either with or without arguments. Without arguments, the #[test]
-            annotation can only be placed on a function with no parameters. This
-            annotation simply marks this function as a test to be run by the
-            unit testing harness.
+            #[test]와 #[expected_failure] 주석은 인자가 있는 경우와 인자가 없는
+            경우 모두 사용할 수 있습니다. 인자가 없는 경우, #[test] 주석은
+            매개변수가 없는 함수에만 사용할 수 있습니다. 이 주석은 해당 함수를
+            테스트로 표시하여 유닛 테스트 도구에서 실행할 수 있도록 합니다.
           </Typography>
         </Box>
         <Copy code={code1} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
-            A test can also be annotated as an #[expected_failure]. This
-            annotation marks that the test should is expected to raise an error.
-            You can ensure that a test is aborting with a specific abort{" "}
-            {"<code>"} in the module {"<loc>"}. by annotating it with
-            #[expected_failure(abort_code ={" <code>"}, location ={" <loc>"})],
-            if it then fails with a different abort code, in a different module
-            or with a non-abort error the test will fail. Note that{" <loc>"}{" "}
-            can be Self(in the current module) or a qualified name, e.g.
-            vector::std. Only functions that have the #[test] annotation can
-            also be annotated as an #[expected_failure].
+            테스트는 #[expected_failure]로도 주석 처리될 수 있습니다. 이 주석은
+            해당 테스트가 오류를 발생시킬 것으로 예상된다는 것을 표시합니다.
+            특정 모듈에서 특정 중단 코드로 테스트가 중단되는지 확인하려면
+            #[expected_failure(abort_code = {"<code>"}, location = {"<loc>"})]로
+            주석 처리하여 다른 중단 코드, 다른 모듈 또는 중단되지 않은 오류로
+            테스트가 실패하는 경우를 방지할 수 있습니다. 여기서 {"<loc>"}는
+            Self(현재 모듈) 또는 정규화된 이름(vector::std와 같은)이 될 수
+            있습니다. #[test] 주석이 있는 함수만 #[expected_failure]로 주석
+            처리될 수 있다는 점에 유의하세요.
           </Typography>
         </Box>
         <Copy code={code2} />
@@ -260,9 +258,9 @@ const study_1 = () => {
             running with only one thread (see OPTIONS below).
           </Typography>
           <Typography variant="body1" gutterBottom>
-            There are also a number of options that can be passed to the unit
-            testing binary to fine-tune testing and to help debug failing tests.
-            These can be found using the the help flag:
+            유닛 테스트 바이너리에 전달할 수 있는 여러 옵션이 있습니다. 이
+            옵션들은 테스트를 세밀하게 조정하고 실패하는 테스트를 디버깅하는 데
+            도움이 됩니다. 도움말 플래그를 사용하여 이를 확인할 수 있습니다.
           </Typography>
         </Box>
         <Copy code={code5} />
@@ -281,30 +279,31 @@ const study_1 = () => {
         <Copy code={code6} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
-            Next add the following to the Move.toml:
+            다음을 Move.toml 파일에 추가하십시오.
           </Typography>
         </Box>
         <Copy code={code7} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
-            Next add the following module under the sources directory:
+            다음으로, 다음 모듈을 sources 디렉토리 아래에 추가하십시오.
           </Typography>
         </Box>
         <Copy code={code8} />
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
-            Running Tests{" "}
+            테스트 실행하기
           </Typography>
         </Box>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
-            You can then run these tests with the aptos move test command:
+            그런 다음 aptos move test 명령으로 이러한 테스트를 실행할 수
+            있습니다.
           </Typography>
         </Box>
         <Copy code={code9} />
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
-            Using Test Flags{" "}
+            테스트 플래그 사용하기
           </Typography>
         </Box>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
@@ -312,9 +311,9 @@ const study_1 = () => {
             {"  -f <str> or --filter <str>"}
           </Typography>
           <Typography variant="body1" gutterBottom>
-            This will only run tests whose fully qualified name contains
-            {" <str>. "}For example if we wanted to only run tests with
-            "zero_coin" in their name:
+            이 명령은 fully qualified name에 {"<str>"}을 포함하는 테스트만
+            실행합니다. 예를 들어, 이름에 "zero_coin"이 포함된 테스트만
+            실행하려면:
           </Typography>
         </Box>
         <Copy code={code10} />
@@ -323,15 +322,16 @@ const study_1 = () => {
             --coverage
           </Typography>
           <Typography variant="body1" gutterBottom>
-            This will compute code being covered by test cases and generate
-            coverage summary.
+            이 명령은 테스트 케이스로 커버되는 코드를 계산하고 커버리지 요약을
+            생성합니다.
           </Typography>
         </Box>
         <Copy code={code11} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
-            Then by running aptos move coverage, we can get more detailed
-            coverage information. These can be found using the the help flag:
+            그런 다음 aptos move coverage를 실행함으로써 더 자세한 커버리지
+            정보를 얻을 수 있습니다. 이를 위해 도움말 플래그를 사용할 수
+            있습니다.
           </Typography>
         </Box>
         <Copy code={code12} />
