@@ -15,11 +15,9 @@ const study_1 = () => {
     }
 }
 `;
-  const code3 = `  module <address>::<identifier> {
-    (<use> | <friend> | <type> | <function> | <constant>)*
-}
-`;
-  const code4 = `  module 0x42::example {
+
+  const code4 = `  module 0x42::example {  //<address>::<identifier>
+                                       //<use> | <friend> | <type> | <function> | <constant>
     struct Example has copy, drop {
        i: u64 
        }
@@ -180,7 +178,6 @@ const study_1 = () => {
           </Typography>
         </Box>
         <span style={{ color: "purple" }}>*모듈 구조</span>
-        <Copy code={code3} />
         <Box sx={{ width: "100%" }}>
           <Typography variant="body1" gutterBottom>
             <span style={{ color: "purple" }}>
