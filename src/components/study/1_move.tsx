@@ -3,20 +3,13 @@ import Copy from "../util/copy";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 const study_1 = () => {
-  const code1 = `  script {
-    <use>*
-    <constants>*
-    fun <identifier><[type parameters: constraint]*>([identifier: type]*) <function_body>
-}
-
-`;
   const code2 = `  script {
-    // Import the debug module published at the named account address std.
-    use std::debug;
+    // std라는 이름을 가진 계정 주소에서 게시된 디버그 모듈을 가져옵니다.
+    use std::debug;//<use>
 
-    const ONE: u64 = 1;
+    const ONE: u64 = 1; //<constants>:상수
 
-    fun main(x: u64) {
+    fun main(x: u64) {  //fun <identifier><[type parameters: constraint]*>([identifier: type]*) <function_body>
         let sum = x + ONE;
         debug::print(&sum)
     }
@@ -142,8 +135,8 @@ const study_1 = () => {
         </Box>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
-            Move는 두 가지 종류의 프로그램인 모듈(Module)과 스크립트(Script)를
-            가지고 있습니다. 모듈은 구조체 타입과 이러한 타입에 작용하는 함수를
+            Move는 두 가지 종류의 모듈(Module)과 스크립트(Script)를 제공하고
+            있습니다. 모듈은 구조체 타입과 이러한 타입에 작용하는 함수를
             정의하는 라이브러리입니다. 구조체 타입은 Move의 전역 스토리지의
             스키마를 정의하며, 모듈 함수는 스토리지를 업데이트하는 규칙을
             정의합니다. 모듈 자체도 전역 스토리지에 저장됩니다. 스크립트는
@@ -162,9 +155,7 @@ const study_1 = () => {
           <Typography variant="h4" gutterBottom>
             스크립트
           </Typography>
-          <div>ex)스크립트 구조</div>
         </Box>
-        <Copy code={code1} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "40px" }}>
           <Typography variant="body1" gutterBottom>
             스크립트 블록은 모든 사용 선언부로 시작해야 하며, 상수를 그 다음에
