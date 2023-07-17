@@ -86,9 +86,6 @@ const study_1 = () => {
             부울
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="body1" gutterBottom>
             <span style={{ color: "purple" }}>부울</span>은 Move에서 boolean
@@ -98,17 +95,11 @@ const study_1 = () => {
             표현됩니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12}>
         <Typography variant="body1" gutterBottom>
           <span style={{ color: "purple" }}>
             * bool은 세가지 논리 연산을 지원합니다.
           </span>
         </Typography>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8} sx={{ marginTop: "30px" }}>
         <TableContainer component={Paper}>
           <Table sx={{ width: "100%" }} aria-label="customized table">
             <TableHead>
@@ -131,66 +122,36 @@ const study_1 = () => {
             </TableBody>
           </Table>
         </TableContainer>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             bool 값은 Move의 여러 제어 흐름 구조에서 사용됩니다:
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} sx={{ marginTop: "30px" }}>
         <Typography variant="body1" gutterBottom>
           <span style={{ color: "purple" }}>* if문</span>
         </Typography>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code1} />
-      </Grid>
-      <Grid xs={12} sx={{ marginTop: "30px" }}>
         <Typography variant="body1" gutterBottom>
           <span style={{ color: "purple" }}>* while문</span>
         </Typography>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code2} />
-      </Grid>
-      <Grid xs={12} sx={{ marginTop: "30px" }}>
         <Typography variant="body1" gutterBottom>
           <span style={{ color: "purple" }}>
             3) assert:이 연산은 두 개의 인자를 받습니다: bool 타입의 조건과 u64
             타입의 코드
           </span>
         </Typography>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code3} />
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
-            소유권
+            정리
           </Typography>
-        </Box>
-      </Grid>
-      <Grid xs={12} md={12}>
-        <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             다른 스칼라 값들과 마찬가지로, 언어 내장의 boolean 값들은 암시적으로
             복사 가능합니다. 즉, copy와 같은 명시적인 지시어 없이도 복사할 수
             있습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12}>
-        <Box sx={{ width: "100%", marginTop: "30px" }}>
-          <Typography variant="h4" gutterBottom>
-            정리
-          </Typography>
-        </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code4} />
       </Grid>
     </Grid>
