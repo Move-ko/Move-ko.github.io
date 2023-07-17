@@ -149,13 +149,13 @@ const study_1 = () => {
       <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
-            Unit Tests
+            단위 테스트
           </Typography>
         </Box>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
-            Unit testing for Move adds three new annotations to the Move source
-            language:
+            Move의 단위 테스트는 세 가지 새로운 주석을 Move 소스 언어에
+            추가합니다.
           </Typography>
           <Typography variant="body1" gutterBottom>
             #[test]
@@ -178,7 +178,7 @@ const study_1 = () => {
         </Box>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
-            Testing Annotations: Their Meaning and Usage
+            테스트 주석(Testing Annotations){" "}
           </Typography>
         </Box>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
@@ -206,56 +206,54 @@ const study_1 = () => {
         <Copy code={code2} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
-            With arguments, a test annotation takes the form #[test(
-            {"<param_name_1>"} = {"<address>"}, ...,{" <param_name_n> "}={" "}
-            {"<address>"})]. If a function is annotated in such a manner, the
-            function's parameters must be a permutation of the parameters{" "}
-            {"<param_name_1>, ..., <param_name_n>"}, i.e., the order of these
-            parameters as they occur in the function and their order in the test
-            annotation do not have to be the same, but they must be able to be
-            matched up with each other by name.
+            인수를 사용하는 경우, 테스트 주석은 다음과 같은 형식을 취합니다:
+            #[test({"<param_name_1>"}={"<address>"}, ..., {"<param_name_n>"}=
+            {"<address>"})]. 함수가 이와 같은 방식으로 주석 처리된 경우, 함수의
+            매개변수는 {"<param_name_1>"}, ..., {"<param_name_n>"}의
+            매개변수들의 순열이어야 합니다. 즉, 함수에서 발생하는 매개변수의
+            순서와 테스트 주석에서의 순서는 동일할 필요는 없지만, 이름으로
+            매칭되도록 일치해야 합니다.
           </Typography>
           <Typography variant="body1" gutterBottom>
-            Only parameters with a type of signer are supported as test
-            parameters. If a non-signer parameter is supplied, the test will
-            result in an error when run.
+            테스트 매개변수로는 signer 타입을 갖는 매개변수만 지원됩니다. signer
+            타입이 아닌 매개변수가 제공된 경우, 테스트 실행 시 오류가
+            발생합니다.
           </Typography>
         </Box>
         <Copy code={code3} />
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
-            A module and any of its members can be declared as test only. In
-            such a case the item will only be included in the compiled Move
-            bytecode when compiled in test mode. Additionally, when compiled
-            outside of test mode, any non-test uses of a #[test_only] module
-            will raise an error during compilation.
+            모듈과 해당 멤버 중 일부는 테스트 전용으로 선언할 수 있습니다. 이
+            경우 해당 항목은 테스트 모드로 컴파일될 때만 컴파일된 Move
+            바이트코드에 포함됩니다. 또한, 테스트 모드가 아닌 컴파일에서는
+            #[test_only] 모듈의 비테스트 사용은 컴파일 중에 오류가 발생합니다.
           </Typography>
         </Box>
         <Copy code={code4} />
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
-            Running Unit Tests
+            단위 테스트 실행하기
           </Typography>
         </Box>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
-            Unit tests for a Move package can be run with the aptos move test
-            command.
+            Move 패키지의 단위 테스트는 aptos move test 명령을 사용하여 실행할
+            수 있습니다.
           </Typography>
           <Typography variant="body1" gutterBottom>
-            When running tests, every test will either PASS, FAIL, or TIMEOUT.
-            If a test case fails, the location of the failure along with the
-            function name that caused the failure will be reported if possible.
-            You can see an example of this below.
+            테스트를 실행할 때, 각 테스트는 PASS, FAIL 또는 TIMEOUT 중 하나의
+            결과를 가집니다. 테스트 케이스가 실패하는 경우, 가능한 경우 실패
+            위치와 실패 원인인 함수 이름이 보고됩니다. 아래에 이에 대한 예시가
+            나와 있습니다.
           </Typography>
           <Typography variant="body1" gutterBottom>
-            A test will be marked as timing out if it exceeds the maximum number
-            of instructions that can be executed for any single test. This bound
-            can be changed using the options below, and its default value is set
-            to 5000 instructions. Additionally, while the result of a test is
-            always deterministic, tests are run in parallel by default, so the
-            ordering of test results in a test run is non-deterministic unless
-            running with only one thread (see OPTIONS below).
+            단일 테스트에 대해 실행할 수 있는 최대 명령어 수를 초과하는 경우
+            해당 테스트는 타임아웃으로 표시됩니다. 이 한계는 아래의 옵션을
+            사용하여 변경할 수 있으며, 기본값은 5000개의 명령어로 설정되어
+            있습니다. 또한, 테스트의 결과는 항상 결정론적이지만, 기본적으로
+            테스트는 병렬로 실행되므로 테스트 실행에서의 테스트 결과의 순서는
+            결정론적이지 않습니다. 단일 스레드로 실행하는 경우에만 테스트 결과의
+            순서가 결정론적이 됩니다 (아래의 OPTIONS 참조).
           </Typography>
           <Typography variant="body1" gutterBottom>
             유닛 테스트 바이너리에 전달할 수 있는 여러 옵션이 있습니다. 이
@@ -271,9 +269,8 @@ const study_1 = () => {
         </Box>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
-            A simple module using some of the unit testing features is shown in
-            the following example: First create an empty package inside an empty
-            directory:
+            다음 예시에서는 단위 테스트 기능을 사용하는 간단한 모듈을
+            보여줍니다. 먼저 비어있는 디렉토리 내에 빈 패키지를 생성합니다.
           </Typography>
         </Box>
         <Copy code={code6} />
