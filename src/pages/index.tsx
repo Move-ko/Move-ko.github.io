@@ -29,6 +29,10 @@ import Study_20 from "../components/study/20_move";
 import Study_21 from "../components/study/21_move";
 import Study_22 from "../components/study/22_move";
 import Study_23 from "../components/study/23_move";
+import Study_24 from "../components/study/24_move";
+import Study_25 from "../components/study/25_move";
+import Study_26 from "../components/study/26_move";
+import Study_27 from "../components/study/27_move";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -311,16 +315,16 @@ export default function Home() {
               <Study_23 />
             </TabPanel>
             <TabPanel value={value} index={24}>
-              16장
+              <Study_24 />
             </TabPanel>
             <TabPanel value={value} index={25}>
-              16장
+              <Study_25 />
             </TabPanel>
             <TabPanel value={value} index={26}>
-              16장
+              <Study_26 />
             </TabPanel>
             <TabPanel value={value} index={27}>
-              마지막
+              <Study_27 />
             </TabPanel>
             <TabPanel value={value} index={28}>
               튜토리얼
