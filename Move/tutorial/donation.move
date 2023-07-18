@@ -1,18 +1,33 @@
 module donation::test {
+    use std::string::String;
+    //type정의
 
+    //error정의
+
+    
     //프로젝트 리스트
     struct ProjectList {
-       
-    }
-    //프로젝트
-    struct Project {
+        projects: vector<Project>
 
     }
+    //프로젝트  
+    struct Project {
+      project_id:u64,
+      project_name:String,
+    }
     //itnit
+    //일단 영수증
+    struct Receipt {
+
+    }
+
+    struct ReceiptList {
+        
+    }
     fun init_module(account:&signer)acquires Counter{
     let counter:u8=0;
 
-    move_to(account, TodoList {
+    move_to(account, ProjectList {
       tasks: table::new(),
       set_task_event: account::new_event_handle<Task>(account),
       task_counter: 0
@@ -30,8 +45,14 @@ module donation::test {
     move_to(account, todo_list);
     }
 
+    //기부하기
+    public entry fun donation(buyer: &signer,organizer:address,price:u64){
+        coin::transfer<CoinType>(donator, organizer, price);
+       
+    }
 
-  //transfer
+
+     
 
 
 }
