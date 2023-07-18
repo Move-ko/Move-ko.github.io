@@ -20,9 +20,22 @@ module donation::test {
     struct Receipt {
 
     }
-
+    
     struct ReceiptList {
-        
+
+    }
+
+    struct CompanyReceipt{
+
+    }
+    struct ReceiptList {
+
+    }
+
+   //nft
+    struct NFT {
+        id:u64,
+        img:String,
     }
     fun init_module(account:&signer)acquires Counter{
     let counter:u8=0;
