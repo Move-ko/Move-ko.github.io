@@ -18,11 +18,15 @@ module donation::test {
     //itnit
     //일단 영수증
     struct Receipt {
-
+       receipt_id: u64,
+       address:address,
+       content: String,
+       completed: bool,
     }
-    
-    struct ReceiptList {
-
+    //영수증 저장
+    struct ReceiptList has key{
+     receipts: Table<u64, Receipt>,
+     receipt_counter: u64
     }
 
     struct CompanyReceipt{
@@ -45,6 +49,10 @@ module donation::test {
       set_task_event: account::new_event_handle<Task>(account),
       task_counter: 0
     });
+
+    
+    move_to(account, todo_list);
+
 
 }
      //프로젝트 만들기
