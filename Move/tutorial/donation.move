@@ -28,12 +28,17 @@ module donation::test {
      receipts: Table<u64, Receipt>,
      receipt_counter: u64
     }
-
+    //회사 영수
     struct CompanyReceipt{
-
+       company_receipt_id: u64,
+       address:address,
+       content: String,
+       completed: bool,
     }
-    struct ReceiptList {
-
+    //회사 영수증 목록
+    struct CompanyReceiptList {
+         receipts: Table<u64, CompanyReceipt>,
+         receipt_counter: u64
     }
 
    //nft
@@ -50,7 +55,7 @@ module donation::test {
       task_counter: 0
     });
 
-    
+
     move_to(account, todo_list);
 
 
