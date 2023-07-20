@@ -13,26 +13,17 @@ import { styled } from "@mui/material/styles";
 import Copy from "../util/copy";
 
 const study_1 = () => {
-  const code1 = `  module example::test {
-    fun main(){
-
-   vector<T>[]: vector<T>
-   vector<T>[e1, ..., en]: vector<T>
-   
-    }
-
-}
+  const code1 = `   fun main(){
+    vector<T>[]: vector<T>
+    vector<T>[e1, ..., en]: vector<T>
+   }
 `;
-  const code2 = `  module example::test {
-    fun main(){
-
-(vector[]: vector<bool>);
-(vector[0u8, 1u8, 2u8]: vector<u8>);
-(vector<u128>[]: vector<u128>);
-(vector<address>[@0x42, @0x100]: vector<address>);
-
-
-    }
+  const code2 = `  fun main(){
+    (vector[]: vector<bool>);
+    (vector[0u8, 1u8, 2u8]: vector<u8>);
+    (vector<u128>[]: vector<u128>);
+    (vector<address>[@0x42, @0x100]: vector<address>);
+  }
 `;
   const code3 = `  script {
     fun byte_and_hex_strings() {
@@ -61,47 +52,20 @@ const study_1 = () => {
       assert!(vector::pop_back(&mut v) == 5, 42);
     }
 `;
-  const code5 = `  module example::test {
-    fun destory_any_vector<T>(vec:vector<T>){
-     vector::destory_empty(vec)//이 줄을 삭제하면 컴파일러 오류가 발생합니다.
-    }
- }
-`;
-  const code6 = `  module example::test {
-    fun destroy_droppable_vector<T: drop>(vec: vector<T>) {
-       // 유효한!
-       // 벡터를 파괴하기 위해 명시적으로 수행할 필요가 없습니다.
-       // nothing needs to be done explicitly to destroy the vector
-   }
+  const code5 = `   fun destory_any_vector<T>(vec:vector<T>){
+    vector::destory_empty(vec)//이 줄을 삭제하면 컴파일러 오류가 발생합니다.
    }
 `;
-  const code7 = `  module example::test {
-    fun example(){
-        let x = vector::singleton<u64>(10);
-        let y = copy x; // 사본이 없는 컴파일러 오류!
-    }
-    }
-`;
-  const code8 = `  module example::test {
-  fun main(){
-
- vector<T>[]: vector<T>
- vector<T>[e1, ..., en]: vector<T>
- 
-  }
-
+  const code6 = `  fun destroy_droppable_vector<T: drop>(vec: vector<T>) {
+    // 유효한!
+    // 벡터를 파괴하기 위해 명시적으로 수행할 필요가 없습니다.
+    // nothing needs to be done explicitly to destroy the vector
 }
 `;
-  const code9 = `  module example::test {
-  fun main(){
-
- vector<T>[]: vector<T>
- vector<T>[e1, ..., en]: vector<T>
- 
-  }
-
-}
+  const code7 = `  let x = vector::singleton<u64>(10);
+  let y = copy x; // 사본이 없는 컴파일러 오류!
 `;
+
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: " #171B1C",
