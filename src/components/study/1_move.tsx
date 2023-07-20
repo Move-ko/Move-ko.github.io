@@ -111,8 +111,6 @@ const study_1 = () => {
           }
       }
   }
-  
-
 `;
   return (
     <Grid container>

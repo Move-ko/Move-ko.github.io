@@ -161,8 +161,6 @@ const study_1 = () => {
             정수
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="body1" gutterBottom>
             Move 언어는 여섯 가지의 부호 없는 정수 타입을 지원합니다: u8, u16,
@@ -170,9 +168,6 @@ const study_1 = () => {
             타입의 크기에 따라 다른 최댓값까지 범위를 갖습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8} sx={{ marginTop: "30px" }}>
         <TableContainer component={Paper}>
           <Table sx={{ width: "100%" }} aria-label="customized table">
             <TableHead>
@@ -193,16 +188,11 @@ const study_1 = () => {
             </TableBody>
           </Table>
         </TableContainer>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             리터럴
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "20px" }}>
           <Typography variant="body1" gutterBottom>
             이러한 타입에 대한 리터럴 값은 숫자의 연속으로 지정될 수 있습니다
@@ -210,7 +200,7 @@ const study_1 = () => {
             리터럴의 타입은 선택적으로 접미사로 추가될 수 있습니다. 예를 들어,
             112u8와 같이 타입을 명시적으로 추가할 수 있습니다. 타입이 명시되지
             않은 경우, 컴파일러는 리터럴이 사용된 문맥에서 타입을 추론하려고
-            시도합니다. 타입을 추론할 수 없는 경우, 기본적으로 u64로 가정됩니다.
+            시도하고, 타입을 추론할 수 없는 경우, 기본적으로 u64로 가정됩니다.
           </Typography>
           <Typography variant="body1" gutterBottom>
             숫자 리터럴은 그룹화와 가독성을 위해 밑줄로 구분할 수 있습니다. (예:
@@ -221,18 +211,12 @@ const study_1 = () => {
             발생합니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code1} />
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             산술
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             각각의 정수 타입은 동일한 집합의 검사된 산술 연산을 지원합니다.
@@ -247,9 +231,6 @@ const study_1 = () => {
             연산은 오류가 발생합니다(예: 오버플로우, 언더플로우, 0으로 나누기).
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8} sx={{ marginTop: "30px" }}>
         <TableContainer component={Paper}>
           <Table sx={{ width: "100%" }} aria-label="customized table">
             <TableHead>
@@ -272,16 +253,11 @@ const study_1 = () => {
             </TableBody>
           </Table>
         </TableContainer>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             비트연산
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="body1" gutterBottom sx={{ textAlign: "left" }}>
             정수 타입은 각 숫자를 0 또는 1로 구성된 개별 비트의 시퀀스로
@@ -293,9 +269,6 @@ const study_1 = () => {
             </span>
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8} sx={{ marginTop: "30px" }}>
         <TableContainer component={Paper}>
           <Table sx={{ width: "100%" }} aria-label="customized table">
             <TableHead>
@@ -318,16 +291,11 @@ const study_1 = () => {
             </TableBody>
           </Table>
         </TableContainer>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             비트시프트
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px", textAlign: "left" }}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="body1" gutterBottom>
             비트 연산과 유사하게, 각 정수 타입은 비트 시프트를 지원합니다.
@@ -341,9 +309,6 @@ const study_1 = () => {
             있습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8} sx={{ marginTop: "30px" }}>
         <TableContainer component={Paper}>
           <Table sx={{ width: "100%" }} aria-label="customized table">
             <TableHead>
@@ -366,16 +331,11 @@ const study_1 = () => {
             </TableBody>
           </Table>
         </TableContainer>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             비교 연산자
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px", textAlign: "left" }}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="body1" gutterBottom>
             정수 타입은 Move에서 비교 연산자를 사용할 수 있는 유일한 타입입니다.
@@ -384,9 +344,6 @@ const study_1 = () => {
             않습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8} sx={{ marginTop: "30px" }}>
         <TableContainer component={Paper}>
           <Table sx={{ width: "100%" }} aria-label="customized table">
             <TableHead>
@@ -407,17 +364,11 @@ const study_1 = () => {
             </TableBody>
           </Table>
         </TableContainer>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
             평등
           </Typography>
         </Box>
-      </Grid>
-
-      <Grid xs={12} md={12} sx={{ marginTop: "30px", textAlign: "left" }}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="body1" gutterBottom>
             Move에서 드롭(drop)을 가지는 모든 타입과 마찬가지로, 모든 정수
@@ -426,9 +377,6 @@ const study_1 = () => {
             하나를 캐스트해야 합니다. 등호 연산은 중단되지 않습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8} sx={{ marginTop: "30px" }}>
         <TableContainer component={Paper}>
           <Table sx={{ width: "100%" }} aria-label="customized table">
             <TableHead>
@@ -449,16 +397,11 @@ const study_1 = () => {
             </TableBody>
           </Table>
         </TableContainer>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
             형변환
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px", textAlign: "left" }}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="body1" gutterBottom>
             Move에서는 한 크기의 정수 유형을 다른 크기의 정수 유형으로
@@ -476,9 +419,6 @@ const study_1 = () => {
             중단되는 것을 의미합니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8} sx={{ marginTop: "30px" }}>
         <TableContainer component={Paper}>
           <Table sx={{ width: "100%" }} aria-label="customized table">
             <TableHead>
@@ -501,17 +441,11 @@ const study_1 = () => {
             </TableBody>
           </Table>
         </TableContainer>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
             소유권
           </Typography>
         </Box>
-      </Grid>
-
-      <Grid xs={12} md={12} sx={{ marginTop: "30px", textAlign: "left" }}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="body1" gutterBottom>
             Move 언어에 내장된 정수 값들도 암묵적으로 복사 가능한 속성을 갖고
@@ -526,11 +460,7 @@ const study_1 = () => {
             들어:
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code2} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ textAlign: "left", marginTop: "30px" }}>
         <Typography>
           이 경우,
           <span style={{ color: "purple" }}>
