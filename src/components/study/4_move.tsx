@@ -36,9 +36,6 @@ module std::other_module {  //네임드 어드레스를 네임스페이스 항�
             주소
           </Typography>
         </Box>
-      </Grid>
-
-      <Grid xs={12} md={12}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             <span style={{ color: "purple" }}>주소(Address)</span> 는 Move
@@ -68,16 +65,11 @@ module std::other_module {  //네임드 어드레스를 네임스페이스 항�
             런타임에서 모듈에 액세스할 수는 없습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
             문법
           </Typography>
         </Box>
-      </Grid>
-
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             주소는 <span style={{ color: "purple" }}>명명된(named) 주소</span>와
@@ -110,19 +102,12 @@ module std::other_module {  //네임드 어드레스를 네임스페이스 항�
             식 항목으로 전환하는 연산자로 생각할 수 있습니다.
           </Typography>
         </Box>
-      </Grid>
-
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             명명된 주소
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code1} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             명명된 주소(named addresses)는 주소가 사용되는 모든 위치에서 숫자 값
@@ -144,16 +129,11 @@ module std::other_module {  //네임드 어드레스를 네임스페이스 항�
             . 이 차이점은 모듈과 스크립트 섹션에서 자세히 논의됩니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             글로벌 스토리지 운영
           </Typography>
         </Box>
-      </Grid>
-
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             주소 값의 주요 목적은 글로벌 스토리지 작업과 상호 작용하는 데에
@@ -166,44 +146,38 @@ module std::other_module {  //네임드 어드레스를 네임스페이스 항�
             입니다. move_to 작업은
             <span style={{ color: "purple" }}>signer</span> 를 사용합니다.
           </Typography>
+          <Typography variant="body1" gutterBottom>
+            <span style={{ color: "purple" }}>
+              *exists: 주소 아래에 T가 저장되어 있으면 true를 반환
+            </span>
+          </Typography>
+          <Typography variant="body1" gutterBottom>
+            <span style={{ color: "purple" }}>
+              *borrow_global:address 아래에 저장된 T에 대한 불변 참조를 반환합
+            </span>
+          </Typography>
+          <Typography variant="body1" gutterBottom>
+            <span style={{ color: "purple" }}>
+              * borrow_global_mut:address 아래에 저장된 T에 대한 변경 가능한
+              참조를 반환
+            </span>
+          </Typography>
+          <Typography variant="body1" gutterBottom>
+            <span style={{ color: "purple" }}>
+              *move_from:T 주소에서 T를 제거하고 반환
+            </span>
+          </Typography>
+          <Typography variant="body1" gutterBottom>
+            <span style={{ color: "purple" }}>
+              * move_to:signer.address 아래에 T를 게시
+            </span>
+          </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} sx={{ marginTop: "10px" }}>
-        <Typography variant="body1" gutterBottom>
-          <span style={{ color: "purple" }}>
-            *exists: 주소 아래에 T가 저장되어 있으면 true를 반환
-          </span>
-        </Typography>
-        <Typography variant="body1" gutterBottom>
-          <span style={{ color: "purple" }}>
-            *borrow_global:address 아래에 저장된 T에 대한 불변 참조를 반환합
-          </span>
-        </Typography>
-        <Typography variant="body1" gutterBottom>
-          <span style={{ color: "purple" }}>
-            * borrow_global_mut:address 아래에 저장된 T에 대한 변경 가능한
-            참조를 반환
-          </span>
-        </Typography>
-        <Typography variant="body1" gutterBottom>
-          <span style={{ color: "purple" }}>
-            *move_from:T 주소에서 T를 제거하고 반환
-          </span>
-        </Typography>
-        <Typography variant="body1" gutterBottom>
-          <span style={{ color: "purple" }}>
-            * move_to:signer.address 아래에 T를 게시
-          </span>
-        </Typography>
-      </Grid>
-      <Grid xs={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             소유권
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             언어에 내장된 다른 스칼라 값과 마찬가지로 주소 값도 암시적으로 복사

@@ -303,8 +303,6 @@ const study_1 = () => {
             벡터
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             Move에서 제공하는 유일한 원시 컬렉션 타입은
@@ -323,23 +321,16 @@ const study_1 = () => {
             은 모두 유효한 vector 타입입니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
             일반적인 벡터 리터럴
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             벡터 리터럴을 사용하여 어떤 유형의 벡터든 생성할 수 있습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8} sx={{ marginTop: "30px" }}>
         <TableContainer component={Paper}>
           <Table sx={{ width: "100%" }} aria-label="customized table">
             <TableHead>
@@ -362,9 +353,6 @@ const study_1 = () => {
             </TableBody>
           </Table>
         </TableContainer>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             이러한 경우에는 벡터의 유형이 원소 유형이나 벡터의 사용으로부터
@@ -373,21 +361,13 @@ const study_1 = () => {
             있습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code1} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code2} />
-      </Grid>
-      <Grid xs={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
             vector{"<u8>"} 타입의 리터럴
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             Move에서 벡터를 사용하는 일반적인 사례는
@@ -408,15 +388,11 @@ const study_1 = () => {
             입니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h5" gutterBottom>
             바이트 문자열(Byte Strings)
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             <span style={{ color: "purple" }}>바이트 문자열</span> 은 b로
@@ -430,9 +406,6 @@ const study_1 = () => {
             허용합니다. 현재 지원되는 이스케이프 시퀀스는 다음과 같습니다:
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8} sx={{ marginTop: "30px" }}>
         <TableContainer component={Paper}>
           <Table sx={{ width: "100%" }} aria-label="customized table">
             <TableHead>
@@ -453,17 +426,11 @@ const study_1 = () => {
             </TableBody>
           </Table>
         </TableContainer>
-      </Grid>
-
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h5" gutterBottom>
             16진수 문자열(Hex Strings)
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             16진수 문자열은 x로 접두사가 붙은 따옴표로 둘러싸인 문자열
@@ -477,11 +444,7 @@ const study_1 = () => {
             에서 하나의 항목에 해당합니다. 예시 문자열 리터럴
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code3} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             vector는 아래와 같이 Move 표준 라이브러리의 std::vector 모듈을 통해
@@ -489,9 +452,6 @@ const study_1 = () => {
             있습니다. 벡터에 대한 최신 문서는 여기에서 찾을 수 있습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8} sx={{ marginTop: "30px" }}>
         <TableContainer component={Paper}>
           <Table sx={{ width: "100%" }} aria-label="customized table">
             <TableHead>
@@ -516,26 +476,17 @@ const study_1 = () => {
             </TableBody>
           </Table>
         </TableContainer>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
             Example
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code4} />
-      </Grid>
-      <Grid xs={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
             벡터 파괴 및 복사
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             <span style={{ color: "purple" }}>{"vector<T>"}</span>의 일부 동작은
@@ -549,11 +500,7 @@ const study_1 = () => {
             vec에 원소가 없을 경우에만 실행 시점에서 중단됩니다:
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code5} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             하지만 <span style={{ color: "purple" }}> 드롭(drop) </span>
@@ -561,11 +508,7 @@ const study_1 = () => {
             발생하지는 않습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code6} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             마찬가지로, 원소 유형이
@@ -575,11 +518,7 @@ const study_1 = () => {
             암묵적으로 복사되지는 않습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code7} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             대용량 벡터의 복사는 비용이 많이 들 수 있으므로 컴파일러는 복사가
@@ -590,15 +529,11 @@ const study_1 = () => {
             섹션을 참조하십시오.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
             소유권
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             위에서 언급한 대로,
