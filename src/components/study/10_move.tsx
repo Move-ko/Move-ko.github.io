@@ -1,5 +1,4 @@
 import Grid from "@mui/material/Unstable_Grid2";
-
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Table from "@mui/material/Table";
@@ -10,7 +9,6 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
-import Span from "../util/span";
 import Copy from "../util/copy";
 const study_1 = () => {
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
