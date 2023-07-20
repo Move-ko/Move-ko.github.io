@@ -18,6 +18,7 @@ const study_1 = () => {
 
   const code4 = `  module 0x42::example {  //<address>::<identifier>
                                        //<use> | <friend> | <type> | <function> | <constant>
+    //*address:명명된 주소(  이름이 붙여진 주소) 또는 리터럴 주소
     struct Example has copy, drop {
        i: u64 
        }
@@ -26,8 +27,8 @@ const study_1 = () => {
 
     friend 0x42::another_example;
        
-    const ONE: u64 = 1;
-       
+    const ONE: u64 = 1; //*const:모듈의 함수에서 사용할수있는 전용 상수
+
     public fun print(x: u64) {
                let sum = x + ONE;
                let example = Example { i: sum };
@@ -123,15 +124,14 @@ const study_1 = () => {
         </Box>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
-            Move는 두 가지 종류의 모듈(Module)과 스크립트(Script)를 제공하고
-            있습니다. 모듈은 구조체 타입과 이러한 타입에 작용하는 함수를
-            정의하는 라이브러리입니다. 구조체 타입은 Move의 전역 스토리지의
-            스키마를 정의하며, 모듈 함수는 스토리지를 업데이트하는 규칙을
-            정의합니다. 모듈 자체도 전역 스토리지에 저장됩니다. 스크립트는
-            전통적인 언어에서의 main 함수와 유사한 실행 가능한 진입점입니다.
-            스크립트는 일반적으로 전역 스토리지에 대한 업데이트를 수행하는
-            게시된 모듈의 함수를 호출합니다. 스크립트는 전역 스토리지에 게시되지
-            않는 일시적인 코드 조각입니다.
+            Move는 모듈(Module)과 스크립트(Script)를 제공하고 있습니다. 모듈은
+            구조체 타입과 이러한 타입에 작용하는 함수를 정의하는 라이브러리 이며
+            모듈 자체도 전역 스토리지에 저장됩니다. 구조체 타입은 Move의 전역
+            스토리지의 스키마를 정의하며, 모듈 함수는 스토리지를 업데이트하는
+            규칙을 정의합니다. 스크립트는 전통적인 언어에서의 main 함수와 유사한
+            실행 가능한 진입점이며 전역 스토리지에 게시되지 않는 일시적인 코드
+            조각입니다. 스크립트는 일반적으로 전역 스토리지에 대한 업데이트를
+            수행하는 게시된 모듈의 함수를 호출합니다.
           </Typography>
           <Typography variant="body1" gutterBottom>
             Move 소스 파일(또는 컴파일 단위)에는 여러 개의 모듈과 스크립트를
@@ -150,37 +150,16 @@ const study_1 = () => {
             위치시킨 뒤 (마지막으로) 메인 함수 선언을 해야 합니다. 메인 함수는
             어떤 이름으로든 사용할 수 있으며(main으로 명명할 필요는 없음),
             스크립트 블록 내에서 유일한 함수여야 합니다. 인수의 개수에는 제한이
-            없으며, 값을 반환해서는 안 됩니다. 다음은 각각의 구성 요소를 포함한
-            예시입니다:
+            없으며, 값을 반환해서는 안 됩니다. 스크립트는 제한된 권한을 갖고
+            있으며, 친구(friends)를 선언하거나 구조체(struct types)를 정의하거나
+            전역 저장소에 접근할 수 없습니다. 스크립트의 주요 목적은 모듈 함수를
+            호출하는 것입니다.
           </Typography>
         </Box>
         <Copy code={code2} />
-        <Box sx={{ width: "100%", textAlign: "left", marginTop: "40px" }}>
-          <Typography variant="body1" gutterBottom>
-            스크립트는 제한된 권한을 갖고 있으며, 친구(friends)를 선언하거나
-            구조체(struct types)를 정의하거나 전역 저장소에 접근할 수 없습니다.
-            스크립트의 주요 목적은 모듈 함수를 호출하는 것입니다.
-          </Typography>
-        </Box>
         <Box sx={{ width: "100%", marginTop: "40px" }}>
           <Typography variant="h4" gutterBottom>
             모듈
-          </Typography>
-        </Box>
-        <span style={{ color: "purple" }}>*모듈 구조</span>
-        <Box sx={{ width: "100%" }}>
-          <Typography variant="body1" gutterBottom>
-            <span style={{ color: "purple" }}>
-              *address:명명된 주소(
-              <span style={{ color: "purple" }}>이름이 붙여진 주소</span>) 또는
-              리터럴 주소
-            </span>
-          </Typography>
-          <Typography variant="body1" gutterBottom>
-            <span style={{ color: "purple" }}>
-              *const:모듈의 함수에서 사용할수있는 전용
-              <span style={{ color: "purple" }}>상수</span>를 지정
-            </span>
           </Typography>
         </Box>
         <Copy code={code4} />
