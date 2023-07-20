@@ -64,9 +64,7 @@ const study_1 = () => {
 `;
   const code3 = `     assert!(bool_표현식, 오류_메시지); `;
 
-  const code4 = `module example::test {
-    fun example(){
-          let a = true  //true
+  const code4 = `          let a = true  //true
           let b = false //false
           let c = true && false //false
           let d = false || true //true
@@ -75,8 +73,6 @@ const study_1 = () => {
           let g = !false  //true
           let h = !true || true //true
           let i = false || true && false //false  
-    }
-}
 `;
   return (
     <Grid container>
