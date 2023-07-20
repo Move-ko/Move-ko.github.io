@@ -353,8 +353,6 @@ const study_1 = () => {
             지역변수에 변수 및 범위
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             Move의 지역 변수는 어휘(
@@ -367,90 +365,58 @@ const study_1 = () => {
             있습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
             let bindings
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             Move는 <Span text={"let"} />을 사용하여 변수 이름과 값을
             바인딩합니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code1} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             <Span text={"let"} />은 지역변수에 값을 바인딩하지 않고도 사용할
             수도 있습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code2} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             그런 다음 <Span text={"지역변수"} />에 나중에 값을 할당할 수
             있습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12}>
         <Copy code={code3} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             이는 기본값을 제공할 수 없는 경우에 루프에서 값을 추출하려고 할 때
             매우 유용할 수 있습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12}>
         <Copy code={code4} />
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             변수는 사용하기 전에 할당되어야 합니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             Move 언어의 유형 시스템은 지역 변수가 할당되기 전에 사용되는 것을
             방지합니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code5} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code6} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code7} />
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             유효한 변수 이름
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             변수 이름에는 밑줄 <Span text={"_, 문자 a~z, 문자 A~Z, 숫자 0~9"} />
@@ -459,18 +425,12 @@ const study_1 = () => {
             수는 없습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code8} />
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             유형 주석
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             지역 변수의 유형은 거의 항상 Move의 유형 시스템에 의해 추론될 수
@@ -489,38 +449,24 @@ const study_1 = () => {
             />
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code9} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             명시적 유형 주석의 몇 가지 예:
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code10} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             유형 주석은 항상 패턴의 오른쪽에 위치해야 합니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code11} />
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             주석이 필요한 경우
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             일부 경우에는 유형 시스템이 유형을 추론할 수 없는 경우 로컬 유형
@@ -528,11 +474,7 @@ const study_1 = () => {
             수 없는 경우에 발생합니다. 예를 들면:
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code12} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             더 드물게, 유형 시스템은 타입을 추론할 수 없는 비상귀 코드(
@@ -546,11 +488,7 @@ const study_1 = () => {
             주석이 필요합니다. 예를 들어, 다음 코드:
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
-        <Copy code={code13} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
+        <Copy code={code13} />{" "}
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             이 코드에 유형 주석을 추가하면 사용되지 않는 지역 변수나 죽은 코드에
@@ -558,15 +496,11 @@ const study_1 = () => {
             데 도움이 될 수 있습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             튜플을 사용한 여러개의 선언
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             <Span text={"let"} />
@@ -576,22 +510,14 @@ const study_1 = () => {
             됩니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code14} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             표현식의 유형은 튜플 패턴의 개수와 정확히 일치해야 합니다. 예를
             들어, 다음과 같은 코드를 살펴보겠습니다:
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code15} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             하나의 <Span text={"let"} /> 문 내에서 동일한 이름으로 여러 개의
@@ -599,18 +525,12 @@ const study_1 = () => {
             살펴보겠습니다:
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code16} />
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             구조체가 있는 여러개의 선언
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             <Span text={"let"} /> 키워드는 구조체를 분해하거나 구조체에 대한
@@ -619,24 +539,14 @@ const study_1 = () => {
             초기화된 지역 변수 집합을 생성합니다. 구문은 다음과 같습니다:
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code17} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code18} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             다음은 더 복잡한 예입니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code19} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             <Span text={"구조체"} />의 필드는 변수를 바인딩할 때와 변수의
@@ -645,39 +555,25 @@ const study_1 = () => {
             이라고도 불립니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code20} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             다음과 같습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code21} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             튜플과 마찬가지로, 하나의 <Span text={"let"} /> 문 내에서 동일한
             이름으로 여러 개의 지역 변수를 선언할 수는 없습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code22} />
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             참조를 통한 구조분해(Destructuring against references)
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             구조체 예제에서 <Span text={"let"} /> 문에서 바인딩된 값은 이동(
@@ -685,14 +581,8 @@ const study_1 = () => {
             )되어 구조체 값이 파괴되고 그 필드들이 바인딩됩니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code23} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code24} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             이 경우
@@ -703,39 +593,25 @@ const study_1 = () => {
             )하려면 다음과 같이 할 수 있습니다:
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code25} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             마찬가지로 가변 참조( <Span text={"mutabale references"} />
             )를 사용하여 비슷한 방식으로 수행할 수 있습니다:
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code26} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             이러한 동작은 중첩된 구조체에 대해서도 동작할 수 있습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code27} />
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             값 무시 (Ignoring Values)
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             <Span text={"let"} /> 바인딩에서는 가끔씩 몇 가지 값을 무시하는 것이
@@ -744,83 +620,55 @@ const study_1 = () => {
             도입하지 않습니다
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code28} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code29} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             이는 때때로 필요할 수 있습니다. 사용되지 않는 지역 변수에 대해서는
             컴파일러가 <Span text={"에러"} />를 발생시킵니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code30} />
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             일반적인 let 문법(General let grammar)
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             모든 다양한 구조들을 let에서 결합할 수 있습니다! 그렇게 함으로써 let
             문에 대한 <Span text={"일반적인 문법"} />을 얻을 수 있습니다:
           </Typography>
-        </Box>
-        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             {` let-binding → let pattern-or-list type-annotationopt
             initializeropt > pattern-or-list → pattern | ( pattern-list ) >
             pattern-list → pattern ,opt | pattern , pattern-list >
             type-annotation → : type initializer → = expression`}
           </Typography>
-        </Box>
-        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             바인딩을 도입하는 항목에 대한 일반적인 용어는 패턴입니다. 패턴은
             데이터를 해체하고(
             <Span text={"가능한 경우 재귀적으로"} />) 바인딩을 도입하는 데
             사용됩니다. 패턴 문법은 다음과 같습니다:
           </Typography>
-        </Box>
-        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             {`pattern → local-variable | struct-type { field-binding-list } > field-binding-list → field-binding ,opt | field-binding , field-binding-list > field-binding → field | field : pattern`}
           </Typography>
-        </Box>
-        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             이 문법을 적용한 몇 가지 구체적인 예시를 살펴보겠습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code31} />
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h3" gutterBottom>
             변경(Mutations)
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h4" gutterBottom>
             할당(Assignments)
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             지역 변수가 도입된 후 (
@@ -828,11 +676,7 @@ const study_1 = () => {
             ), 할당을 통해 지역 변수를 수정할 수 있습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code32} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             <Span text={"let"} /> 바인딩과 달리 할당은 표현식입니다. 일부
@@ -841,11 +685,7 @@ const study_1 = () => {
             <Span text={"()"} /> 타입을 갖습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code33} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             실제로, 할당이 <Span text={"표현식"} />
@@ -854,51 +694,33 @@ const study_1 = () => {
             사용할 수 있다는 의미입니다
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code34} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             할당은 <Span text={"let"} /> 바인딩과 동일한 패턴 구문 체계를
             사용합니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code35} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             <Span text={"지역변수"} /> 는 하나의 타입만 가질 수 있으므로, 지역
             변수의 타입은 할당 사이에 변경될 수 없습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code36} />
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             참조를 통한 변경(Mutating through a reference)
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             할당을 통해 지역 변수를 직접 수정하는 것 외에도, 지역 변수는 가변
             참조( <Span text={"&mut"} /> )를 통해 수정할 수 있습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code37} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             이 기능은 특히 다음과 같은 경우에 유용합니다:
@@ -909,21 +731,13 @@ const study_1 = () => {
             (1) 어떤 조건에 따라 다른 변수를 수정하고 싶은 경우
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code38} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             (2) 다른 함수가 로컬 값을 수정하도록 하려는 경우
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code39} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             이러한 수정 작업은 구조체(
@@ -933,18 +747,12 @@ const study_1 = () => {
             )를 수정하는 방법입니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code40} />
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             범위(Scope)
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             <Span text={"let"} />
@@ -959,22 +767,14 @@ const study_1 = () => {
             지역 변수는 선언된 범위 외부에서 사용할 수 없습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code41} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             하지만, 외부 범위의 지역 변수는 <Span text={"중첩"} />된 범위에서
             사용할 수 있습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code42} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             지역 변수는 접근 가능한 모든 범위에서 변경할 수 있습니다. 그 변경은
@@ -982,18 +782,12 @@ const study_1 = () => {
             유지됩니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code43} />
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             표현식 블록(Expression Blocks)
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             <Span text={"표현식 블록"} />은 세미콜론 (<Span text={";"} />
@@ -1004,11 +798,7 @@ const study_1 = () => {
             흐름을 조작하는 데 사용될 수 있습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code44} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             이 예시에서 블록의 결과는 <Span text={"x + y"} />
@@ -1017,11 +807,7 @@ const study_1 = () => {
             표현식입니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code45} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             함수 호출은 <Span text={"()"} /> 타입의 또 다른 일반적인
@@ -1029,11 +815,7 @@ const study_1 = () => {
             사용됩니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code46} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             이것은 <Span text={"()"} />
@@ -1041,11 +823,7 @@ const study_1 = () => {
             수 있습니다!
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code47} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             하지만! 만약 표현식에 리소스 (<Span text={"drop기능이 없는 값"} />
@@ -1062,11 +840,7 @@ const study_1 = () => {
             )
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code48} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             만약 블록 안에 최종 표현식이 없는 경우 - 즉, 후행 세미콜론
@@ -1076,14 +850,8 @@ const study_1 = () => {
             있습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code49} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code50} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             <Span text={"표현식블록"} />은 그 자체로 표현식이며, 표현식이
@@ -1096,26 +864,18 @@ const study_1 = () => {
             )
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code51} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             (이 예시에서는 타입 주석이 필요하지 않지만, 명확성을 위해
             추가되었습니다.)
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             섀도잉(shadowing)
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             만약 let을 사용하여 이미 <Span text={"scope"} />에 존재하는 이름의
@@ -1124,22 +884,14 @@ const study_1 = () => {
             이라고 합니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code52} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             지역 변수가 <Span text={"shadowing"} />
             되면, 이전과 동일한 타입을 유지할 필요는 없습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code53} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             지역 변수가 <Span text={"shadowing"} />된 후에도 해당 변수에 저장된
@@ -1149,11 +901,7 @@ const study_1 = () => {
             끝나기 전에 전달되어야 합니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code54} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             지역 변수가 <Span text={"scope"} /> 내에서
@@ -1162,29 +910,19 @@ const study_1 = () => {
             종료되면 <Span text={"shadowing"} />은 사라집니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code55} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             기억해 주세요, 지역 변수는 <Span text={"shadowing"} />될 때 타입이
             변경될 수 있습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code56} />
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             이동 및 복사
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             Move 언어에서는 모든 지역 변수를 <Span text={"move"} /> 또는
@@ -1206,11 +944,7 @@ const study_1 = () => {
             있습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code57} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             copy와 달리, <Span text={"move"} />는 데이터를 복사하지 않고 지역
@@ -1219,18 +953,12 @@ const study_1 = () => {
             <Span text={"변수를 비웁니다."} />
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code58} />
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             안전
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             Move의 타입 시스템은 값을 <Span text={"move"} />한 후에 사용되는
@@ -1239,15 +967,11 @@ const study_1 = () => {
             방지하는 기능입니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             추론
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             앞서 언급한대로, Move 컴파일러는 명시적으로 복사(
@@ -1296,8 +1020,6 @@ const study_1 = () => {
             위한 것입니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code59} />
       </Grid>
     </Grid>

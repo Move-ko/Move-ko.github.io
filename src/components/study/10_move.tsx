@@ -177,16 +177,11 @@ const study_1 = () => {
             평등
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             Move는 ==와 !=라는 두 가지 동등성 연산을 지원합니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12} md={8} sx={{ marginTop: "30px" }}>
         <TableContainer component={Paper}>
           <Table sx={{ width: "100%" }} aria-label="customized table">
             <TableHead>
@@ -207,56 +202,37 @@ const study_1 = () => {
             </TableBody>
           </Table>
         </TableContainer>
-      </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             타이핑
           </Typography>
-        </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
+        </Box>{" "}
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             같음(==) 및 같지 않음(!=) 연산은 두 피연산자가 동일한 유형이어야만
             작동합니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code1} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             사용자 정의된 유형에 대해서도 같음(==)과 같지 않음(!=) 연산이
             작동합니다!
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code2} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             피연산자가 서로 다른 유형을 가지고 있다면, 유형 검사 오류가
             발생합니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code3} />
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             참조를 사용한 유형 지정
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             참조를 비교할 때 참조의 유형(불변 또는 가변)은 중요하지 않습니다.
@@ -264,39 +240,25 @@ const study_1 = () => {
             있습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code4} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             위 내용은 필요한 경우 각 가변 참조에 명시적인 freeze를 적용하는 것과
             동일합니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code5} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             다시 말씀드리면, 기저 유형은 동일한 유형이어야 합니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code6} />
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             제약사항(제한 사항)
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             == 및 != 모두 비교 시 값을 소비합니다. 결과적으로, 유형 시스템은
@@ -307,11 +269,7 @@ const study_1 = () => {
             안전성 보장이 깨질 것입니다!
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code7} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             그러나, 프로그래머는 값을 직접 비교하는 대신 값이 먼저 대여될 수
@@ -319,29 +277,19 @@ const study_1 = () => {
             같습니다:
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code8} />
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             추가적인 복사는 피해야 합니다
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             프로그래머는 drop이 있는 모든 유형의 값을 비교할 수 있지만, 복사
             비용이 큰 경우 참조를 사용하여 비교하는 것이 좋습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code9} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             이 코드는 완벽하게 허용됩니다 (Foo가 drop을 가진다고 가정할 때),
@@ -349,11 +297,7 @@ const study_1 = () => {
             사용할 수 있습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
         <Copy code={code10} />
-      </Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             == 연산 자체의 효율성은 동일하지만, 복사본은 제거되어 프로그램이 더
