@@ -12,8 +12,6 @@ const study_1 = () => {
             🧐What is Move?
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             Diem 블록체인의 구현을 위해 Rust언어에서 힌트를 받아
@@ -26,23 +24,15 @@ const study_1 = () => {
             보호)를 제공할수 있습니다.
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12} md={4}>
         <img
           src={"/img/move.webp"}
-          style={{ width: "100%", borderRadius: "10px", marginTop: "30px" }}
+          style={{ width: "50%", borderRadius: "10px", marginTop: "30px" }}
         />
-      </Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             특징
           </Typography>
         </Box>
-      </Grid>
-      <Grid xs={0} md={4}></Grid>
-      <Grid xs={12}>
         <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
           <Typography variant="body1" gutterBottom>
             1. 자산 보안: Move 언어는 자산의 보안성을 강조합니다. 타입 시스템을
