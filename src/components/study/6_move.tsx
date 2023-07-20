@@ -13,19 +13,15 @@ import { styled } from "@mui/material/styles";
 import Copy from "../util/copy";
 
 const study_1 = () => {
-  const code1 = `  module example::test {
-    struct signer has drop{
-     a:address
-    }
- }
+  const code1 = `  struct signer has drop{
+    a:address
+   }
 `;
-  const code2 = `  module example::test {
-    fun main(){
-     let a1= @0x1;
-     let a1= @0x2;
-     // ... 다른 모든 가능한 주소에 대해 등등
-    }
- }
+  const code2 = `  fun main(){
+    let a1= @0x1;
+    let a1= @0x2;
+    // ... 다른 모든 가능한 주소에 대해 등등
+   }
 `;
   const code3 = `  script {
     use std::signer;
