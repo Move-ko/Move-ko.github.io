@@ -6,6 +6,16 @@ module test::example {
     /*택배*/
     struct Parcel {
         parcel_id: u64,
+        from_name:String,
+        from_phone_number:String,
+        from_phone_number_seconde:String,
+        from_address:String,
+        from_email:String,
+        request:String,
+        to_name:String,
+        to_phone_number:String,
+        to_phone_number_seconde:String,
+        to_address:String,
         address: address,
         content: String,
         completed: bool,
