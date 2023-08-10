@@ -20,7 +20,7 @@ module exmaple::example {
             old_counter_holder.counter = 0;
         }
     }
-
+    
     const ENOT_INIT: u64 = 0;
 
     public fun get_counter(account: signer): u8 acquires CounterHolder {

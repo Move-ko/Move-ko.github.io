@@ -114,7 +114,7 @@ const study_1 = () => {
 `;
   return (
     <Grid container>
-      <Grid xs={12}>
+      <Grid xs={12} sx={{ textAlign: "center" }}>
         <Box sx={{ width: "100%" }}>
           <Typography variant="h3" gutterBottom>
             모듈과 스크립트

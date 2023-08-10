@@ -1,101 +1,42 @@
 import { useEffect, useState } from "react";
 import Grid from "@mui/material/Unstable_Grid2";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import PropTypes from "prop-types";
-import Study_0 from "../components/study/0_move";
-import Study_1 from "../components/study/1_move";
-import Study_2 from "../components/study/2_move";
-import Study_3 from "../components/study/3_move";
-import Study_4 from "../components/study/4_move";
-import Study_5 from "../components/study/5_move";
-import Study_6 from "../components/study/6_move";
-import Study_7 from "../components/study/7_move";
-import Study_8 from "../components/study/8_move";
-import Study_9 from "../components/study/9_move";
-import Study_10 from "../components/study/10_move";
-import Study_11 from "../components/study/11_move";
-import Study_12 from "../components/study/12_move";
-import Study_13 from "../components/study/13_move";
-import Study_14 from "../components/study/14_move";
-import Study_15 from "../components/study/15_move";
-import Study_16 from "../components/study/16_move";
-import Study_17 from "../components/study/17_move";
-import Study_18 from "../components/study/18_move";
-import Study_19 from "../components/study/19_move";
-import Study_20 from "../components/study/20_move";
-import Study_21 from "../components/study/21_move";
-import Study_22 from "../components/study/22_move";
-import Study_23 from "../components/study/23_move";
-import Study_24 from "../components/study/24_move";
-import Study_25 from "../components/study/25_move";
-import Study_26 from "../components/study/26_move";
-import Study_27 from "../components/study/27_move";
-
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import { useRouter } from "next/router";
 export default function Home() {
+  const router = useRouter();
   const [mounted, setMounted] = useState(false);
-  const [value, setValue] = useState(0);
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  function TabPanel(props) {
-    const { children, value, index, ...other } = props;
+  const data_v = [];
 
-    return (
-      <div
-        style={{ textAlign: "center", width: "80%" }}
-        role="tabpanel"
-        hidden={value !== index}
-        id={`vertical-tabpanel-${index}`}
-        aria-labelledby={`vertical-tab-${index}`}
-        {...other}
-      >
-        {value === index && (
-          <Box sx={{ p: 10, color: "white" }}>
-            <Typography>{children}</Typography>
-          </Box>
-        )}
-      </div>
-    );
-  }
-
-  TabPanel.propTypes = {
-    children: PropTypes.node,
-    index: PropTypes.number.isRequired,
-    value: PropTypes.number.isRequired,
-  };
-
-  function a11yProps(index) {
-    return {
-      id: `vertical-tab-${index}`,
-      "aria-controls": `vertical-tabpanel-${index}`,
-    };
+  for (let i = 1; i <= 29; i++) {
+    data_v.push({ id: i });
   }
 
   return (
     mounted && (
-      <Grid container sx={{ marginTop: "84px" }}>
-        <Grid
-          xs={12}
-          sx={{
-            backgroundColor: " #171B1C",
+      <Grid container sx={{ marginTop: "84px" }} spacing={3}>
+        {data_v.map(item => (
+          <Grid xs={2}>
+            <Card
+              onClick={e => {
+                router.push(`/quest/${item.id}`);
+              }}
+            >
+              <img src={"/img/move.webp"} style={{ width: "100%" }} />
+              <CardContent>item:{item.id}</CardContent>
+            </Card>
+          </Grid>
+        ))}
 
-            textAlign: "center",
-            fontSize: "300%",
-            color: "white",
-          }}
-        >
-          <img src="/img/move.webp" style={{ width: "50px" }} />
-          <div>MOVE BOOK</div>
-        </Grid>
-        <Grid xs={12}>
+        {/* <Grid xs={12}>
           <Box
             sx={{
               flexGrow: 1,
@@ -330,7 +271,7 @@ export default function Home() {
               튜토리얼
             </TabPanel>
           </Box>
-        </Grid>
+        </Grid> */}
       </Grid>
     )
   );
