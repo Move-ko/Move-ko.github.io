@@ -3,7 +3,7 @@ import Copy from "../util/copy";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 const study_1 = () => {
-  const code2 = `  
+  const code1 = `  
       /*스크립트 블록은 모든 사용 선언부로 시작해야 하며, 상수를 그 다음에 위치시킨 뒤 (마지막으로) 메인 함수 선언을 해야 합니다. 메인 함수는
       어떤 이름으로든 사용할 수 있으며(main으로 명명할 필요는 없음),스크립트 블록 내에서 유일한 함수여야 합니다. 인수의 개수에는 제한이
       없으며, 값을 반환해서는 안 됩니다. 스크립트는 제한된 권한을 갖고 있으며, 친구(friends)를 선언하거나 구조체(struct types)를 정의하거나
@@ -22,44 +22,7 @@ const study_1 = () => {
 }
 `;
 
-  const code4 = `  module 0x42::example {  //<address>::<identifier>
-                                       //<use> | <friend> | <type> | <function> | <constant>
-    //*address:명명된 주소(  이름이 붙여진 주소) 또는 리터럴 주소
-    struct Example has copy, drop {
-       i: u64 
-       }
-
-    use std::debug;
-
-    friend 0x42::another_example;
-       
-    const ONE: u64 = 1; //*const:모듈의 함수에서 사용할수있는 전용 상수
-
-    public fun print(x: u64) {
-               let sum = x + ONE;
-               let example = Example { i: sum };
-               debug::print(&sum)
-    }
-}
-`;
-  const code5 = `  module example_addr::example {}//0x42대신 example_addr로 대체
-`;
-  const code6_1 = `  script {
-    fun example() {
-        my_addr::m::foo(@my_addr);
-    }
-}
-`;
-  const code6 = `  script {
-    fun example() {
-        0xC0FFEE::m::foo(@0xC0FFEE);
-    }
-}
-`;
-  const code7 = `  module my_module {}
-  module foo_bar_42 {}
-`;
-  const code8 = `// Example Module
+  const code2 = `// Example Module
   //0x42::example 모듈 부분은 example 모듈이 글로벌 저장소의 0x42 주소에 있는 계정 아래에 게시될 것임을 지정합니다
   module 0x42::bananas {
   //모듈은 명명된 주소(named addresses)를 사용하여 선언할 수도 있습니다. 
@@ -178,14 +141,14 @@ const study_1 = () => {
           </Typography>
         </Box>
 
-        <Copy code={code2} />
+        <Copy code={code1} />
         <Box sx={{ width: "100%", marginTop: "40px" }}>
           <Typography variant="h4" gutterBottom>
             모듈
           </Typography>
         </Box>
         <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
-          <Copy code={code8} />
+          <Copy code={code2} />
         </Grid>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
