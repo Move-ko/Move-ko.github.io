@@ -1,4 +1,4 @@
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid";
 import Copy from "../util/copy";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";

@@ -2,7 +2,9 @@ import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic"; // Import dynamic from next/dynamic
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid";
+import { Container } from "@mui/material";
+
 export default function Quest({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const [momend, setMounted] = useState(false);
@@ -20,9 +22,9 @@ export default function Quest({ Component, pageProps }: AppProps) {
   );
   return (
     momend && (
-      <Grid xs={12}>
+      <Container maxWidth="lg">
         <DynamicComponent />
-      </Grid>
+      </Container>
     )
   );
 }
