@@ -3,7 +3,13 @@ import Copy from "../util/copy";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 const study_1 = () => {
-  const code2 = `  script {
+  const code2 = `  
+      /*스크립트 블록은 모든 사용 선언부로 시작해야 하며, 상수를 그 다음에 위치시킨 뒤 (마지막으로) 메인 함수 선언을 해야 합니다. 메인 함수는
+      어떤 이름으로든 사용할 수 있으며(main으로 명명할 필요는 없음),스크립트 블록 내에서 유일한 함수여야 합니다. 인수의 개수에는 제한이
+      없으며, 값을 반환해서는 안 됩니다. 스크립트는 제한된 권한을 갖고 있으며, 친구(friends)를 선언하거나 구조체(struct types)를 정의하거나
+      전역 저장소에 접근할 수 없습니다. 스크립트의 주요 목적은 모듈 함수를 호출하는 것입니다. */
+  
+  script {
     // std라는 이름을 가진 계정 주소에서 게시된 디버그 모듈을 가져옵니다.
     use std::debug;//<use>
 
@@ -53,11 +59,16 @@ const study_1 = () => {
   const code7 = `  module my_module {}
   module foo_bar_42 {}
 `;
-  const code8 = `  // Example Module
-  module overmind::bananas {
-  
+  const code8 = `// Example Module
+  //0x42::example 모듈 부분은 example 모듈이 글로벌 저장소의 0x42 주소에 있는 계정 아래에 게시될 것임을 지정합니다
+  module 0x42::bananas {
+  //모듈은 명명된 주소(named addresses)를 사용하여 선언할 수도 있습니다. 
+  //module example_addr::bananas {  => 0x42대신  example_addr로 대체가능
       use std::vector;
       use std::signer;
+      
+      const ERROR_BANANA: u64 = 1; //*const:모듈의 함수에서 사용할수있는 전용 상수
+  
   
       struct BananaStore has key {
           bushels: vector<Bushel>
@@ -111,6 +122,30 @@ const study_1 = () => {
           }
       }
   }
+  
+  //명명된 주소는 소스 언어 수준에서만 존재하며, 컴파일 중에만 사용되므로, 바이트코드 수준에서 명명된 주소는 해당 값으로 완전히 대체됩니다
+  script {
+      fun example() {
+          my_addr::m::foo(@my_addr);
+      }
+  } 
+  //그리고 my_addr을 0xC0FFEE로 설정하여 컴파일한다면, 실제로 다음과 같이 동작합니다:
+  //하지만 소스 수준에서는 이러한 코드는 동등하지 않습니다. 함수 m::foo는 my_addr이라는 명명된 주소를 통해 접근되어야 하며, 해당 주소에 할당된 숫자 값으로는 접근할 수 없습니다.
+  script {
+      fun example() {
+          0xC0FFEE::m::foo(@0xC0FFEE);
+      }
+  }
+  
+  
+  //모듈 이름은 영문자 a에서 z 또는 A에서 Z로 시작할 수 있습니다. 첫 번째 문자 이후에는 밑줄(_), 영문자 a에서 z, 영문자 A에서 Z 또는 숫자 0에서 9가 포함될 수 있습니다.
+    module my_module {}
+    module foo_bar_42 {}
+  
+  //일반적으로 모듈 이름은 소문자로 시작합니다. my_module이라는 모듈은 my_module.move라는 소스 파일에 저장되어야 합니다.
+  //모듈 블록 내의 모든 요소는 어떤 순서로든 나타날 수 있습니다. 기본적으로 모듈은 타입과 함수의 집합입니다. use 키워드는 다른 모듈에서 타입을 가져오는 데 사용됩니다. friend 키워드는 신뢰할 수 있는 모듈의 목록을 지정합니다. const 키워드는 모듈의 함수에서 사용할 수 있는 비공개 상수를 정의합니다.
+  
+  
 `;
   return (
     <Grid container>
@@ -142,74 +177,16 @@ const study_1 = () => {
             스크립트
           </Typography>
         </Box>
-        <Box sx={{ width: "100%", textAlign: "left", marginTop: "40px" }}>
-          <Typography variant="body1" gutterBottom>
-            스크립트 블록은 모든 사용 선언부로 시작해야 하며, 상수를 그 다음에
-            위치시킨 뒤 (마지막으로) 메인 함수 선언을 해야 합니다. 메인 함수는
-            어떤 이름으로든 사용할 수 있으며(main으로 명명할 필요는 없음),
-            스크립트 블록 내에서 유일한 함수여야 합니다. 인수의 개수에는 제한이
-            없으며, 값을 반환해서는 안 됩니다. 스크립트는 제한된 권한을 갖고
-            있으며, 친구(friends)를 선언하거나 구조체(struct types)를 정의하거나
-            전역 저장소에 접근할 수 없습니다. 스크립트의 주요 목적은 모듈 함수를
-            호출하는 것입니다.
-          </Typography>
-        </Box>
+
         <Copy code={code2} />
         <Box sx={{ width: "100%", marginTop: "40px" }}>
           <Typography variant="h4" gutterBottom>
             모듈
           </Typography>
         </Box>
-        <Copy code={code4} />
-        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
-          <Typography variant="body1" gutterBottom>
-            0x42::example 모듈 부분은 example 모듈이 글로벌 저장소의 0x42 주소에
-            있는 계정 아래에 게시될 것임을 지정합니다. 모듈은 명명된 주소(named
-            addresses)를 사용하여 선언할 수도 있습니다. 예를 들어:
-          </Typography>
-        </Box>
-        <Copy code={code5} />
-        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
-          <Typography variant="body1" gutterBottom>
-            명명된 주소는 소스 언어 수준에서만 존재하며, 컴파일 중에만
-            사용되므로, 바이트코드 수준에서 명명된 주소는 해당 값으로 완전히
-            대체됩니다. 예를 들어, 다음과 같은 코드가 있다고 가정해 봅시다:
-          </Typography>
-        </Box>
-        <Copy code={code6_1} />
-        <Box sx={{ width: "100%", textAlign: "left", marginTop: "40px" }}>
-          <Typography variant="body1" gutterBottom>
-            그리고 my_addr을 0xC0FFEE로 설정하여 컴파일한다면, 실제로 다음과
-            같이 동작합니다:
-          </Typography>
-        </Box>
-        <Copy code={code6} />
-        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
-          <Typography variant="body1" gutterBottom>
-            하지만 소스 수준에서는 이러한 코드는 동등하지 않습니다. 함수
-            m::foo는 my_addr이라는 명명된 주소를 통해 접근되어야 하며, 해당
-            주소에 할당된 숫자 값으로는 접근할 수 없습니다.
-          </Typography>
-          <Typography variant="body1" gutterBottom>
-            모듈 이름은 영문자 a에서 z 또는 A에서 Z로 시작할 수 있습니다. 첫
-            번째 문자 이후에는 밑줄(_), 영문자 a에서 z, 영문자 A에서 Z 또는 숫자
-            0에서 9가 포함될 수 있습니다.
-          </Typography>
-        </Box>
-        <Copy code={code7} />
-        <Box sx={{ width: "100%", textAlign: "left", marginTop: "30px" }}>
-          <Typography variant="body1" gutterBottom>
-            일반적으로 모듈 이름은 소문자로 시작합니다. my_module이라는 모듈은
-            my_module.move라는 소스 파일에 저장되어야 합니다.
-          </Typography>
-          <Typography variant="body1" gutterBottom>
-            모듈 블록 내의 모든 요소는 어떤 순서로든 나타날 수 있습니다.
-            기본적으로 모듈은 타입과 함수의 집합입니다. use 키워드는 다른
-            모듈에서 타입을 가져오는 데 사용됩니다. friend 키워드는 신뢰할 수
-            있는 모듈의 목록을 지정합니다. const 키워드는 모듈의 함수에서 사용할
-            수 있는 비공개 상수를 정의합니다.
-          </Typography>
-        </Box>
+        <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
+          <Copy code={code8} />
+        </Grid>
         <Box sx={{ width: "100%", marginTop: "30px" }}>
           <Typography variant="h4" gutterBottom>
             🤨모듈 특징정리
@@ -250,7 +227,7 @@ const study_1 = () => {
       </Grid>
       <Grid xs={0} md={2}></Grid>
       <Grid xs={12} sx={{ marginTop: "40px" }}>
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: "100%", textAlign: "center" }}>
           <Typography variant="h4" gutterBottom>
             👩‍🎓스크립트 특징정리
           </Typography>
@@ -301,11 +278,7 @@ const study_1 = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid xs={0} md={2}></Grid>
-      <Grid xs={12}>ex)예시</Grid>
-      <Grid xs={12} md={12} sx={{ marginTop: "0px" }}>
-        <Copy code={code8} />
-      </Grid>
+      <Grid xs={0} md={2} />
     </Grid>
   );
 };
