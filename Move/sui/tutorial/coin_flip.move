@@ -30,11 +30,23 @@ module test_addr::coin_flip {
 #[test_only]
 
 module test_addr::coin_flip_test {
-  
+    use sui::test_scenario;
+    use test_addr::coin_flip;
 
   #[test]
       fun test_coin_flip() {
-        
+        let owner = @0xC0FFEE;
+        let user1 = @0xA1;
+
+        let scenario_val = test_scenario::begin(user1);
+        let scenario = &mut scenario_val;
+
+
+          test_scenario::next_tx(scenario, owner);
+        {
+            coin_flip::create(test_scenario::ctx(scenario));
+        };
+
       }
     
 }
