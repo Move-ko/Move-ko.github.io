@@ -27,4 +27,14 @@ module test_addr::coin_flip {
     }
 
 }
+#[test_only]
 
+module test_addr::coin_flip_test {
+  
+
+  #[test]
+      fun test_coin_flip() {
+        
+      }
+    
+}
