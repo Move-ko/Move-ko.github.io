@@ -35,4 +35,47 @@ module examples::item {
     struct OwnerShip has key {
         id:UID
     }
+
+    struct ConsignedObj has key,store {
+        id:UID,
+        sender,address,
+        item_axe:Option<ID>,
+        item_scroll:Option<ID>,
+    } 
+     fun init(ctx:&mut TxContext) {
+        let ownership =OwnerShip {
+            id:object::new(ctx)
+        }
+    transfer::transfer(ownership,tx_context::sender(ctx))
+     }
+     //====에러코드=============
+     const ENotVerified:u64= 0;
+     const EItemType:u64 = 1;
+     const EItemLevel:u64 = 2;
+    
+
+    struct ItemMinted has copy,drop {
+        object_id:ID,
+        creator:address,
+        name:string::String,
+    }
+
+
+
+
+    struct ItemUpgrade has copy,drop {
+       object_id:ID,
+       creator:address,
+       name:string::String,
+       level:u8
+    }
+
+    struct VerifiedEvent has copy,drop {
+        is_verified:bool,
+    }
+
+
+    public fun name(item:&Item):&string::String {
+        &item.name
+    }
 }
