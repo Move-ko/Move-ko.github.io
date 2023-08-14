@@ -13,13 +13,17 @@ module test_addr::counter {
         counter.value
     }
     fun init(ctx: &mut TxContext) {
-        transfer::transfer(Counter {
+         transfer::share_object(Counter {
             id: object::new(ctx),
             value:0,
-        }, tx_context::sender(ctx))
+        })
     }
     public entry fun increment(counter: &mut Counter) {
         counter.value = counter.value + 1;
+    }
+
+    public entry fun decrement(counter: &mut Counter) {
+        counter.value = counter.value - 1;
     }
   #[test]
     fun test_counter() {
@@ -34,7 +38,7 @@ module test_addr::counter {
         test_scenario::next_tx(scenario, user1);
         {
 
-            let counter_val = test_scenario::take_from_sender<Counter>(scenario);
+            let counter_val = test_scenario::take_shared<Counter>(scenario);
             let counter = &mut counter_val;
 
             increment(counter);
@@ -43,7 +47,11 @@ module test_addr::counter {
             increment(counter);
 
             assert!(value(counter) == 4, 0);
-            test_scenario::return_to_sender(scenario, counter_val)
+
+            decrement(counter);
+            assert!(value(counter) == 3, 0);
+
+            test_scenario::return_shared(counter_val);
 
         };
 
