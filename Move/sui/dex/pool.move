@@ -31,4 +31,10 @@ module dex_addr::example {
         18446744073709551615 / 10000
     };
 
+    struct LSP<phantom P,phantom A, phantom B> has drop {
+        
+    }
+
+    strucrt
+
 }
