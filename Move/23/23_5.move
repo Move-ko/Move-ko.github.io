@@ -1,1 +1,0 @@
-$ aptos move test -h
